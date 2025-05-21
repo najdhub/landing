@@ -276,6 +276,19 @@
             margin-left: 8px;
             margin-right: 0;
         }
+                /* Ensure these are in your <style> block */
+
+        /* Final CTA Block Icons (already from Phase 2 header CSS if combined, or ensure it's present) */
+        .final-cta-block .contact-methods i {
+            font-size: 1.2em; /* Adjust size as needed */
+            margin-right: 8px;
+            color: var(--light-text-color); /* Ensure they are white on dark background */
+        }
+        html[dir="rtl"] .final-cta-block .contact-methods i {
+            margin-left: 8px;
+            margin-right: 0;
+        }
+
 
         /* Contact Form Modal */
         .modal {
@@ -338,6 +351,15 @@
         }
         .site-footer a { color: var(--neutral-cream); margin: 0 10px; }
         .site-footer .footer-social img { width: 24px; height: 24px; filter: brightness(0) invert(1); }
+        /* Footer Social Icons */
+        .site-footer .footer-social i {
+            font-size: 1.5em; /* Adjust size as needed */
+            color: var(--neutral-cream); /* Ensure they match footer text color */
+            margin: 0 5px; /* Add some spacing if you have multiple social icons */
+        }
+        .site-footer .footer-social a:hover i {
+            color: var(--accent-gold); /* Optional: hover color for social icons */
+        }
 
 
         /* RTL Specifics */
@@ -834,17 +856,19 @@
                 <p data-lang="finalCta.text">Don't miss this turnkey opportunity to acquire 14 commercial units with significant ROI and value-add potential. Limited availability for the entire Hub.</p>
                 <button class="btn btn-primary btn-large open-form-modal" data-lang="finalCta.ctaPrimary">Request Full Investment Portfolio</button>
                 <p style="font-size: 0.9em; margin-top: 15px;" data-lang="finalCta.trustReminder">"All inquiries 100% confidential. We respect your privacy."</p>
+                <!-- START: MODIFIED FINAL CTA ICONS (Phase 4) -->
                 <div class="contact-methods">
                     <a href="tel:+212779494766" onclick="trackGtmEvent('contact_click', { contactType: 'phone_footer' })">
-                        <img src="images/icon_phone.svg" alt="Phone Icon"> <span data-lang="finalCta.phone">Phone:</span> +212779494766
+                        <i class="fas fa-phone-alt"></i> <span data-lang="finalCta.phone">Phone:</span> +212779494766
                     </a>
                     <a href="https://wa.me/212779494766" target="_blank" onclick="trackGtmEvent('contact_click', { contactType: 'whatsapp_footer' })">
-                        <img src="images/icon_whatsapp.svg" alt="WhatsApp Icon"> <span data-lang="finalCta.whatsapp">WhatsApp:</span> +212779494766
+                        <i class="fab fa-whatsapp"></i> <span data-lang="finalCta.whatsapp">WhatsApp:</span> +212779494766
                     </a>
                     <a href="mailto:sales@najdcommercialhub.ma" onclick="trackGtmEvent('contact_click', { contactType: 'email_footer' })">
-                        <img src="images/icon_email.svg" alt="Email Icon"> <span data-lang="finalCta.email">Email:</span> sales@najdcommercialhub.ma
+                        <i class="fas fa-envelope"></i> <span data-lang="finalCta.email">Email:</span> sales@najdcommercialhub.ma
                     </a>
                 </div>
+                <!-- END: MODIFIED FINAL CTA ICONS (Phase 4) -->    
             </div>
         </section>
     </main>
@@ -904,7 +928,7 @@
         <div class="container">
             <button class="close-legal-section" data-target="privacy-policy-section" data-lang-aria-label="privacyPolicy.closeButtonLabel">×</button>
             <h2 data-lang="privacyPolicy.title">Privacy Policy</h2>
-            <p><em data-lang="privacyPolicy.lastUpdated">Last Updated: [May 2025]</em></p>
+            <p><em data-lang="privacyPolicy.lastUpdated">Last Updated: [REPLACE_DATE]</em></p>
             <p data-lang="privacyPolicy.p1"></p>
             <h3 data-lang="privacyPolicy.p2.title"></h3>
             <p data-lang="privacyPolicy.p2.content"></p>
@@ -924,7 +948,7 @@
         <div class="container">
             <button class="close-legal-section" data-target="terms-of-use-section" data-lang-aria-label="termsOfUse.closeButtonLabel">×</button>
             <h2 data-lang="termsOfUse.title">Terms of Use</h2>
-            <p><em data-lang="termsOfUse.lastUpdated">Last Updated: [May 2025]</em></p>
+            <p><em data-lang="termsOfUse.lastUpdated">Last Updated: [REPLACE_DATE]</em></p>
             <p data-lang="termsOfUse.p1"></p>
             <h3 data-lang="termsOfUse.p2.title"></h3>
             <p data-lang="termsOfUse.p2.content"></p>
@@ -954,12 +978,15 @@
             <div class="footer-contact" style="margin: 10px 0;">
                 <span data-lang="footer.email">sales@najdcommercialhub.ma</span> | <span data-lang="footer.phone">+212779494766</span>
             </div>
+                        <!-- START: MODIFIED FOOTER SOCIAL ICON (Phase 4) -->
             <div class="footer-social" style="margin: 10px 0;">
-                <a href="https://linkedin.com/company/your-najd-page" target="_blank" aria-label="LinkedIn">
-                    <img src="images/Najd_LinkedIn_Icon.svg" alt="LinkedIn">
+                <a href="https://linkedin.com/company/najd-commercial-hub" target="_blank" data-lang-aria-label="footer.linkedInAriaLabel">
+                    <i class="fab fa-linkedin"></i>
                 </a>
-                <!-- Add other social icons if available -->
+                <!-- Add other social icons here if needed, e.g. -->
+                <!-- <a href="#" target="_blank" data-lang-aria-label="footer.facebookAriaLabel"><i class="fab fa-facebook-f"></i></a> -->
             </div>
+            <!-- END: MODIFIED FOOTER SOCIAL ICON (Phase 4) -->
             <p id="copyright-text" data-lang="footer.copyright">© 2024 Najd Commercial Hub. All Rights Reserved.</p>
         </div>
     </footer>
@@ -1081,7 +1108,7 @@
                 "footer.linkedInAriaLabel": "LinkedIn", // For footer LinkedIn icon aria-label
                     // Privacy Policy Keys
                 "privacyPolicy.title": "Privacy Policy",
-                "privacyPolicy.lastUpdated": "Last Updated: [Mai 2025]", // You will replace [REPLACE_DATE] later
+                "privacyPolicy.lastUpdated": "Last Updated: [REPLACE_DATE]", // You will replace [REPLACE_DATE] later
                 "privacyPolicy.closeButtonLabel": "Close Privacy Policy", // For aria-label on close button
                 "privacyPolicy.p1": "Your privacy is important to us. This Privacy Policy explains how Najd Commercial Hub ('we', 'us', or 'our') collects, uses, discloses, and safeguards your information when you visit our website najdcommercialhub.ma (the 'Site'). Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.",
                 "privacyPolicy.p2.title": "Collection of Your Information",
@@ -1097,7 +1124,7 @@
 
                 // Terms of Use Keys
                 "termsOfUse.title": "Terms of Use",
-                "termsOfUse.lastUpdated": "Last Updated: [Mai 2025]", // You will replace [REPLACE_DATE] later
+                "termsOfUse.lastUpdated": "Last Updated: [REPLACE_DATE]", // You will replace [REPLACE_DATE] later
                 "termsOfUse.closeButtonLabel": "Close Terms of Use", // For aria-label on close button
                 "termsOfUse.p1": "Welcome to Najd Commercial Hub's website. By accessing or using our Site, you agree to be bound by these Terms of Use and our Privacy Policy. If you do not agree with these terms, please do not use our Site.",
                 "termsOfUse.p2.title": "Use of Site",
@@ -1383,35 +1410,63 @@
         function getTranslation(key, lang = currentLang) {
             return translations[lang]?.[key] || translations['en']?.[key] || key; // Fallback to English then key itself
         }
-
+        // --- START: UPDATED updateTextContent FUNCTION (Phase 4) ---
         function updateTextContent() {
+            // console.log("Updating text for lang:", currentLang); // For debugging
+
+            // Translate elements with data-lang (for textContent)
             document.querySelectorAll('[data-lang]').forEach(el => {
                 const key = el.getAttribute('data-lang');
                 el.textContent = getTranslation(key);
             });
+
+            // Translate elements with data-placeholder-lang (for input placeholders)
             document.querySelectorAll('[data-placeholder-lang]').forEach(el => {
                 const key = el.getAttribute('data-placeholder-lang');
                 el.placeholder = getTranslation(key);
             });
 
-            // Update dynamic elements like title, meta description
-            document.title = getTranslation(`seo.title`); // Assumes seo.title key exists in translations
-            const metaDesc = document.querySelector('meta[name="description"]');
-            if (metaDesc) metaDesc.content = getTranslation(`seo.description`); // Assumes seo.description key
+            // Translate elements with data-lang-aria-label (for aria-label attributes)
+            document.querySelectorAll('[data-lang-aria-label]').forEach(el => {
+                const key = el.getAttribute('data-lang-aria-label');
+                el.setAttribute('aria-label', getTranslation(key));
+            });
 
-            // Copyright year
-            const copyrightEl = document.getElementById('copyright-text');
-            if (copyrightEl) {
-                 const year = new Date().getFullYear();
-                 let text = getTranslation('footer.copyright');
-                 if (text.includes('[Current Year]') || text.includes('[Année Actuelle]') || text.includes('[السنة الحالية]')) {
-                     text = text.replace(/\[Current Year\]|\[Année Actuelle\]|\[السنة الحالية\]/g, year);
-                 }
-                 copyrightEl.textContent = text;
+            // Translate elements with data-alt-lang (for image alt text - if you decide to use it)
+            // document.querySelectorAll('[data-alt-lang]').forEach(el => {
+            //     const key = el.getAttribute('data-alt-lang');
+            //     el.alt = getTranslation(key);
+            // });
+
+            // Update dynamic elements like page title and meta description
+            document.title = getTranslation(`seo.title`);
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) {
+                metaDesc.content = getTranslation(`seo.description`);
             }
 
+            // Update Copyright year
+            const copyrightEl = document.getElementById('copyright-text');
+            if (copyrightEl) {
+                const year = new Date().getFullYear();
+                let text = getTranslation('footer.copyright'); // Key example: "© [Current Year] Najd Commercial Hub..."
+                // Replace various year placeholders robustly
+                text = text.replace(/\[Current Year\]|\[Année Actuelle\]|\[السنة الحالية\]|© \d{4}/g, `© ${year}`);
+                copyrightEl.textContent = text;
+            }
+
+            // Update "[REPLACE_DATE]" in legal sections
+            // IMPORTANT: Define your actual policy update date here or fetch it dynamically if needed.
+            const actualPolicyUpdateDate = "April 27, 2025"; // <<-- EXAMPLE: SET YOUR ACTUAL DATE HERE
+
+            document.querySelectorAll('.legal-section em[data-lang$=".lastUpdated"]').forEach(el => {
+                let text = getTranslation(el.getAttribute('data-lang')); // e.g., "Last Updated: [REPLACE_DATE]"
+                text = text.replace('[REPLACE_DATE]', actualPolicyUpdateDate);
+                el.textContent = text;
+            });
         }
-         // Add SEO translation keys (example - expand these in the translations object)
+        // --- END: UPDATED updateTextContent FUNCTION (Phase 4) ---
+                // Add SEO translation keys (example - expand these in the translations object)
         translations.en['seo.title'] = "Najd Commercial Hub: Prime Wholesale Real Estate Investment Marrakech";
         translations.en['seo.description'] = "Acquire Najd Commercial Hub – 14 units in Marrakech. High yield (~7.75%), value-add potential. Turnkey wholesale real estate investment.";
         translations.fr['seo.title'] = "Najd Commercial Hub : Investissement Immobilier Commercial de Gros à Marrakech";
