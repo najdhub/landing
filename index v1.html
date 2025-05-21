@@ -191,15 +191,6 @@
             align-items: flex-start;
             margin-bottom: 30px;
         }
-        .benefits-section .benefit-item img.icon {
-            width: 50px; height: 50px;
-            margin-right: 20px;
-            margin-top: 5px; /* Adjust alignment */
-        }
-        html[dir="rtl"] .benefits-section .benefit-item img.icon {
-            margin-left: 20px;
-            margin-right: 0;
-        }
         .benefits-section .benefit-item h4 { margin-bottom: 5px; color: var(--primary-color); }
 
         /* Visual Showcase */
@@ -232,10 +223,28 @@
             text-align: center;
             flex-basis: 150px;
         }
-        .trust-elements .trust-icon-item img {
-            width: 60px; height: 60px;
-            margin-bottom: 10px;
-        }
+     /* Solution/Benefits Section Icons */
+     .benefits-section .benefit-item i.benefit-icon { /* Target the new class */
+         font-size: 2.5em; /* Adjust size as needed, Font Awesome scales with font-size */
+         color: var(--primary-color); /* Or your desired icon color */
+         width: 50px; /* To maintain similar spacing if needed, or adjust margins */
+         text-align: center; /* Center icon if width is set */
+         margin-right: 20px;
+         margin-top: 5px;
+         flex-shrink: 0; /* Prevent icon from shrinking if text is long */
+     }
+     html[dir="rtl"] .benefits-section .benefit-item i.benefit-icon {
+         margin-left: 20px;
+         margin-right: 0;
+     }
+
+     /* Trust Badge Icons */
+     .trust-elements .trust-icon-item i.trust-badge-icon { /* Target the new class */
+         font-size: 3em; /* Adjust size */
+         color: var(--secondary-color); /* Or your desired icon color */
+         margin-bottom: 10px;
+         display: block; /* Make it block to allow margin-bottom to work easily */
+     }
         .testimonial {
             font-style: italic;
             border-left: 3px solid var(--accent-gold);
@@ -700,16 +709,16 @@
                 <div class="benefits-grid" style="margin-top: 40px;">
                     <!-- Benefit 1 -->
                     <div class="benefit-item">
-                        <img src="images/icon_investment_portfolio.svg" alt="Investment Portfolio Icon" class="icon">
+                         <i class="fas fa-cubes benefit-icon"></i> 
                         <div>
                             <h4 data-lang="solution.benefit1.featureTitle">Feature: 14 contiguous commercial units (13 shops + 1 UG Loft package).</h4>
                             <p><strong data-lang="solution.benefit.advantage">Advantage:</strong> <span data-lang="solution.benefit1.advantageText">Immediate scale, diversified income streams, bulk purchase leverage.</span></p>
-                            <p><strong data-lang="solution.benefit.benefit">Benefit:</strong> <span data-lang="solution.benefit1.benefitText">Maximize your ROI potential (projected ~7.75% Net Yield at ~1xM MAD price point) and simplify portfolio management.</span></p>
+                            <p><strong data-lang="solution.benefit.benefit">Benefit:</strong> <span data-lang="solution.benefit1.benefitText">Maximize your ROI potential (projected ~7.75% Net Yield at ~~1x Million MAD price point) and simplify portfolio management.</span></p>
                         </div>
                     </div>
                     <!-- Benefit 2 -->
                     <div class="benefit-item">
-                        <img src="images/icon_value_add_mezzanine.svg" alt="Value Add Mezzanine Icon" class="icon">
+                        <i class="fas fa-chart-line benefit-icon"></i>
                         <div>
                             <h4 data-lang="solution.benefit2.featureTitle">Feature: All 13 GF shops boast 5.4m ceilings with foundations ready for mezzanines.</h4>
                             <p><strong data-lang="solution.benefit.advantage">Advantage:</strong> <span data-lang="solution.benefit2.advantageText">Buyer can cost-effectively add significant leasable square footage.</span></p>
@@ -718,7 +727,7 @@
                     </div>
                     <!-- Benefit 3 -->
                     <div class="benefit-item">
-                        <img src="images/icon_unique_asset_ug.svg" alt="Unique Asset Underground Icon" class="icon">
+                        <i class="fas fa-gem benefit-icon"></i>
                         <div>
                             <h4 data-lang="solution.benefit3.featureTitle">Feature: Unique 322sqm underground loft with 4m height, private 15sqm GF entry, and 8 natural light windows.</h4>
                             <p><strong data-lang="solution.benefit.advantage">Advantage:</strong> <span data-lang="solution.benefit3.advantageText">Rare, high-demand space suitable for premium tenants (gyms, specialized uses).</span></p>
@@ -727,7 +736,8 @@
                     </div>
                     <!-- Benefit 4 -->
                     <div id="location" class="benefit-item"> <!-- Anchor for nav -->
-                        <img src="images/icon_location_growth.svg" alt="Location Growth Icon" class="icon">
+                        <!-- OLD: <img src="images/icon_location_growth.svg" alt="Location Growth Icon" class="icon"> -->
+                        <i class="fas fa-map-marker-alt benefit-icon"></i>
                         <div>
                             <h4 data-lang="solution.benefit4.featureTitle">Feature: Strategic location in developing Hay Najd, serving dense residential areas, near Gueliz, with easy access and adjacent public parking. (Verified road improvements completed).</h4>
                             <p><strong data-lang="solution.benefit.advantage">Advantage:</strong> <span data-lang="solution.benefit4.advantageText">High visibility and accessibility for tenants, strong local customer base.</span></p>
@@ -736,7 +746,8 @@
                     </div>
                     <!-- Benefit 5 -->
                     <div class="benefit-item">
-                        <img src="images/icon_turnkey_legal.svg" alt="Turnkey Legal Icon" class="icon">
+                    <!-- OLD: <img src="images/icon_turnkey_legal.svg" alt="Turnkey Legal Icon" class="icon"> -->
+                    <i class="fas fa-check-circle benefit-icon"></i>
                         <div>
                             <h4 data-lang="solution.benefit5.featureTitle">Feature: Brand new construction with all legal documents (Title, Permits, Co-ownership Regs) complete and ready. Recent "as-built" certification (Aug/Nov 2024).</h4>
                             <p><strong data-lang="solution.benefit.advantage">Advantage:</strong> <span data-lang="solution.benefit5.advantageText">Smooth, fast transaction process with reduced legal complexities.</span></p>
@@ -747,7 +758,7 @@
                  <!-- Optional ROI Table Snippet -->
                 <div class="text-center" style="margin-top:30px; padding:15px; border:1px solid var(--primary-color); border-radius:5px; background:white;">
                     <h4 data-lang="solution.roiSnippet.title">Simplified Wholesale ROI Scenario:</h4>
-                    <p data-lang="solution.roiSnippet.purchase">Purchase Price: ~1xM MAD</p>
+                    <p data-lang="solution.roiSnippet.purchase">Purchase Price: ~~1x Million MAD</p>
                     <p data-lang="solution.roiSnippet.initialYield">Est. Initial Net Yield: ~7.75%</p>
                     <p data-lang="solution.roiSnippet.potentialYield">Est. Potential Net Yield (with Mezzanines): ~9.05%</p>
                 </div>
@@ -802,16 +813,19 @@
                 
                 <div class="trust-elements" style="margin-top:30px;">
                     <div class="trust-icon-item">
-                        <img src="images/icon_notary_seal.svg" alt="Secure Notary Process Icon">
-                        <p data-lang="trust.badge1">Secure Notary Process</p>
+                            <!-- OLD: <img src="images/icon_notary_seal.svg" alt="Secure Notary Process Icon"> -->
+                            <i class="fas fa-stamp trust-badge-icon"></i> 
+                            <p data-lang="trust.badge1">Secure Notary Process</p>
                     </div>
                     <div class="trust-icon-item">
-                        <img src="images/icon_quality_construction.svg" alt="Modern Construction Icon">
+                        <!-- OLD: <img src="images/icon_quality_construction.svg" alt="Modern Construction Icon"> -->
+                        <i class="fas fa-tools trust-badge-icon"></i>
                         <p data-lang="trust.badge2">Modern Construction</p>
                     </div>
                      <div class="trust-icon-item">
-                        <img src="images/icon_legal_docs_ready_badge.svg" alt="As Built Certified Icon">
-                        <p data-lang="trust.badge3">"As Built" Certified (Aug/Nov 2024)</p>
+                        <!-- OLD: <img src="images/icon_legal_docs_ready_badge.svg" alt="As Built Certified Icon"> -->
+                        <i class="fas fa-certificate trust-badge-icon"></i>
+                                        <p data-lang="trust.badge3">"As Built" Certified (Aug/Nov 2024)</p>
                     </div>
                 </div>
 
@@ -824,7 +838,7 @@
     <section id="location-details" class="location-details-section section-padding">
         <div class="container">
             <h2 class="text-center" data-lang="locationSection.headline">Prime Location: Hay Najd, Marrakech</h2>
-            <div class="location-content-wrapper" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+            <div class="location-content-wrapper" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center;">
                 <div class="location-map" style="flex: 1 1 400px;">
                     <!-- Placeholder for a larger map - could be an iframe from Google Maps or an image -->
                     <img src="images/Najd_Map_Detailed_Location.png" alt="Detailed map showing Najd Commercial Hub location" loading="lazy">
@@ -853,7 +867,7 @@
                 <h2 class="text-center" data-lang="faq.headline">Frequently Asked Questions</h2>
                 <div class="faq-item">
                     <h3 data-lang="faq.q1.question">What is the expected ROI for Najd Commercial Hub (wholesale)?</h3>
-                    <p data-lang="faq.q1.answer">The projected initial net yield is approximately 7.75% at a ~1xM MAD price point. With mezzanine development, this has the potential to increase towards 9%+.</p>
+                    <p data-lang="faq.q1.answer">The projected initial net yield is approximately 7.75% at a ~~1x Million MAD price point. With mezzanine development, this has the potential to increase towards 9%+.</p>
                 </div>
                 <div class="faq-item">
                     <h3 data-lang="faq.q2.question">Are all legal documents ready for the wholesale purchase?</h3>
@@ -1055,7 +1069,7 @@
                 "solution.benefit.benefit": "Benefit:",
                 "solution.benefit1.featureTitle": "Feature: 14 contiguous commercial units (13 shops + 1 UG Loft package).",
                 "solution.benefit1.advantageText": "Immediate scale, diversified income streams, bulk purchase leverage.",
-                "solution.benefit1.benefitText": "Maximize your ROI potential (projected ~7.75% Net Yield at ~1xM MAD price point) and simplify portfolio management.",
+                "solution.benefit1.benefitText": "Maximize your ROI potential (projected ~7.75% Net Yield at ~~1x Million MAD price point) and simplify portfolio management.",
                 "solution.benefit2.featureTitle": "Feature: All 13 GF shops boast 5.4m ceilings with foundations ready for mezzanines.",
                 "solution.benefit2.advantageText": "Buyer can cost-effectively add significant leasable square footage.",
                 "solution.benefit2.benefitText": "Dramatically increase rental income and boost Net Yields towards 9%+ post-mezzanine development.",
@@ -1069,7 +1083,7 @@
                 "solution.benefit5.advantageText": "Smooth, fast transaction process with reduced legal complexities.",
                 "solution.benefit5.benefitText": "Invest with confidence and achieve faster break-even on your turnkey asset.",
                 "solution.roiSnippet.title": "Simplified Wholesale ROI Scenario:",
-                "solution.roiSnippet.purchase": "Purchase Price: ~1xM MAD",
+                "solution.roiSnippet.purchase": "Purchase Price: ~~1x Million MAD",
                 "solution.roiSnippet.initialYield": "Est. Initial Net Yield: ~7.75%",
                 "solution.roiSnippet.potentialYield": "Est. Potential Net Yield (with Mezzanines): ~9.05%",
                 "gallery.headline": "Explore Najd Commercial Hub",
@@ -1087,7 +1101,7 @@
                 "trust.testimonialSource": "Real Estate Investment Advisor",
                 "faq.headline": "Frequently Asked Questions",
                 "faq.q1.question": "What is the expected ROI for Najd Commercial Hub (wholesale)?",
-                "faq.q1.answer": "The projected initial net yield is approximately 7.75% at a ~1xM MAD price point. With mezzanine development, this has the potential to increase towards 9%+.",
+                "faq.q1.answer": "The projected initial net yield is approximately 7.75% at a ~~1x Million MAD price point. With mezzanine development, this has the potential to increase towards 9%+.",
                 "faq.q2.question": "Are all legal documents ready for the wholesale purchase?",
                 "faq.q2.answer": "Yes, the property is brand new with all legal documents (Title, Permits, Co-ownership Regulations, \"as-built\" certification) complete and ready for a smooth transaction.",
                 "faq.q3.question": "What is the total size and composition of the wholesale offer?",
@@ -1207,7 +1221,7 @@
                 "solution.benefit.benefit": "Bénéfice :",
                 "solution.benefit1.featureTitle": "Caractéristique : 14 unités commerciales contiguës (13 boutiques + 1 ensemble loft UG).",
                 "solution.benefit1.advantageText": "Échelle immédiate, flux de revenus diversifiés, effet de levier des achats en gros.",
-                "solution.benefit1.benefitText": "Maximisez votre potentiel de ROI (rendement net projeté d'environ 7,75% pour un prix d'environ 1xM MAD) et simplifiez la gestion de votre portefeuille.",
+                "solution.benefit1.benefitText": "Maximisez votre potentiel de ROI (rendement net projeté d'environ 7,75% pour un prix d'environ ~1x Million MAD) et simplifiez la gestion de votre portefeuille.",
                 "solution.benefit2.featureTitle": "Caractéristique : Les 13 boutiques du RDC disposent de plafonds de 5,4 m avec fondations prêtes pour mezzanines.",
                 "solution.benefit2.advantageText": "L'acheteur peut ajouter une surface locative importante à moindre coût.",
                 "solution.benefit2.benefitText": "Augmentez considérablement les revenus locatifs et poussez les rendements nets vers 9%+ après l'aménagement des mezzanines.",
@@ -1221,7 +1235,7 @@
                 "solution.benefit5.advantageText": "Processus de transaction fluide et rapide avec des complexités juridiques réduites.",
                 "solution.benefit5.benefitText": "Investissez en toute confiance et atteignez plus rapidement le seuil de rentabilité de votre actif clé en main.",
                 "solution.roiSnippet.title": "Scénario ROI de Gros Simplifié :",
-                "solution.roiSnippet.purchase": "Prix d'Achat : ~1xM MAD",
+                "solution.roiSnippet.purchase": "Prix d'Achat : ~~1x Million MAD",
                 "solution.roiSnippet.initialYield": "Rendement Net Initial Est. : ~7,75%",
                 "solution.roiSnippet.potentialYield": "Rendement Net Potentiel Est. (avec Mezzanines) : ~9,05%",
                 "gallery.headline": "Explorez Najd Commercial Hub",
@@ -1239,7 +1253,7 @@
                 "trust.testimonialSource": "Conseiller en Investissement Immobilier",
                 "faq.headline": "Questions Fréquemment Posées",
                 "faq.q1.question": "Quel est le ROI attendu pour Najd Commercial Hub (en gros) ?",
-                "faq.q1.answer": "Le rendement net initial projeté est d'environ 7,75% pour un prix d'environ 1xM MAD. Avec l'aménagement des mezzanines, ce potentiel peut augmenter vers 9% et plus.",
+                "faq.q1.answer": "Le rendement net initial projeté est d'environ 7,75% pour un prix d'environ ~1x Million MAD. Avec l'aménagement des mezzanines, ce potentiel peut augmenter vers 9% et plus.",
                 "faq.q2.question": "Tous les documents légaux sont-ils prêts pour l'achat en gros ?",
                 "faq.q2.answer": "Oui, la propriété est neuve avec tous les documents légaux (Titre, Permis, Règlement de Copropriété, certification « tel que construit ») complets et prêts pour une transaction fluide.",
                 "faq.q3.question": "Quelle est la taille totale et la composition de l'offre de gros ?",
@@ -1921,7 +1935,7 @@
                     "priceCurrency": "MAD",
                     "priceSpecification": {
                         "@type": "UnitPriceSpecification",
-                        "price": "1x000000", // Example ~1xM MAD for wholesale
+                        "price": "1x000000", // Example ~~1x Million MAD for wholesale
                         "priceCurrency": "MAD",
                         "unitText": "whole asset"
                     },
