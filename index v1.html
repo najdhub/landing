@@ -636,7 +636,7 @@
                 <ul id="main-nav-ul">
                     <li><a href="#investment-highlights" data-lang="nav.investmentHighlights">Investment Highlights</a></li>
                     <li><a href="#the-asset" data-lang="nav.theAsset">The Asset</a></li>
-                    <li><a href="#location" data-lang="nav.location">Location</a></li>
+                    <li><a href="#location-details" data-lang="nav.location">Location</a></li>
                     <li><a href="#contact" data-lang="nav.contact" class="open-form-modal">Contact</a></li>
                 </ul>
             </nav>
@@ -820,6 +820,32 @@
                 </div>
             </div>
         </section>
+            <!-- (New Section - e.g., after Social Proof) -->
+    <section id="location-details" class="location-details-section section-padding">
+        <div class="container">
+            <h2 class="text-center" data-lang="locationSection.headline">Prime Location: Hay Najd, Marrakech</h2>
+            <div class="location-content-wrapper" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+                <div class="location-map" style="flex: 1 1 400px;">
+                    <!-- Placeholder for a larger map - could be an iframe from Google Maps or an image -->
+                    <img src="images/Najd_Map_Detailed_Location.png" alt="Detailed map showing Najd Commercial Hub location" loading="lazy">
+                    <p class="text-center" style="font-size:0.9em;" data-lang="locationSection.mapCaption">Najd Commercial Hub, Hay Najd, Marrakech</p>
+                </div>
+                <div class="location-text" style="flex: 1 1 300px;">
+                    <p data-lang="locationSection.p1">Najd Commercial Hub is strategically positioned in the rapidly developing Hay Najd district, a key growth area in Marrakech.</p>
+                    <h3 data-lang="locationSection.subhead1">Accessibility & Connectivity</h3>
+                    <!-- <ul data-lang="locationSection.list1"> --> <!-- Remove this combined data-lang -->
+                    <ul>
+                        <li data-lang="locationSection.list1.item1">Easy access from major city thoroughfares.</li>
+                        <li data-lang="locationSection.list1.item2">Close proximity to the vibrant Gueliz district.</li>
+                        <li data-lang="locationSection.list1.item3">Adjacent public parking facilities available.</li>
+                        <li data-lang="locationSection.list1.item4">Benefiting from recent verified road infrastructure improvements.</li>
+                    </ul>
+                    <h3 data-lang="locationSection.subhead2">Surrounding Area</h3>
+                    <p data-lang="locationSection.p2">The hub serves a dense network of residential areas, ensuring a consistent flow of local customers for tenants. Its location offers high visibility and a strong commercial presence within a dynamic neighborhood.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
         <!-- (X) FAQ Section (from SEO specs) -->
         <section id="faq" class="faq-section section-padding">
@@ -1106,6 +1132,7 @@
                 "header.phoneLabel": "Phone:",
                 "mobileMenu.toggleLabel": "Toggle menu", // For hamburger aria-label
                 "footer.linkedInAriaLabel": "LinkedIn", // For footer LinkedIn icon aria-label
+                
                     // Privacy Policy Keys
                 "privacyPolicy.title": "Privacy Policy",
                 "privacyPolicy.lastUpdated": "Last Updated: [REPLACE_DATE]", // You will replace [REPLACE_DATE] later
@@ -1138,7 +1165,26 @@
                 "termsOfUse.p6.title": "Governing Law",
                 "termsOfUse.p6.content": "Your use of this Site and any dispute arising out of such use of the Site is subject to the laws of Morocco.",
                 "termsOfUse.p7.title": "Contact Us",
-                "termsOfUse.p7.content": "If you have any questions about these Terms of Use, please contact us at: sales@najdcommercialhub.ma"
+                "termsOfUse.p7.content": "If you have any questions about these Terms of Use, please contact us at: sales@najdcommercialhub.ma",
+                
+                // Add these new keys for the Location Section:
+                "locationSection.headline": "Prime Location: Hay Najd, Marrakech",
+                "locationSection.mapCaption": "Najd Commercial Hub, Hay Najd, Marrakech",
+                "locationSection.p1": "Najd Commercial Hub is strategically positioned in the rapidly developing Hay Najd district, a key growth area in Marrakech.",
+                "locationSection.subhead1": "Accessibility & Connectivity",
+                // For the list, there are a few ways to handle it.
+                // Option 1: One big string with HTML (less ideal for translation management but works)
+                "locationSection.list1_html": "<li>Easy access from major city thoroughfares.</li><li>Close proximity to the vibrant Gueliz district.</li><li>Adjacent public parking facilities available.</li><li>Benefiting from recent verified road infrastructure improvements.</li>",
+                // Option 2: Individual list items (better for translation)
+                "locationSection.list1.item1": "Easy access from major city thoroughfares.",
+                "locationSection.list1.item2": "Close proximity to the vibrant Gueliz district.",
+                "locationSection.list1.item3": "Adjacent public parking facilities available.",
+                "locationSection.list1.item4": "Benefiting from recent verified road infrastructure improvements.",
+                "locationSection.subhead2": "Surrounding Area",
+                "locationSection.p2": "The hub serves a dense network of residential areas, ensuring a consistent flow of local customers for tenants. Its location offers high visibility and a strong commercial presence within a dynamic neighborhood."
+
+                // Make sure there's a comma before this if it's not the last key in en: {}
+            // };
 
             },
             fr: { // French translations (partial example, expand as needed)
@@ -1270,8 +1316,22 @@
                 "termsOfUse.p6.title": "Droit Applicable",
                 "termsOfUse.p6.content": "Votre utilisation de ce Site et tout litige découlant d'une telle utilisation du Site sont soumis aux lois du Maroc.",
                 "termsOfUse.p7.title": "Contactez-Nous",
-                "termsOfUse.p7.content": "Si vous avez des questions concernant ces Conditions d'Utilisation, veuillez nous contacter à : sales@najdcommercialhub.ma"
+                "termsOfUse.p7.content": "Si vous avez des questions concernant ces Conditions d'Utilisation, veuillez nous contacter à : sales@najdcommercialhub.ma",
+                // Inside translations.fr = {
+                    // ... your existing French translations ...
 
+                    "locationSection.headline": "Emplacement de Premier Choix : Hay Najd, Marrakech",
+                    "locationSection.mapCaption": "Centre Commercial Najd, Hay Najd, Marrakech",
+                    "locationSection.p1": "Le Centre Commercial Najd est stratégiquement positionné dans le quartier en plein développement de Hay Najd, un secteur de croissance clé à Marrakech.",
+                    "locationSection.subhead1": "Accessibilité & Connectivité",
+                    "locationSection.list1.item1": "Accès facile depuis les principales artères de la ville.",
+                    "locationSection.list1.item2": "Proximité immédiate du quartier animé de Guéliz.",
+                    "locationSection.list1.item3": "Parkings publics adjacents disponibles.",
+                    "locationSection.list1.item4": "Bénéficiant d'améliorations récentes et vérifiées de l'infrastructure routière.",
+                    "locationSection.subhead2": "Zone Environnante",
+                    "locationSection.p2": "Le centre dessert un réseau dense de zones résidentielles, assurant un flux constant de clients locaux pour les locataires. Son emplacement offre une grande visibilité et une forte présence commerciale au sein d'un quartier dynamique."
+                    // ...
+                // };
             },
             ar: { // Arabic translations (partial example, expand as needed)
                 "nav.investmentHighlights": "أبرز نقاط الاستثمار",
@@ -1401,7 +1461,22 @@
                 "termsOfUse.p6.title": "القانون الحاكم",
                 "termsOfUse.p6.content": "يخضع استخدامك لهذا الموقع وأي نزاع ينشأ عن هذا الاستخدام للموقع لقوانين المغرب.",
                 "termsOfUse.p7.title": "اتصل بنا",
-                "termsOfUse.p7.content": "إذا كانت لديك أي أسئلة حول شروط الاستخدام هذه، فيرجى الاتصال بنا على: sales@najdcommercialhub.ma"
+                "termsOfUse.p7.content": "إذا كانت لديك أي أسئلة حول شروط الاستخدام هذه، فيرجى الاتصال بنا على: sales@najdcommercialhub.ma",
+                // Inside translations.ar = {
+                // ... your existing Arabic translations ...
+
+                "locationSection.headline": "موقع متميز: حي نجد، مراكش",
+                "locationSection.mapCaption": "مركز نجد التجاري، حي نجد، مراكش",
+                "locationSection.p1": "يتمتع مركز نجد التجاري بموقع استراتيجي في حي نجد سريع التطور، وهو منطقة نمو رئيسية في مراكش.",
+                "locationSection.subhead1": "سهولة الوصول والربط",
+                "locationSection.list1.item1": "سهولة الوصول من الطرق الرئيسية بالمدينة.",
+                "locationSection.list1.item2": "قرب شديد من حي جليز النابض بالحياة.",
+                "locationSection.list1.item3": "تتوفر مواقف سيارات عامة مجاورة.",
+                "locationSection.list1.item4": "الاستفادة من التحسينات الأخيرة المعتمدة في البنية التحتية للطرق.",
+                "locationSection.subhead2": "المنطقة المحيطة",
+                "locationSection.p2": "يخدم المركز شبكة كثيفة من المناطق السكنية، مما يضمن تدفقًا ثابتًا للعملاء المحليين للمستأجرين. يوفر موقعه رؤية عالية وحضورًا تجاريًا قويًا داخل حي ديناميكي."
+                // ...
+            // };
 
             }
         };
