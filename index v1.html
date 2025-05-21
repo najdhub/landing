@@ -145,6 +145,9 @@
             cursor: pointer;
             border: none;
         }
+         .scroll-target { /* Or apply to section, .section-padding, etc. */
+      scroll-margin-top: 80px; /* Adjust this value to be slightly MORE than your header height */
+  }
         .btn-primary { background-color: var(--accent-orange); color: var(--light-text-color); }
         .btn-primary:hover { background-color: #e69500; }
         .btn-secondary { background-color: var(--secondary-color); color: var(--light-text-color); }
@@ -674,7 +677,7 @@
 <!-- END: NEW HEADER HTML (Phase 2) -->
     <main>
         <!-- (1) Hero Section -->
-        <section id="hero" class="hero-section section-padding text-center" style="background-image: url('images/Najd_Exterior_Hero_Wholesale.jpg');">
+        <section id="hero" class="hero-section section-padding text-center scroll-target" style="background-image: url('images/Najd_Exterior_Hero_Wholesale.jpg');">
             <!-- Fallback for WebP or use <picture> if more complex sources needed -->
             <picture>
                 <source srcset="images/Najd_Exterior_Hero_Wholesale.webp" type="image/webp">
@@ -691,7 +694,8 @@
         </section>
 
         <!-- (2) Problem / Agitation Section -->
-        <section id="problem-agitation" class="problem-section section-padding">
+
+        <section id="problem-agitation" class="problem-section section-padding scroll-target"> 
             <div class="container">
                 <h2 class="text-center" data-lang="problem.headline">Seeking Scalable, High-Yield Commercial Investments in Marrakech?</h2>
                 <p data-lang="problem.problem">Finding high-quality, multi-unit commercial real estate in Marrakech's growth markets can be challenging, with limited turnkey options.</p>
@@ -701,7 +705,7 @@
         </section>
 
         <!-- (3) Solution / Benefits Section -->
-        <section id="investment-highlights" class="benefits-section section-padding light-bg">
+        <section id="investment-highlights" class="benefits-section section-padding light-bg scroll-target">
             <div class="container">
                 <h2 class="text-center" data-lang="solution.headline">Najd Commercial Hub: Your Turnkey Path to High Returns & Strategic Growth in Marrakech.</h2>
                 <p class="text-center" data-lang="solution.offerStatement">Acquire a brand-new, 14-unit business complex, purpose-built for wholesale investor success. Secure the entire asset for immediate operational control and robust income potential.</p>
@@ -766,7 +770,7 @@
         </section>
 
         <!-- (4) Visual Showcase – Gallery / Property Details -->
-        <section id="the-asset" class="visual-showcase section-padding">
+        <section id="the-asset" class="visual-showcase section-padding scroll-target">
             <div class="container">
                 <h2 class="text-center" data-lang="gallery.headline">Explore Najd Commercial Hub</h2>
                 <div class="gallery-grid">
@@ -806,7 +810,7 @@
         </section>
 
         <!-- (5) Social Proof & Trust -->
-        <section id="social-proof" class="social-proof-section section-padding light-bg">
+        <section id="social-proof" class="social-proof-section section-padding light-bg scroll-target">
             <div class="container">
                 <h2 class="text-center" data-lang="trust.headline">A Secure & Credible Investment in Marrakech</h2>
                 <p class="text-center" data-lang="trust.textSnippet">"Najd Commercial Hub is a project by a private, experienced developer, committed to quality construction and transparent dealings. All transactions are handled by licensed Moroccan notaries, ensuring full legal security."</p>
@@ -835,7 +839,7 @@
             </div>
         </section>
             <!-- (New Section - e.g., after Social Proof) -->
-    <section id="location-details" class="location-details-section section-padding">
+    <section id="location-details" class="location-details-section section-padding scroll-target">
         <div class="container">
             <h2 class="text-center" data-lang="locationSection.headline">Prime Location: Hay Najd, Marrakech</h2>
             <div class="location-content-wrapper" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center;">
@@ -862,7 +866,7 @@
     </section>
 
         <!-- (X) FAQ Section (from SEO specs) -->
-        <section id="faq" class="faq-section section-padding">
+        <section id="faq" class="faq-section section-padding scroll-target">
             <div class="container">
                 <h2 class="text-center" data-lang="faq.headline">Frequently Asked Questions</h2>
                 <div class="faq-item">
@@ -881,7 +885,7 @@
         </section>
 
         <!-- (6) Secondary Call-Out: Individual Units -->
-        <section id="individual-units" class="secondary-callout section-padding text-center">
+        <section id="individual-units" class="secondary-callout section-padding text-center scroll-target">
             <div class="container">
                 <h3 data-lang="individualUnits.headline">Interested in Individual Shops?</h3>
                 <p data-lang="individualUnits.text">While our primary focus is the wholesale acquisition of Najd Commercial Hub, a limited number of individual units (shops from 660,000 MAD) are available for investors and businesses. These also feature 5.4m ceilings for mezzanine potential.</p>
@@ -890,7 +894,7 @@
         </section>
 
         <!-- (7) Final CTA Block -->
-        <section id="contact" class="final-cta-block section-padding text-center">
+        <section id="contact" class="final-cta-block section-padding text-center scroll-target">
             <div class="container">
                 <h2 data-lang="finalCta.headline">Secure Your Marrakech Wholesale Investment Today!</h2>
                 <p data-lang="finalCta.text">Don't miss this turnkey opportunity to acquire 14 commercial units with significant ROI and value-add potential. Limited availability for the entire Hub.</p>
@@ -964,7 +968,7 @@
     <!-- START: NEW LEGAL SECTIONS HTML (Phase 3) -->
 
     <!-- (10) Privacy Policy Section -->
-    <section id="privacy-policy-section" class="legal-section section-padding light-bg">
+    <section id="privacy-policy-section" class="legal-section section-padding light-bg scroll-target">
         <div class="container">
             <button class="close-legal-section" data-target="privacy-policy-section" data-lang-aria-label="privacyPolicy.closeButtonLabel">×</button>
             <h2 data-lang="privacyPolicy.title">Privacy Policy</h2>
@@ -984,7 +988,7 @@
     </section>
 
     <!-- (11) Terms of Use Section -->
-    <section id="terms-of-use-section" class="legal-section section-padding light-bg">
+    <section id="terms-of-use-section" class="legal-section section-padding light-bg scroll-target>
         <div class="container">
             <button class="close-legal-section" data-target="terms-of-use-section" data-lang-aria-label="termsOfUse.closeButtonLabel">×</button>
             <h2 data-lang="termsOfUse.title">Terms of Use</h2>
