@@ -34,6 +34,7 @@
     <link rel="preload" href="images/Najd_Exterior_Hero_Wholesale.webp" as="image" type="image/webp" media="(min-width: 1025px)" fetchpriority="high">
     <link rel="preload" href="images/Najd_Exterior_Hero_Wholesale.jpg" as="image" type="image/jpeg" media="(min-width: 1025px)" fetchpriority="high">
 
+
     <!-- Favicon (example) -->
     <link rel="icon" href="images/Najd_Logo_Icon_Square.png" type="image/png">
 
@@ -41,9 +42,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <!-- ADD FONT AWESOME CDN LINK HERE -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- GTM HEAD - Replace GTM-XXXXXXX with your GTM ID -->
     <script>
@@ -97,7 +98,6 @@
     -->
     <!-- End LinkedIn Insight Tag -->
 
-
     <style>
         /* Basic Reset & Global Styles */
         :root {
@@ -145,6 +145,9 @@
             cursor: pointer;
             border: none;
         }
+         .scroll-target { /* Or apply to section, .section-padding, etc. */
+      scroll-margin-top: 80px; /* Adjust this value to be slightly MORE than your header height */
+  }
         .btn-primary { background-color: var(--accent-orange); color: var(--light-text-color); }
         .btn-primary:hover { background-color: #e69500; }
         .btn-secondary { background-color: var(--secondary-color); color: var(--light-text-color); }
@@ -153,26 +156,7 @@
         .section-padding { padding: 60px 0; }
         .light-bg { background-color: var(--neutral-cream); }
 
-        /* Header */
-        .site-header {
-            background-color: #fff;
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .site-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
         .site-logo img { max-height: 50px; }
-        .main-nav ul, .lang-switcher ul { list-style: none; padding: 0; margin: 0; display: flex; }
-        .main-nav li a, .lang-switcher li a { padding: 10px 15px; display: block; }
-        .lang-switcher li a.active { font-weight: bold; color: var(--accent-orange); }
-        .header-contact { text-align: right; }
-        .header-contact a { margin-left: 15px; }
 
         /* Hero Section */
         .hero-section {
@@ -210,15 +194,6 @@
             align-items: flex-start;
             margin-bottom: 30px;
         }
-        .benefits-section .benefit-item img.icon { /* For actual image icons if used */
-            width: 50px; height: 50px;
-            margin-right: 20px;
-            margin-top: 5px; 
-        }
-        html[dir="rtl"] .benefits-section .benefit-item img.icon {
-            margin-left: 20px;
-            margin-right: 0;
-        }
         .benefits-section .benefit-item h4 { margin-bottom: 5px; color: var(--primary-color); }
 
         /* Visual Showcase */
@@ -251,10 +226,28 @@
             text-align: center;
             flex-basis: 150px;
         }
-        .trust-elements .trust-icon-item img { /* For actual image icons if used */
-            width: 60px; height: 60px;
-            margin-bottom: 10px;
-        }
+     /* Solution/Benefits Section Icons */
+     .benefits-section .benefit-item i.benefit-icon { /* Target the new class */
+         font-size: 2.5em; /* Adjust size as needed, Font Awesome scales with font-size */
+         color: var(--primary-color); /* Or your desired icon color */
+         width: 50px; /* To maintain similar spacing if needed, or adjust margins */
+         text-align: center; /* Center icon if width is set */
+         margin-right: 20px;
+         margin-top: 5px;
+         flex-shrink: 0; /* Prevent icon from shrinking if text is long */
+     }
+     html[dir="rtl"] .benefits-section .benefit-item i.benefit-icon {
+         margin-left: 20px;
+         margin-right: 0;
+     }
+
+     /* Trust Badge Icons */
+     .trust-elements .trust-icon-item i.trust-badge-icon { /* Target the new class */
+         font-size: 3em; /* Adjust size */
+         color: var(--secondary-color); /* Or your desired icon color */
+         margin-bottom: 10px;
+         display: block; /* Make it block to allow margin-bottom to work easily */
+     }
         .testimonial {
             font-style: italic;
             border-left: 3px solid var(--accent-gold);
@@ -286,15 +279,28 @@
             display: inline-flex;
             align-items: center;
         }
-        .final-cta-block .contact-methods i { /* For Font Awesome icons */
-            font-size: 1.2em; /* Adjust size */
+        .final-cta-block .contact-methods img {
+            width: 20px; height: 20px;
             margin-right: 8px;
-            color: var(--light-text-color); /* Ensure they are white */
+            filter: brightness(0) invert(1); /* Make icons white */
+        }
+        html[dir="rtl"] .final-cta-block .contact-methods img {
+            margin-left: 8px;
+            margin-right: 0;
+        }
+                /* Ensure these are in your <style> block */
+
+        /* Final CTA Block Icons (already from Phase 2 header CSS if combined, or ensure it's present) */
+        .final-cta-block .contact-methods i {
+            font-size: 1.2em; /* Adjust size as needed */
+            margin-right: 8px;
+            color: var(--light-text-color); /* Ensure they are white on dark background */
         }
         html[dir="rtl"] .final-cta-block .contact-methods i {
             margin-left: 8px;
             margin-right: 0;
         }
+
 
         /* Contact Form Modal */
         .modal {
@@ -356,45 +362,15 @@
             font-size: 0.9em;
         }
         .site-footer a { color: var(--neutral-cream); margin: 0 10px; }
-        .site-footer .footer-social i { /* For Font Awesome icons */
-            font-size: 1.5em; /* Adjust size */
-            color: var(--neutral-cream);
+        .site-footer .footer-social img { width: 24px; height: 24px; filter: brightness(0) invert(1); }
+        /* Footer Social Icons */
+        .site-footer .footer-social i {
+            font-size: 1.5em; /* Adjust size as needed */
+            color: var(--neutral-cream); /* Ensure they match footer text color */
+            margin: 0 5px; /* Add some spacing if you have multiple social icons */
         }
-        .site-footer a.legal-link { cursor: pointer; }
-        .site-footer a.legal-link:hover { color: var(--accent-gold); }
-
-
-        /* Legal Sections (Privacy, Terms) */
-        .legal-section {
-            border-top: 2px solid var(--primary-color);
-            position: relative; /* For close button positioning */
-        }
-        .legal-section h2 {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .legal-section h3 {
-            margin-top: 30px;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-        .legal-section p {
-            margin-bottom: 15px;
-            line-height: 1.7;
-        }
-        .close-legal-section {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            font-size: 2em;
-            cursor: pointer;
-            color: var(--neutral-charcoal);
-        }
-        html[dir="rtl"] .close-legal-section {
-            right: auto;
-            left: 20px;
+        .site-footer .footer-social a:hover i {
+            color: var(--accent-gold); /* Optional: hover color for social icons */
         }
 
 
@@ -402,14 +378,62 @@
         html[dir="rtl"] .text-left { text-align: right !important; }
         html[dir="rtl"] .text-right { text-align: left !important; }
 
+                /* --- START: NEW LEGAL SECTIONS CSS (Phase 3) --- */
+        .legal-section {
+            border-top: 2px solid var(--primary-color);
+            position: relative; /* For close button positioning */
+            display: none; /* Initially hidden - JS will toggle this */
+            /* padding: 60px 0; /* .section-padding class already does this */
+            /* background-color: var(--neutral-cream); /* .light-bg class already does this */
+        }
+        .legal-section h2 { /* Already styled globally, but can be specific if needed */
+            /* margin-bottom: 20px; */
+            /* text-align: center; */
+        }
+        .legal-section h3 { /* Already styled globally, but can be specific if needed */
+            margin-top: 30px; /* Add some top margin for subheadings */
+            /* margin-bottom: 10px; */
+            /* color: var(--primary-color); */
+        }
+        .legal-section p { /* Already styled globally */
+            /* margin-bottom: 15px; */
+            /* line-height: 1.7; */
+        }
+        .legal-section em { /* For "Last Updated" text */
+            display: block;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .close-legal-section {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 2em; /* Make it a bit larger for easier clicking */
+            font-weight: bold;
+            cursor: pointer;
+            color: var(--neutral-charcoal);
+            padding: 0 5px; /* Add some padding for easier click target */
+            line-height: 1;
+        }
+        html[dir="rtl"] .close-legal-section {
+            right: auto;
+            left: 20px;
+        }
+
+        /* Footer links interactivity (may already exist in your base styles, ensure it's there) */
+        .site-footer a.legal-link {
+            cursor: pointer;
+        }
+        .site-footer a.legal-link:hover {
+            color: var(--accent-gold); /* Highlight on hover */
+        }
+        /* --- END: NEW LEGAL SECTIONS CSS (Phase 3) --- */
+
         /* Responsive Adjustments */
         @media (max-width: 768px) {
-            .site-header .container { flex-direction: column; }
-            .main-nav, .lang-switcher { margin-top: 10px; }
-            .main-nav ul, .lang-switcher ul { flex-direction: column; text-align: center; }
-            .main-nav li a, .lang-switcher li a { padding: 8px 0; }
-            .header-contact { text-align: center; margin-top: 10px; }
-            .header-contact a { margin: 0 5px; }
 
             h1 { font-size: 2.2em; }
             .hero-section h1 { font-size: 2.5em; }
@@ -417,12 +441,177 @@
             .hero-section { padding: 60px 0; }
 
             .benefits-section .benefit-item { flex-direction: column; align-items: center; text-align: center; }
-            .benefits-section .benefit-item img.icon { margin-right: 0; margin-bottom: 10px; } /* For actual image icons */
+            .benefits-section .benefit-item img.icon { margin-right: 0; margin-bottom: 10px; }
             html[dir="rtl"] .benefits-section .benefit-item img.icon { margin-left: 0; }
 
             .modal-content { margin: 20% auto; width: 90%; }
-            .final-cta-block .contact-methods a { margin: 5px 10px; display: block; } /* Stack on mobile */
         }
+    /* --- START: NEW HEADER CSS (Phase 2) --- */
+
+    /* Header Base Styles */
+    .site-header {
+        background-color: #fff;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    .site-header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .site-logo img {
+        max-height: 50px;
+    }
+
+    /* Hamburger Toggle - Hidden on Desktop by Default */
+    .mobile-menu-toggle {
+        display: none; 
+        background: none;
+        border: none;
+        font-size: 1.8em; /* Adjust icon size */
+        color: var(--neutral-charcoal);
+        cursor: pointer;
+        padding: 5px;
+        line-height: 1; /* Prevent extra space around icon */
+    }
+    .mobile-menu-toggle .fa-times { /* Close icon part of the toggle */
+        display: none; /* Initially hidden */
+    }
+
+    /* Mobile Menu Panel - Wrapper for Nav Items */
+    /* On desktop, this panel's children are displayed inline */
+    .mobile-menu-panel {
+        display: flex; 
+        align-items: center;
+    }
+    .mobile-menu-panel .main-nav ul,
+    .mobile-menu-panel .lang-switcher ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex; /* Nav/Lang list items in a row for desktop */
+    }
+    .mobile-menu-panel .main-nav li a,
+    .mobile-menu-panel .lang-switcher li a {
+        padding: 10px 15px; 
+        display: block;
+        color: var(--text-color); /* Ensure nav links have default text color */
+    }
+    .mobile-menu-panel .main-nav li a:hover,
+    .mobile-menu-panel .lang-switcher li a:hover {
+        color: var(--primary-color); /* Hover color for nav links */
+    }
+    .mobile-menu-panel .lang-switcher li a.active {
+        font-weight: bold;
+        color: var(--accent-orange);
+    }
+    .mobile-menu-panel .mobile-header-contact {
+        display: none; /* The contact info *inside* the panel is for mobile dropdown only */
+    }
+    .mobile-menu-panel .mobile-header-contact a {
+        color: var(--text-color); /* Default color for mobile contact */
+    }
+    .mobile-menu-panel .mobile-header-contact i {
+         margin-right: 8px;
+    }
+    html[dir="rtl"] .mobile-menu-panel .mobile-header-contact i {
+         margin-left: 8px; margin-right: 0;
+    }
+
+
+    /* Desktop Specific Contact - Visible on Desktop */
+    .desktop-header-contact {
+        display: block; 
+        margin-left: 15px; /* Spacing from other nav items on desktop */
+    }
+    .desktop-header-contact a {
+        color: var(--text-color);
+        display: inline-flex; /* Align icon and text nicely */
+        align-items: center;
+    }
+     .desktop-header-contact i {
+         margin-right: 8px;
+     }
+    html[dir="rtl"] .desktop-header-contact i {
+         margin-left: 8px; margin-right: 0;
+    }
+
+
+    /* --- Mobile Styles for Header (Applied when screen is 768px or less) --- */
+    @media (max-width: 768px) {
+        .mobile-menu-toggle {
+            display: block; /* Show hamburger */
+            order: 3; /* Optional: if you want to control its position relative to logo if container was row-reversed */
+        }
+
+        /* Hide the desktop-style inline navigation panel wrapper contents */
+        .mobile-menu-panel .main-nav,
+        .mobile-menu-panel .lang-switcher {
+            display: none;
+        }
+        
+        /* The panel itself becomes the dropdown */
+        .mobile-menu-panel {
+            display: none; /* Hidden by default on mobile */
+            flex-direction: column; /* Stack items vertically when open */
+            position: absolute;
+            top: 100%; /* Position below the sticky header part (its parent .site-header's height) */
+            left: 0;
+            width: 100%;
+            background-color: #fff; /* Background for the dropdown */
+            border-top: 1px solid #eee;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 999; /* Ensure it's above page content but below anything like a full-screen modal */
+            padding: 15px 0; /* Padding for the opened panel */
+        }
+        .mobile-menu-panel.open { /* This class is toggled by JavaScript */
+            display: flex !important; /* Show panel when .open class is added */
+        }
+
+        /* Re-style items for when they are INSIDE the OPEN mobile panel */
+        .mobile-menu-panel.open .main-nav,
+        .mobile-menu-panel.open .lang-switcher {
+            display: block; /* Make the nav and lang switcher blocks visible inside open panel */
+            width: 100%;
+        }
+        .mobile-menu-panel.open .main-nav ul,
+        .mobile-menu-panel.open .lang-switcher ul {
+            flex-direction: column; /* Stack list items */
+        }
+        .mobile-menu-panel.open .main-nav li a,
+        .mobile-menu-panel.open .lang-switcher li a {
+            padding: 12px 20px; /* Padding for mobile menu items */
+            text-align: center; 
+            border-bottom: 1px solid #f0f0f0;
+            width: 100%; /* Make links take full width for easier tapping */
+            box-sizing: border-box; /* Include padding and border in width */
+        }
+        .mobile-menu-panel.open .main-nav li:last-child a,
+        .mobile-menu-panel.open .lang-switcher li:last-child a {
+            border-bottom: none;
+        }
+        .mobile-menu-panel.open .mobile-header-contact {
+            display: block; /* Show mobile contact inside open panel */
+            text-align: center;
+            padding: 15px 20px;
+            font-weight: bold;
+            width: 100%;
+            box-sizing: border-box;
+            border-top: 1px solid #f0f0f0; /* Optional separator */
+        }
+        .mobile-menu-panel.open .mobile-header-contact a {
+            display: inline-flex; /* Align icon and text */
+            align-items: center;
+        }
+
+        .desktop-header-contact {
+            display: none; /* Hide desktop-specific contact on mobile */
+        }
+    }
+    /* --- END: NEW HEADER CSS (Phase 2) --- */
 
     </style>
 
@@ -440,40 +629,60 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End GTM BODY (noscript) -->
 
-    <!-- (0) Header -->
-    <header class="site-header">
-        <div class="container">
-            <div class="site-logo">
-                <a href="#"><img src="images/Najd_Logo_Concept.png" alt="Najd Commercial Hub Logo" id="logo-img"></a>
-                <!-- Use Najd_Logo_Final.svg when ready -->
-            </div>
-            <nav class="main-nav" aria-label="Main navigation">
+<!-- START: NEW HEADER HTML (Phase 2) -->
+<header class="site-header">
+    <div class="container">
+        <div class="site-logo">
+            <a href="#"><img src="images/Najd_Logo_Concept.png" alt="Najd Commercial Hub Logo" id="logo-img"></a>
+            <!-- Consider data-alt-lang="logo.alt" if you added it to translations -->
+        </div>
+
+        <button class="mobile-menu-toggle" aria-expanded="false" data-lang-aria-label="mobileMenu.toggleLabel">
+            <i class="fas fa-bars"></i> <!-- Hamburger icon -->
+            <i class="fas fa-times" style="display:none;"></i> <!-- Close icon -->
+        </button>
+
+        <!-- This panel contains navigation elements. -->
+        <div class="mobile-menu-panel">
+            <nav class="main-nav" data-lang-aria-label="nav.mainAriaLabel"> <!-- Added aria-label for main nav -->
                 <ul id="main-nav-ul">
                     <li><a href="#investment-highlights" data-lang="nav.investmentHighlights">Investment Highlights</a></li>
                     <li><a href="#the-asset" data-lang="nav.theAsset">The Asset</a></li>
-                    <li><a href="#location" data-lang="nav.location">Location</a></li>
+                    <li><a href="#location-details" data-lang="nav.location">Location</a></li>
                     <li><a href="#contact" data-lang="nav.contact" class="open-form-modal">Contact</a></li>
                 </ul>
             </nav>
-            <div class="lang-switcher" aria-label="Language selection">
+            <div class="lang-switcher" data-lang-aria-label="nav.langSwitcherAriaLabel"> <!-- Added aria-label for lang switcher -->
                 <ul id="lang-switcher-ul">
                     <li><a href="#" class="lang-option active" data-lang-code="en">EN</a></li>
                     <li><a href="#" class="lang-option" data-lang-code="fr">FR</a></li>
                     <li><a href="#" class="lang-option" data-lang-code="ar">عربي</a></li>
                 </ul>
             </div>
-            <div class="header-contact">
-                <a href="tel:+212779494766" id="header-phone-link" onclick="trackGtmEvent('contact_click', { contactType: 'phone_header' })" data-lang="header.phone">+212779494766</a>
+            <div class="header-contact mobile-header-contact"> <!-- Only visible in mobile expanded menu -->
+                <a href="tel:+212779494766" id="mobile-header-phone-link" onclick="trackGtmEvent('contact_click', { contactType: 'phone_mobile_menu' })">
+                    <i class="fas fa-phone-alt"></i> <span data-lang="header.phoneLabel">Phone:</span> +212779494766
+                </a>
             </div>
         </div>
-    </header>
 
+        <!-- This contact info is only for the desktop view -->
+        <div class="header-contact desktop-header-contact">
+            <a href="tel:+212779494766" id="header-phone-link" onclick="trackGtmEvent('contact_click', { contactType: 'phone_header' })">
+                <i class="fas fa-phone-alt"></i> <span data-lang="header.phoneLabel">Phone:</span> +212779494766
+            </a>
+        </div>
+    </div>
+</header>
+<!-- END: NEW HEADER HTML (Phase 2) -->
     <main>
         <!-- (1) Hero Section -->
-        <section id="hero" class="hero-section section-padding text-center" style="background-image: url('images/Najd_Exterior_Hero_Wholesale.jpg');">
+        <section id="hero" class="hero-section section-padding text-center scroll-target" style="background-image: url('images/Najd_Exterior_Hero_Wholesale.jpg');">
+            <!-- Fallback for WebP or use <picture> if more complex sources needed -->
             <picture>
                 <source srcset="images/Najd_Exterior_Hero_Wholesale.webp" type="image/webp">
                 <source srcset="images/Najd_Exterior_Hero_Wholesale.jpg" type="image/jpeg">
+                <!-- This img is mostly for semantics if the background fails or for screen readers; actual visual is CSS background -->
                 <img src="images/Najd_Exterior_Hero_Wholesale.jpg" alt="Najd Commercial Hub exterior - 14 unit wholesale investment opportunity in Marrakech" style="display:none;" loading="eager">
             </picture>
             <div class="container">
@@ -485,7 +694,8 @@
         </section>
 
         <!-- (2) Problem / Agitation Section -->
-        <section id="problem-agitation" class="problem-section section-padding">
+
+        <section id="problem-agitation" class="problem-section section-padding scroll-target"> 
             <div class="container">
                 <h2 class="text-center" data-lang="problem.headline">Seeking Scalable, High-Yield Commercial Investments in Marrakech?</h2>
                 <p data-lang="problem.problem">Finding high-quality, multi-unit commercial real estate in Marrakech's growth markets can be challenging, with limited turnkey options.</p>
@@ -495,46 +705,53 @@
         </section>
 
         <!-- (3) Solution / Benefits Section -->
-        <section id="investment-highlights" class="benefits-section section-padding light-bg">
+        <section id="investment-highlights" class="benefits-section section-padding light-bg scroll-target">
             <div class="container">
                 <h2 class="text-center" data-lang="solution.headline">Najd Commercial Hub: Your Turnkey Path to High Returns & Strategic Growth in Marrakech.</h2>
                 <p class="text-center" data-lang="solution.offerStatement">Acquire a brand-new, 14-unit business complex, purpose-built for wholesale investor success. Secure the entire asset for immediate operational control and robust income potential.</p>
                 
                 <div class="benefits-grid" style="margin-top: 40px;">
+                    <!-- Benefit 1 -->
                     <div class="benefit-item">
-                        <img src="images/icon_investment_portfolio.svg" alt="Investment Portfolio Icon" class="icon">
+                         <i class="fas fa-cubes benefit-icon"></i> 
                         <div>
                             <h4 data-lang="solution.benefit1.featureTitle">Feature: 14 contiguous commercial units (13 shops + 1 UG Loft package).</h4>
                             <p><strong data-lang="solution.benefit.advantage">Advantage:</strong> <span data-lang="solution.benefit1.advantageText">Immediate scale, diversified income streams, bulk purchase leverage.</span></p>
-                            <p><strong data-lang="solution.benefit.benefit">Benefit:</strong> <span data-lang="solution.benefit1.benefitText">Maximize your ROI potential (projected ~7.75% Net Yield at ~12M MAD price point) and simplify portfolio management.</span></p>
+                            <p><strong data-lang="solution.benefit.benefit">Benefit:</strong> <span data-lang="solution.benefit1.benefitText">Maximize your ROI potential (projected ~7.75% Net Yield at ~~1x Million MAD price point) and simplify portfolio management.</span></p>
                         </div>
                     </div>
+                    <!-- Benefit 2 -->
                     <div class="benefit-item">
-                        <img src="images/icon_value_add_mezzanine.svg" alt="Value Add Mezzanine Icon" class="icon">
+                        <i class="fas fa-chart-line benefit-icon"></i>
                         <div>
                             <h4 data-lang="solution.benefit2.featureTitle">Feature: All 13 GF shops boast 5.4m ceilings with foundations ready for mezzanines.</h4>
                             <p><strong data-lang="solution.benefit.advantage">Advantage:</strong> <span data-lang="solution.benefit2.advantageText">Buyer can cost-effectively add significant leasable square footage.</span></p>
                             <p><strong data-lang="solution.benefit.benefit">Benefit:</strong> <span data-lang="solution.benefit2.benefitText">Dramatically increase rental income and boost Net Yields towards 9%+ post-mezzanine development.</span></p>
                         </div>
                     </div>
+                    <!-- Benefit 3 -->
                     <div class="benefit-item">
-                        <img src="images/icon_unique_asset_ug.svg" alt="Unique Asset Underground Icon" class="icon">
+                        <i class="fas fa-gem benefit-icon"></i>
                         <div>
                             <h4 data-lang="solution.benefit3.featureTitle">Feature: Unique 322sqm underground loft with 4m height, private 15sqm GF entry, and 8 natural light windows.</h4>
                             <p><strong data-lang="solution.benefit.advantage">Advantage:</strong> <span data-lang="solution.benefit3.advantageText">Rare, high-demand space suitable for premium tenants (gyms, specialized uses).</span></p>
                             <p><strong data-lang="solution.benefit.benefit">Benefit:</strong> <span data-lang="solution.benefit3.benefitText">Secure strong, long-term rental income from a distinct and versatile asset.</span></p>
                         </div>
                     </div>
-                    <div id="location" class="benefit-item">
-                        <img src="images/icon_location_growth.svg" alt="Location Growth Icon" class="icon">
+                    <!-- Benefit 4 -->
+                    <div id="location" class="benefit-item"> <!-- Anchor for nav -->
+                        <!-- OLD: <img src="images/icon_location_growth.svg" alt="Location Growth Icon" class="icon"> -->
+                        <i class="fas fa-map-marker-alt benefit-icon"></i>
                         <div>
                             <h4 data-lang="solution.benefit4.featureTitle">Feature: Strategic location in developing Hay Najd, serving dense residential areas, near Gueliz, with easy access and adjacent public parking. (Verified road improvements completed).</h4>
                             <p><strong data-lang="solution.benefit.advantage">Advantage:</strong> <span data-lang="solution.benefit4.advantageText">High visibility and accessibility for tenants, strong local customer base.</span></p>
                             <p><strong data-lang="solution.benefit.benefit">Benefit:</strong> <span data-lang="solution.benefit4.benefitText">Capitalize on Marrakech's growth and ensure sustained tenant demand for your investment.</span></p>
                         </div>
                     </div>
+                    <!-- Benefit 5 -->
                     <div class="benefit-item">
-                        <img src="images/icon_turnkey_legal.svg" alt="Turnkey Legal Icon" class="icon">
+                    <!-- OLD: <img src="images/icon_turnkey_legal.svg" alt="Turnkey Legal Icon" class="icon"> -->
+                    <i class="fas fa-check-circle benefit-icon"></i>
                         <div>
                             <h4 data-lang="solution.benefit5.featureTitle">Feature: Brand new construction with all legal documents (Title, Permits, Co-ownership Regs) complete and ready. Recent "as-built" certification (Aug/Nov 2024).</h4>
                             <p><strong data-lang="solution.benefit.advantage">Advantage:</strong> <span data-lang="solution.benefit5.advantageText">Smooth, fast transaction process with reduced legal complexities.</span></p>
@@ -542,9 +759,10 @@
                         </div>
                     </div>
                 </div>
+                 <!-- Optional ROI Table Snippet -->
                 <div class="text-center" style="margin-top:30px; padding:15px; border:1px solid var(--primary-color); border-radius:5px; background:white;">
                     <h4 data-lang="solution.roiSnippet.title">Simplified Wholesale ROI Scenario:</h4>
-                    <p data-lang="solution.roiSnippet.purchase">Purchase Price: ~12M MAD</p>
+                    <p data-lang="solution.roiSnippet.purchase">Purchase Price: ~~1x Million MAD</p>
                     <p data-lang="solution.roiSnippet.initialYield">Est. Initial Net Yield: ~7.75%</p>
                     <p data-lang="solution.roiSnippet.potentialYield">Est. Potential Net Yield (with Mezzanines): ~9.05%</p>
                 </div>
@@ -552,7 +770,7 @@
         </section>
 
         <!-- (4) Visual Showcase – Gallery / Property Details -->
-        <section id="the-asset" class="visual-showcase section-padding">
+        <section id="the-asset" class="visual-showcase section-padding scroll-target">
             <div class="container">
                 <h2 class="text-center" data-lang="gallery.headline">Explore Najd Commercial Hub</h2>
                 <div class="gallery-grid">
@@ -592,23 +810,26 @@
         </section>
 
         <!-- (5) Social Proof & Trust -->
-        <section id="social-proof" class="social-proof-section section-padding light-bg">
+        <section id="social-proof" class="social-proof-section section-padding light-bg scroll-target">
             <div class="container">
                 <h2 class="text-center" data-lang="trust.headline">A Secure & Credible Investment in Marrakech</h2>
                 <p class="text-center" data-lang="trust.textSnippet">"Najd Commercial Hub is a project by a private, experienced developer, committed to quality construction and transparent dealings. All transactions are handled by licensed Moroccan notaries, ensuring full legal security."</p>
                 
                 <div class="trust-elements" style="margin-top:30px;">
                     <div class="trust-icon-item">
-                        <img src="images/icon_notary_seal.svg" alt="Secure Notary Process Icon">
-                        <p data-lang="trust.badge1">Secure Notary Process</p>
+                            <!-- OLD: <img src="images/icon_notary_seal.svg" alt="Secure Notary Process Icon"> -->
+                            <i class="fas fa-stamp trust-badge-icon"></i> 
+                            <p data-lang="trust.badge1">Secure Notary Process</p>
                     </div>
                     <div class="trust-icon-item">
-                        <img src="images/icon_quality_construction.svg" alt="Modern Construction Icon">
+                        <!-- OLD: <img src="images/icon_quality_construction.svg" alt="Modern Construction Icon"> -->
+                        <i class="fas fa-tools trust-badge-icon"></i>
                         <p data-lang="trust.badge2">Modern Construction</p>
                     </div>
                      <div class="trust-icon-item">
-                        <img src="images/icon_legal_docs_ready_badge.svg" alt="As Built Certified Icon">
-                        <p data-lang="trust.badge3">"As Built" Certified (Aug/Nov 2024)</p>
+                        <!-- OLD: <img src="images/icon_legal_docs_ready_badge.svg" alt="As Built Certified Icon"> -->
+                        <i class="fas fa-certificate trust-badge-icon"></i>
+                                        <p data-lang="trust.badge3">"As Built" Certified (Aug/Nov 2024)</p>
                     </div>
                 </div>
 
@@ -617,14 +838,40 @@
                 </div>
             </div>
         </section>
+            <!-- (New Section - e.g., after Social Proof) -->
+    <section id="location-details" class="location-details-section section-padding scroll-target">
+        <div class="container">
+            <h2 class="text-center" data-lang="locationSection.headline">Prime Location: Hay Najd, Marrakech</h2>
+            <div class="location-content-wrapper" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center;">
+                <div class="location-map" style="flex: 1 1 400px;">
+                    <!-- Placeholder for a larger map - could be an iframe from Google Maps or an image -->
+                    <img src="images/Najd_Map_Detailed_Location.png" alt="Detailed map showing Najd Commercial Hub location" loading="lazy">
+                    <p class="text-center" style="font-size:0.9em;" data-lang="locationSection.mapCaption">Najd Commercial Hub, Hay Najd, Marrakech</p>
+                </div>
+                <div class="location-text" style="flex: 1 1 300px;">
+                    <p data-lang="locationSection.p1">Najd Commercial Hub is strategically positioned in the rapidly developing Hay Najd district, a key growth area in Marrakech.</p>
+                    <h3 data-lang="locationSection.subhead1">Accessibility & Connectivity</h3>
+                    <!-- <ul data-lang="locationSection.list1"> --> <!-- Remove this combined data-lang -->
+                    <ul>
+                        <li data-lang="locationSection.list1.item1">Easy access from major city thoroughfares.</li>
+                        <li data-lang="locationSection.list1.item2">Close proximity to the vibrant Gueliz district.</li>
+                        <li data-lang="locationSection.list1.item3">Adjacent public parking facilities available.</li>
+                        <li data-lang="locationSection.list1.item4">Benefiting from recent verified road infrastructure improvements.</li>
+                    </ul>
+                    <h3 data-lang="locationSection.subhead2">Surrounding Area</h3>
+                    <p data-lang="locationSection.p2">The hub serves a dense network of residential areas, ensuring a consistent flow of local customers for tenants. Its location offers high visibility and a strong commercial presence within a dynamic neighborhood.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- (X) FAQ Section -->
-        <section id="faq" class="faq-section section-padding">
+        <!-- (X) FAQ Section (from SEO specs) -->
+        <section id="faq" class="faq-section section-padding scroll-target">
             <div class="container">
                 <h2 class="text-center" data-lang="faq.headline">Frequently Asked Questions</h2>
                 <div class="faq-item">
                     <h3 data-lang="faq.q1.question">What is the expected ROI for Najd Commercial Hub (wholesale)?</h3>
-                    <p data-lang="faq.q1.answer">The projected initial net yield is approximately 7.75% at a ~12M MAD price point. With mezzanine development, this has the potential to increase towards 9%+.</p>
+                    <p data-lang="faq.q1.answer">The projected initial net yield is approximately 7.75% at a ~~1x Million MAD price point. With mezzanine development, this has the potential to increase towards 9%+.</p>
                 </div>
                 <div class="faq-item">
                     <h3 data-lang="faq.q2.question">Are all legal documents ready for the wholesale purchase?</h3>
@@ -638,7 +885,7 @@
         </section>
 
         <!-- (6) Secondary Call-Out: Individual Units -->
-        <section id="individual-units" class="secondary-callout section-padding text-center">
+        <section id="individual-units" class="secondary-callout section-padding text-center scroll-target">
             <div class="container">
                 <h3 data-lang="individualUnits.headline">Interested in Individual Shops?</h3>
                 <p data-lang="individualUnits.text">While our primary focus is the wholesale acquisition of Najd Commercial Hub, a limited number of individual units (shops from 660,000 MAD) are available for investors and businesses. These also feature 5.4m ceilings for mezzanine potential.</p>
@@ -647,12 +894,13 @@
         </section>
 
         <!-- (7) Final CTA Block -->
-        <section id="contact" class="final-cta-block section-padding text-center">
+        <section id="contact" class="final-cta-block section-padding text-center scroll-target">
             <div class="container">
                 <h2 data-lang="finalCta.headline">Secure Your Marrakech Wholesale Investment Today!</h2>
                 <p data-lang="finalCta.text">Don't miss this turnkey opportunity to acquire 14 commercial units with significant ROI and value-add potential. Limited availability for the entire Hub.</p>
                 <button class="btn btn-primary btn-large open-form-modal" data-lang="finalCta.ctaPrimary">Request Full Investment Portfolio</button>
                 <p style="font-size: 0.9em; margin-top: 15px;" data-lang="finalCta.trustReminder">"All inquiries 100% confidential. We respect your privacy."</p>
+                <!-- START: MODIFIED FINAL CTA ICONS (Phase 4) -->
                 <div class="contact-methods">
                     <a href="tel:+212779494766" onclick="trackGtmEvent('contact_click', { contactType: 'phone_footer' })">
                         <i class="fas fa-phone-alt"></i> <span data-lang="finalCta.phone">Phone:</span> +212779494766
@@ -664,6 +912,7 @@
                         <i class="fas fa-envelope"></i> <span data-lang="finalCta.email">Email:</span> sales@najdcommercialhub.ma
                     </a>
                 </div>
+                <!-- END: MODIFIED FINAL CTA ICONS (Phase 4) -->    
             </div>
         </section>
     </main>
@@ -671,7 +920,7 @@
     <!-- (8) Contact Form Modal -->
     <div id="contactModal" class="modal">
         <div class="modal-content">
-            <span class="close-modal">&times;</span>
+            <span class="close-modal">×</span>
             <h3 id="form-title" data-lang="form.title">Request Najd Commercial Hub Investment Portfolio</h3>
             <div id="formStatusMessage" class="form-status-message" style="display:none;"></div>
             <form id="contactForm" novalidate>
@@ -715,77 +964,74 @@
             </div>
         </div>
     </div>
-    
+
+    <!-- START: NEW LEGAL SECTIONS HTML (Phase 3) -->
+
     <!-- (10) Privacy Policy Section -->
-    <section id="privacy-policy-section" class="legal-section section-padding light-bg" style="display: none;">
+    <section id="privacy-policy-section" class="legal-section section-padding light-bg scroll-target">
         <div class="container">
-            <button class="close-legal-section" aria-label="Close Privacy Policy" data-target="privacy-policy-section">&times;</button>
+            <button class="close-legal-section" data-target="privacy-policy-section" data-lang-aria-label="privacyPolicy.closeButtonLabel">×</button>
             <h2 data-lang="privacyPolicy.title">Privacy Policy</h2>
-            <p><em data-lang="privacyPolicy.lastUpdated">Last Updated: [Date]</em></p> <!-- Replace [Date] -->
+            <p><em data-lang="privacyPolicy.lastUpdated">Last Updated: [REPLACE_DATE]</em></p>
             <p data-lang="privacyPolicy.p1"></p>
-            
             <h3 data-lang="privacyPolicy.p2.title"></h3>
             <p data-lang="privacyPolicy.p2.content"></p>
-
             <h3 data-lang="privacyPolicy.p3.title"></h3>
             <p data-lang="privacyPolicy.p3.content"></p>
-
             <h3 data-lang="privacyPolicy.p4.title"></h3>
             <p data-lang="privacyPolicy.p4.content"></p>
-
             <h3 data-lang="privacyPolicy.p5.title"></h3>
             <p data-lang="privacyPolicy.p5.content"></p>
-
             <h3 data-lang="privacyPolicy.p6.title"></h3>
             <p data-lang="privacyPolicy.p6.content"></p>
         </div>
     </section>
 
     <!-- (11) Terms of Use Section -->
-    <section id="terms-of-use-section" class="legal-section section-padding light-bg" style="display: none;">
+    <section id="terms-of-use-section" class="legal-section section-padding light-bg scroll-target>
         <div class="container">
-            <button class="close-legal-section" aria-label="Close Terms of Use" data-target="terms-of-use-section">&times;</button>
+            <button class="close-legal-section" data-target="terms-of-use-section" data-lang-aria-label="termsOfUse.closeButtonLabel">×</button>
             <h2 data-lang="termsOfUse.title">Terms of Use</h2>
-            <p><em data-lang="termsOfUse.lastUpdated">Last Updated: [Date]</em></p> <!-- Replace [Date] -->
+            <p><em data-lang="termsOfUse.lastUpdated">Last Updated: [REPLACE_DATE]</em></p>
             <p data-lang="termsOfUse.p1"></p>
-
             <h3 data-lang="termsOfUse.p2.title"></h3>
             <p data-lang="termsOfUse.p2.content"></p>
-
             <h3 data-lang="termsOfUse.p3.title"></h3>
             <p data-lang="termsOfUse.p3.content"></p>
-
             <h3 data-lang="termsOfUse.p4.title"></h3>
             <p data-lang="termsOfUse.p4.content"></p>
-
             <h3 data-lang="termsOfUse.p5.title"></h3>
             <p data-lang="termsOfUse.p5.content"></p>
-
             <h3 data-lang="termsOfUse.p6.title"></h3>
             <p data-lang="termsOfUse.p6.content"></p>
-
             <h3 data-lang="termsOfUse.p7.title"></h3>
             <p data-lang="termsOfUse.p7.content"></p>
         </div>
     </section>
 
+    <!-- END: NEW LEGAL SECTIONS HTML (Phase 3) -->
+
     <!-- (9) Footer -->
     <footer class="site-footer">
         <div class="container">
+            <!-- Inside your existing footer -->
             <div class="footer-links">
-                <a href="#privacy-policy-section" class="legal-link" data-target="privacy-policy-section" data-lang="footer.privacy">Privacy Policy</a> | 
+                <a href="#privacy-policy-section" class="legal-link" data-target="privacy-policy-section" data-lang="footer.privacy">Privacy Policy</a> |
                 <a href="#terms-of-use-section" class="legal-link" data-target="terms-of-use-section" data-lang="footer.terms">Terms of Use</a>
             </div>
             <div class="footer-contact" style="margin: 10px 0;">
                 <span data-lang="footer.email">sales@najdcommercialhub.ma</span> | <span data-lang="footer.phone">+212779494766</span>
             </div>
+                        <!-- START: MODIFIED FOOTER SOCIAL ICON (Phase 4) -->
             <div class="footer-social" style="margin: 10px 0;">
-                <a href="https://linkedin.com/company/your-najd-page" target="_blank" aria-label="LinkedIn">
+                <a href="https://linkedin.com/company/najd-commercial-hub" target="_blank" data-lang-aria-label="footer.linkedInAriaLabel">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <!-- Add other social icons if available e.g. <i class="fab fa-facebook-f"></i> -->
+                <!-- Add other social icons here if needed, e.g. -->
+                <!-- <a href="#" target="_blank" data-lang-aria-label="footer.facebookAriaLabel"><i class="fab fa-facebook-f"></i></a> -->
             </div>
-            <p id="copyright-text" data-lang="footer.copyright"></p>
+            <!-- END: MODIFIED FOOTER SOCIAL ICON (Phase 4) -->
+            <p id="copyright-text" data-lang="footer.copyright">© 2024 Najd Commercial Hub. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -800,10 +1046,13 @@
             });
         }
         
+        // Track page view on load
         trackGtmEvent('pageview', { page: window.location.pathname + window.location.search });
 
         // --- Multilingual Content & Switching ---
         const translations = {
+            // ... (All text translations will be populated here) ...
+            // Example structure:
             en: {
                 "nav.investmentHighlights": "Investment Highlights",
                 "nav.theAsset": "The Asset",
@@ -824,7 +1073,7 @@
                 "solution.benefit.benefit": "Benefit:",
                 "solution.benefit1.featureTitle": "Feature: 14 contiguous commercial units (13 shops + 1 UG Loft package).",
                 "solution.benefit1.advantageText": "Immediate scale, diversified income streams, bulk purchase leverage.",
-                "solution.benefit1.benefitText": "Maximize your ROI potential (projected ~7.75% Net Yield at ~12M MAD price point) and simplify portfolio management.",
+                "solution.benefit1.benefitText": "Maximize your ROI potential (projected ~7.75% Net Yield at ~~1x Million MAD price point) and simplify portfolio management.",
                 "solution.benefit2.featureTitle": "Feature: All 13 GF shops boast 5.4m ceilings with foundations ready for mezzanines.",
                 "solution.benefit2.advantageText": "Buyer can cost-effectively add significant leasable square footage.",
                 "solution.benefit2.benefitText": "Dramatically increase rental income and boost Net Yields towards 9%+ post-mezzanine development.",
@@ -838,7 +1087,7 @@
                 "solution.benefit5.advantageText": "Smooth, fast transaction process with reduced legal complexities.",
                 "solution.benefit5.benefitText": "Invest with confidence and achieve faster break-even on your turnkey asset.",
                 "solution.roiSnippet.title": "Simplified Wholesale ROI Scenario:",
-                "solution.roiSnippet.purchase": "Purchase Price: ~12M MAD",
+                "solution.roiSnippet.purchase": "Purchase Price: ~~1x Million MAD",
                 "solution.roiSnippet.initialYield": "Est. Initial Net Yield: ~7.75%",
                 "solution.roiSnippet.potentialYield": "Est. Potential Net Yield (with Mezzanines): ~9.05%",
                 "gallery.headline": "Explore Najd Commercial Hub",
@@ -856,7 +1105,7 @@
                 "trust.testimonialSource": "Real Estate Investment Advisor",
                 "faq.headline": "Frequently Asked Questions",
                 "faq.q1.question": "What is the expected ROI for Najd Commercial Hub (wholesale)?",
-                "faq.q1.answer": "The projected initial net yield is approximately 7.75% at a ~12M MAD price point. With mezzanine development, this has the potential to increase towards 9%+.",
+                "faq.q1.answer": "The projected initial net yield is approximately 7.75% at a ~~1x Million MAD price point. With mezzanine development, this has the potential to increase towards 9%+.",
                 "faq.q2.question": "Are all legal documents ready for the wholesale purchase?",
                 "faq.q2.answer": "Yes, the property is brand new with all legal documents (Title, Permits, Co-ownership Regulations, \"as-built\" certification) complete and ready for a smooth transaction.",
                 "faq.q3.question": "What is the total size and composition of the wholesale offer?",
@@ -888,22 +1137,24 @@
                 "form.messagePlaceholder": "Your questions or specific interests...",
                 "form.privacyNotice": "All information is confidential. We will contact you shortly to discuss your interest and provide the requested documents.",
                 "form.submitButton": "Send My Request",
-                "form.submitting": "Submitting...",
                 "form.thankYou": "Thank You!",
                 "form.success": "Your request has been submitted successfully. We will contact you shortly.",
                 "form.submitAnother": "Submit Another Inquiry",
                 "form.error.requiredFields": "Please fill in all required fields (Name, Email, Phone).",
-                "form.error.invalidEmail": "Please enter a valid email address.",
                 "form.error.submission": "There was an error submitting your form. Please try again.",
                 "footer.privacy": "Privacy Policy",
                 "footer.terms": "Terms of Use",
                 "footer.email": "sales@najdcommercialhub.ma",
                 "footer.phone": "+212779494766",
                 "footer.copyright": `© ${new Date().getFullYear()} Najd Commercial Hub. All Rights Reserved.`,
-                "seo.title": "Najd Commercial Hub: Prime Wholesale Real Estate Investment Marrakech",
-                "seo.description": "Acquire Najd Commercial Hub – 14 units in Marrakech. High yield (~7.75%), value-add potential. Turnkey wholesale real estate investment.",
+                "header.phoneLabel": "Phone:",
+                "mobileMenu.toggleLabel": "Toggle menu", // For hamburger aria-label
+                "footer.linkedInAriaLabel": "LinkedIn", // For footer LinkedIn icon aria-label
+                
+                    // Privacy Policy Keys
                 "privacyPolicy.title": "Privacy Policy",
-                "privacyPolicy.lastUpdated": "Last Updated: [Date]",
+                "privacyPolicy.lastUpdated": "Last Updated: [REPLACE_DATE]", // You will replace [REPLACE_DATE] later
+                "privacyPolicy.closeButtonLabel": "Close Privacy Policy", // For aria-label on close button
                 "privacyPolicy.p1": "Your privacy is important to us. This Privacy Policy explains how Najd Commercial Hub ('we', 'us', or 'our') collects, uses, discloses, and safeguards your information when you visit our website najdcommercialhub.ma (the 'Site'). Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.",
                 "privacyPolicy.p2.title": "Collection of Your Information",
                 "privacyPolicy.p2.content": "We may collect information about you in a variety of ways. The information we may collect on the Site includes personally identifiable information, such as your name, email address, and telephone number, and demographic information, such as your company or interest type, that you voluntarily give to us when you fill out a contact form.",
@@ -915,8 +1166,11 @@
                 "privacyPolicy.p5.content": "We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.",
                 "privacyPolicy.p6.title": "Contact Us",
                 "privacyPolicy.p6.content": "If you have questions or comments about this Privacy Policy, please contact us at: sales@najdcommercialhub.ma",
+
+                // Terms of Use Keys
                 "termsOfUse.title": "Terms of Use",
-                "termsOfUse.lastUpdated": "Last Updated: [Date]",
+                "termsOfUse.lastUpdated": "Last Updated: [REPLACE_DATE]", // You will replace [REPLACE_DATE] later
+                "termsOfUse.closeButtonLabel": "Close Terms of Use", // For aria-label on close button
                 "termsOfUse.p1": "Welcome to Najd Commercial Hub's website. By accessing or using our Site, you agree to be bound by these Terms of Use and our Privacy Policy. If you do not agree with these terms, please do not use our Site.",
                 "termsOfUse.p2.title": "Use of Site",
                 "termsOfUse.p2.content": "The content and information on this Site are for your general information and use only. It is subject to change without notice. Unauthorized use of this Site may give rise to a claim for damages and/or be a criminal offense.",
@@ -929,9 +1183,29 @@
                 "termsOfUse.p6.title": "Governing Law",
                 "termsOfUse.p6.content": "Your use of this Site and any dispute arising out of such use of the Site is subject to the laws of Morocco.",
                 "termsOfUse.p7.title": "Contact Us",
-                "termsOfUse.p7.content": "If you have any questions about these Terms of Use, please contact us at: sales@najdcommercialhub.ma"
+                "termsOfUse.p7.content": "If you have any questions about these Terms of Use, please contact us at: sales@najdcommercialhub.ma",
+                
+                // Add these new keys for the Location Section:
+                "locationSection.headline": "Prime Location: Hay Najd, Marrakech",
+                "locationSection.mapCaption": "Najd Commercial Hub, Hay Najd, Marrakech",
+                "locationSection.p1": "Najd Commercial Hub is strategically positioned in the rapidly developing Hay Najd district, a key growth area in Marrakech.",
+                "locationSection.subhead1": "Accessibility & Connectivity",
+                // For the list, there are a few ways to handle it.
+                // Option 1: One big string with HTML (less ideal for translation management but works)
+                "locationSection.list1_html": "<li>Easy access from major city thoroughfares.</li><li>Close proximity to the vibrant Gueliz district.</li><li>Adjacent public parking facilities available.</li><li>Benefiting from recent verified road infrastructure improvements.</li>",
+                // Option 2: Individual list items (better for translation)
+                "locationSection.list1.item1": "Easy access from major city thoroughfares.",
+                "locationSection.list1.item2": "Close proximity to the vibrant Gueliz district.",
+                "locationSection.list1.item3": "Adjacent public parking facilities available.",
+                "locationSection.list1.item4": "Benefiting from recent verified road infrastructure improvements.",
+                "locationSection.subhead2": "Surrounding Area",
+                "locationSection.p2": "The hub serves a dense network of residential areas, ensuring a consistent flow of local customers for tenants. Its location offers high visibility and a strong commercial presence within a dynamic neighborhood."
+
+                // Make sure there's a comma before this if it's not the last key in en: {}
+            // };
+
             },
-            fr: { // French translations 
+            fr: { // French translations (partial example, expand as needed)
                 "nav.investmentHighlights": "Points Forts de l'Investissement",
                 "nav.theAsset": "L'Actif",
                 "nav.location": "Emplacement",
@@ -951,7 +1225,7 @@
                 "solution.benefit.benefit": "Bénéfice :",
                 "solution.benefit1.featureTitle": "Caractéristique : 14 unités commerciales contiguës (13 boutiques + 1 ensemble loft UG).",
                 "solution.benefit1.advantageText": "Échelle immédiate, flux de revenus diversifiés, effet de levier des achats en gros.",
-                "solution.benefit1.benefitText": "Maximisez votre potentiel de ROI (rendement net projeté d'environ 7,75% pour un prix d'environ 12M MAD) et simplifiez la gestion de votre portefeuille.",
+                "solution.benefit1.benefitText": "Maximisez votre potentiel de ROI (rendement net projeté d'environ 7,75% pour un prix d'environ ~1x Million MAD) et simplifiez la gestion de votre portefeuille.",
                 "solution.benefit2.featureTitle": "Caractéristique : Les 13 boutiques du RDC disposent de plafonds de 5,4 m avec fondations prêtes pour mezzanines.",
                 "solution.benefit2.advantageText": "L'acheteur peut ajouter une surface locative importante à moindre coût.",
                 "solution.benefit2.benefitText": "Augmentez considérablement les revenus locatifs et poussez les rendements nets vers 9%+ après l'aménagement des mezzanines.",
@@ -965,7 +1239,7 @@
                 "solution.benefit5.advantageText": "Processus de transaction fluide et rapide avec des complexités juridiques réduites.",
                 "solution.benefit5.benefitText": "Investissez en toute confiance et atteignez plus rapidement le seuil de rentabilité de votre actif clé en main.",
                 "solution.roiSnippet.title": "Scénario ROI de Gros Simplifié :",
-                "solution.roiSnippet.purchase": "Prix d'Achat : ~12M MAD",
+                "solution.roiSnippet.purchase": "Prix d'Achat : ~~1x Million MAD",
                 "solution.roiSnippet.initialYield": "Rendement Net Initial Est. : ~7,75%",
                 "solution.roiSnippet.potentialYield": "Rendement Net Potentiel Est. (avec Mezzanines) : ~9,05%",
                 "gallery.headline": "Explorez Najd Commercial Hub",
@@ -983,7 +1257,7 @@
                 "trust.testimonialSource": "Conseiller en Investissement Immobilier",
                 "faq.headline": "Questions Fréquemment Posées",
                 "faq.q1.question": "Quel est le ROI attendu pour Najd Commercial Hub (en gros) ?",
-                "faq.q1.answer": "Le rendement net initial projeté est d'environ 7,75% pour un prix d'environ 12M MAD. Avec l'aménagement des mezzanines, ce potentiel peut augmenter vers 9% et plus.",
+                "faq.q1.answer": "Le rendement net initial projeté est d'environ 7,75% pour un prix d'environ ~1x Million MAD. Avec l'aménagement des mezzanines, ce potentiel peut augmenter vers 9% et plus.",
                 "faq.q2.question": "Tous les documents légaux sont-ils prêts pour l'achat en gros ?",
                 "faq.q2.answer": "Oui, la propriété est neuve avec tous les documents légaux (Titre, Permis, Règlement de Copropriété, certification « tel que construit ») complets et prêts pour une transaction fluide.",
                 "faq.q3.question": "Quelle est la taille totale et la composition de l'offre de gros ?",
@@ -1015,38 +1289,42 @@
                 "form.messagePlaceholder": "Vos questions ou intérêts spécifiques...",
                 "form.privacyNotice": "Toutes les informations sont confidentielles. Nous vous contacterons sous peu pour discuter de votre intérêt et vous fournir les documents demandés.",
                 "form.submitButton": "Envoyer Ma Demande",
-                "form.submitting": "Envoi en cours...",
                 "form.thankYou": "Merci !",
                 "form.success": "Votre demande a été soumise avec succès. Nous vous contacterons sous peu.",
                 "form.submitAnother": "Soumettre une Autre Demande",
                 "form.error.requiredFields": "Veuillez remplir tous les champs obligatoires (Nom, Email, Téléphone).",
-                "form.error.invalidEmail": "Veuillez entrer une adresse e-mail valide.",
                 "form.error.submission": "Une erreur s'est produite lors de la soumission de votre formulaire. Veuillez réessayer.",
                 "footer.privacy": "Politique de Confidentialité",
                 "footer.terms": "Conditions d'Utilisation",
                 "footer.email": "sales@najdcommercialhub.ma",
                 "footer.phone": "+212779494766",
                 "footer.copyright": `© ${new Date().getFullYear()} Najd Commercial Hub. Tous Droits Réservés.`,
-                "seo.title": "Najd Commercial Hub : Investissement Immobilier Commercial de Gros à Marrakech",
-                "seo.description": "Acquérez Najd Commercial Hub – 14 unités à Marrakech. Rendement élevé (~7,75%), potentiel de valorisation. Investissement immobilier de gros clé en main.",
+                "header.phoneLabel": "Tél:",
+                "mobileMenu.toggleLabel": "Menu",
+                "footer.linkedInAriaLabel": "LinkedIn",
+
+
                 "privacyPolicy.title": "Politique de Confidentialité",
-                "privacyPolicy.lastUpdated": "Dernière mise à jour : [Date]",
-                "privacyPolicy.p1": "Votre vie privée est importante pour nous. Cette Politique de Confidentialité explique comment Najd Commercial Hub ('nous', 'notre' ou 'nos') collecte, utilise, divulgue et protège vos informations lorsque vous visitez notre site web najdcommercialhub.ma (le 'Site'). Veuillez lire attentivement cette politique de confidentialité. Si vous n'êtes pas d'accord avec les termes de cette politique de confidentialité, veuillez ne pas accéder au site.",
+                "privacyPolicy.lastUpdated": "Dernière mise à jour : [REPLACE_DATE]",
+                "privacyPolicy.closeButtonLabel": "Fermer Politique de Confidentialité",
+                "privacyPolicy.p1": "Votre vie privée est importante pour nous. Cette Politique de Confidentialité explique comment Najd Commercial Hub (« nous », « notre » ou « nos ») collecte, utilise, divulgue et protège vos informations lorsque vous visitez notre site web najdcommercialhub.ma (le « Site »). Veuillez lire attentivement cette politique de confidentialité. Si vous n'êtes pas d'accord avec les termes de cette politique de confidentialité, veuillez ne pas accéder au site.",
                 "privacyPolicy.p2.title": "Collecte de Vos Informations",
-                "privacyPolicy.p2.content": "Nous pouvons collecter des informations vous concernant de diverses manières. Les informations que nous pouvons collecter sur le Site comprennent des informations personnellement identifiables, telles que votre nom, adresse e-mail et numéro de téléphone, et des informations démographiques, telles que votre entreprise ou type d'intérêt, que vous nous fournissez volontairement lorsque vous remplissez un formulaire de contact.",
+                "privacyPolicy.p2.content": "Nous pouvons collecter des informations vous concernant de diverses manières. Les informations que nous pouvons collecter sur le Site comprennent des informations d'identification personnelle, telles que votre nom, votre adresse e-mail et votre numéro de téléphone, ainsi que des informations démographiques, telles que votre entreprise ou votre type d'intérêt, que vous nous fournissez volontairement lorsque vous remplissez un formulaire de contact.",
                 "privacyPolicy.p3.title": "Utilisation de Vos Informations",
                 "privacyPolicy.p3.content": "Disposer d'informations exactes vous concernant nous permet de vous offrir une expérience fluide, efficace et personnalisée. Plus précisément, nous pouvons utiliser les informations collectées à votre sujet via le Site pour : répondre à vos demandes et offrir un support, vous envoyer des informations sur notre projet, compiler des données statistiques anonymes à usage interne ou pour des tiers, et solliciter un soutien pour le projet.",
                 "privacyPolicy.p4.title": "Divulgation de Vos Informations",
-                "privacyPolicy.p4.content": "Nous pouvons partager les informations que nous avons collectées à votre sujet dans certaines situations. Vos informations peuvent être divulguées comme suit : Par la Loi ou pour Protéger des Droits. Si nous estimons que la divulgation d'informations vous concernant est nécessaire pour répondre à une procédure légale, pour enquêter ou remédier à des violations potentielles de nos politiques, ou pour protéger les droits, la propriété et la sécurité d'autrui, nous pouvons partager vos informations comme permis ou requis par toute loi, règle ou réglementation applicable.",
+                "privacyPolicy.p4.content": "Nous pouvons partager les informations que nous avons collectées à votre sujet dans certaines situations. Vos informations peuvent être divulguées comme suit : En vertu de la loi ou pour protéger des droits. Si nous estimons que la divulgation d'informations vous concernant est nécessaire pour répondre à une procédure légale, pour enquêter sur des violations potentielles de nos politiques ou y remédier, ou pour protéger les droits, la propriété et la sécurité d'autrui, nous pouvons partager vos informations dans la mesure permise ou requise par toute loi, règle ou réglementation applicable.",
                 "privacyPolicy.p5.title": "Sécurité de Vos Informations",
                 "privacyPolicy.p5.content": "Nous utilisons des mesures de sécurité administratives, techniques et physiques pour aider à protéger vos informations personnelles. Bien que nous ayons pris des mesures raisonnables pour sécuriser les informations personnelles que vous nous fournissez, veuillez être conscient que malgré nos efforts, aucune mesure de sécurité n'est parfaite ou impénétrable, et aucune méthode de transmission de données ne peut être garantie contre toute interception ou autre type d'utilisation abusive.",
                 "privacyPolicy.p6.title": "Contactez-Nous",
                 "privacyPolicy.p6.content": "Si vous avez des questions ou des commentaires concernant cette Politique de Confidentialité, veuillez nous contacter à : sales@najdcommercialhub.ma",
+
                 "termsOfUse.title": "Conditions d'Utilisation",
-                "termsOfUse.lastUpdated": "Dernière mise à jour : [Date]",
+                "termsOfUse.lastUpdated": "Dernière mise à jour : [REPLACE_DATE]",
+                "termsOfUse.closeButtonLabel": "Fermer Conditions d'Utilisation",
                 "termsOfUse.p1": "Bienvenue sur le site web de Najd Commercial Hub. En accédant ou en utilisant notre Site, vous acceptez d'être lié par ces Conditions d'Utilisation et notre Politique de Confidentialité. Si vous n'êtes pas d'accord avec ces conditions, veuillez ne pas utiliser notre Site.",
                 "termsOfUse.p2.title": "Utilisation du Site",
-                "termsOfUse.p2.content": "Le contenu et les informations de ce Site sont uniquement pour votre information générale et votre usage. Ils sont sujets à modification sans préavis. L'utilisation non autorisée de ce Site peut donner lieu à une réclamation pour dommages et/intérêts et/ou constituer une infraction pénale.",
+                "termsOfUse.p2.content": "Le contenu et les informations de ce Site sont uniquement pour votre information générale et votre usage. Ils sont sujets à modification sans préavis. L'utilisation non autorisée de ce Site peut donner lieu à une réclamation pour dommages et intérêts et/ou constituer une infraction pénale.",
                 "termsOfUse.p3.title": "Propriété Intellectuelle",
                 "termsOfUse.p3.content": "Ce Site contient du matériel qui nous appartient ou pour lequel nous détenons une licence. Ce matériel inclut, sans s'y limiter, la conception, la mise en page, l'aspect, l'apparence et les graphiques. Toute reproduction est interdite autrement qu'en accord avec l'avis de droit d'auteur, qui fait partie intégrante de ces termes et conditions.",
                 "termsOfUse.p4.title": "Avis de Non-responsabilité",
@@ -1056,9 +1334,24 @@
                 "termsOfUse.p6.title": "Droit Applicable",
                 "termsOfUse.p6.content": "Votre utilisation de ce Site et tout litige découlant d'une telle utilisation du Site sont soumis aux lois du Maroc.",
                 "termsOfUse.p7.title": "Contactez-Nous",
-                "termsOfUse.p7.content": "Si vous avez des questions concernant ces Conditions d'Utilisation, veuillez nous contacter à : sales@najdcommercialhub.ma"
+                "termsOfUse.p7.content": "Si vous avez des questions concernant ces Conditions d'Utilisation, veuillez nous contacter à : sales@najdcommercialhub.ma",
+                // Inside translations.fr = {
+                    // ... your existing French translations ...
+
+                    "locationSection.headline": "Emplacement de Premier Choix : Hay Najd, Marrakech",
+                    "locationSection.mapCaption": "Centre Commercial Najd, Hay Najd, Marrakech",
+                    "locationSection.p1": "Le Centre Commercial Najd est stratégiquement positionné dans le quartier en plein développement de Hay Najd, un secteur de croissance clé à Marrakech.",
+                    "locationSection.subhead1": "Accessibilité & Connectivité",
+                    "locationSection.list1.item1": "Accès facile depuis les principales artères de la ville.",
+                    "locationSection.list1.item2": "Proximité immédiate du quartier animé de Guéliz.",
+                    "locationSection.list1.item3": "Parkings publics adjacents disponibles.",
+                    "locationSection.list1.item4": "Bénéficiant d'améliorations récentes et vérifiées de l'infrastructure routière.",
+                    "locationSection.subhead2": "Zone Environnante",
+                    "locationSection.p2": "Le centre dessert un réseau dense de zones résidentielles, assurant un flux constant de clients locaux pour les locataires. Son emplacement offre une grande visibilité et une forte présence commerciale au sein d'un quartier dynamique."
+                    // ...
+                // };
             },
-            ar: { // Arabic translations
+            ar: { // Arabic translations (partial example, expand as needed)
                 "nav.investmentHighlights": "أبرز نقاط الاستثمار",
                 "nav.theAsset": "الأصل التجاري",
                 "nav.location": "الموقع",
@@ -1078,7 +1371,7 @@
                 "solution.benefit.benefit": "المنفعة:",
                 "solution.benefit1.featureTitle": "الميزة: 14 وحدة تجارية متجاورة (13 محلًا + باقة لوفت تحت الأرض).",
                 "solution.benefit1.advantageText": "نطاق فوري، مصادر دخل متنوعة، قوة شرائية بالجملة.",
-                "solution.benefit1.benefitText": "زد من عائد استثمارك المحتمل (صافي عائد متوقع ~7.75% بسعر ~12 مليون درهم) وبسّط إدارة محفظتك.",
+                "solution.benefit1.benefitText": "زد من عائد استثمارك المحتمل (صافي عائد متوقع ~7.75% بسعر ~1x مليون درهم) وبسّط إدارة محفظتك.",
                 "solution.benefit2.featureTitle": "الميزة: جميع المحلات الـ 13 في الطابق الأرضي تتميز بارتفاع سقف 5.4 متر مع أساسات جاهزة للميزانين.",
                 "solution.benefit2.advantageText": "يمكن للمشتري إضافة مساحة كبيرة قابلة للتأجير بتكلفة فعالة.",
                 "solution.benefit2.benefitText": "زد بشكل كبير من دخل الإيجار وعزز صافي العائد إلى ما يقارب 9% بعد تطوير الميزانين.",
@@ -1092,7 +1385,7 @@
                 "solution.benefit5.advantageText": "عملية معاملة سلسة وسريعة مع تعقيدات قانونية أقل.",
                 "solution.benefit5.benefitText": "استثمر بثقة وحقق نقطة التعادل بشكل أسرع على أصلك الجاهز.",
                 "solution.roiSnippet.title": "سيناريو مبسط لعائد الاستثمار بالجملة:",
-                "solution.roiSnippet.purchase": "سعر الشراء: ~12 مليون درهم",
+                "solution.roiSnippet.purchase": "سعر الشراء: ~1x مليون درهم",
                 "solution.roiSnippet.initialYield": "صافي العائد الأولي المقدر: ~7.75%",
                 "solution.roiSnippet.potentialYield": "صافي العائد المحتمل المقدر (مع الميزانين): ~9.05%",
                 "gallery.headline": "اكتشف مركز نجد التجاري",
@@ -1110,7 +1403,7 @@
                 "trust.testimonialSource": "مستشار استثمار عقاري",
                 "faq.headline": "أسئلة مكررة",
                 "faq.q1.question": "ما هو العائد المتوقع على الاستثمار لمركز نجد التجاري (بالجملة)؟",
-                "faq.q1.answer": "يبلغ صافي العائد الأولي المتوقع حوالي 7.75% بسعر شراء تقريبي 12 مليون درهم. مع تطوير الميزانين، يمكن أن يرتفع هذا العائد المحتمل إلى 9% أو أكثر.",
+                "faq.q1.answer": "يبلغ صافي العائد الأولي المتوقع حوالي 7.75% بسعر شراء تقريبي 1x مليون درهم. مع تطوير الميزانين، يمكن أن يرتفع هذا العائد المحتمل إلى 9% أو أكثر.",
                 "faq.q2.question": "هل جميع الوثائق القانونية جاهزة لعملية الشراء بالجملة؟",
                 "faq.q2.answer": "نعم، العقار جديد بالكامل وجميع الوثائق القانونية (سند الملكية، التراخيص، نظام الملكية المشتركة، شهادة \"كما هو مُنفذ\") مكتملة وجاهزة لعملية تمليك سلسة.",
                 "faq.q3.question": "ما هو الحجم الإجمالي وتكوين عرض البيع بالجملة؟",
@@ -1142,38 +1435,41 @@
                 "form.messagePlaceholder": "أسئلتك أو اهتماماتك المحددة...",
                 "form.privacyNotice": "جميع المعلومات سرية. سنتصل بك قريبًا لمناقشة اهتمامك وتقديم المستندات المطلوبة.",
                 "form.submitButton": "أرسل طلبي",
-                "form.submitting": "جارٍ الإرسال...",
                 "form.thankYou": "شكراً لك!",
                 "form.success": "تم إرسال طلبك بنجاح. سنتصل بك قريبًا.",
                 "form.submitAnother": "إرسال طلب آخر",
                 "form.error.requiredFields": "يرجى ملء جميع الحقول المطلوبة (الاسم، البريد الإلكتروني، الهاتف).",
-                "form.error.invalidEmail": "يرجى إدخال عنوان بريد إلكتروني صحيح.",
                 "form.error.submission": "حدث خطأ أثناء إرسال النموذج. يرجى المحاولة مرة أخرى.",
                 "footer.privacy": "سياسة الخصوصية",
                 "footer.terms": "شروط الاستخدام",
                 "footer.email": "sales@najdcommercialhub.ma",
                 "footer.phone": "+212779494766",
                 "footer.copyright": `© ${new Date().getFullYear()} مركز نجد التجاري. جميع الحقوق محفوظة.`,
-                "seo.title": "مركز نجد التجاري: استثمار عقاري تجاري بالجملة في مراكش",
-                "seo.description": "امتلك مركز نجد التجاري – 14 وحدة في مراكش. عائد مرتفع (~7.75%)، إمكانات قيمة مضافة. استثمار عقاري بالجملة جاهز للاستلام.",
+                "header.phoneLabel": "الهاتف:",
+                "mobileMenu.toggleLabel": "القائمة",
+                "footer.linkedInAriaLabel": "لينكد إن",
+
                 "privacyPolicy.title": "سياسة الخصوصية",
-                "privacyPolicy.lastUpdated": "آخر تحديث: [تاريخ]",
-                "privacyPolicy.p1": "خصوصيتك مهمة لنا. توضح سياسة الخصوصية هذه كيف يقوم مركز نجد التجاري ('نحن'، 'لنا'، أو 'خاصتنا') بجمع واستخدام والكشف عن وحماية معلوماتك عند زيارتك لموقعنا الإلكتروني najdcommercialhub.ma ('الموقع'). يرجى قراءة سياسة الخصوصية هذه بعناية. إذا كنت لا توافق على شروط سياسة الخصوصية هذه، فيرجى عدم الوصول إلى الموقع.",
+                "privacyPolicy.lastUpdated": "آخر تحديث: [REPLACE_DATE]",
+                "privacyPolicy.closeButtonLabel": "إغلاق سياسة الخصوصية",
+                "privacyPolicy.p1": "خصوصيتك تهمنا. توضح سياسة الخصوصية هذه كيف يقوم مركز نجد التجاري ('نحن'، 'لنا'، أو 'خاصتنا') بجمع واستخدام والكشف عن وحماية معلوماتك عند زيارتك لموقعنا الإلكتروني najdcommercialhub.ma ('الموقع'). يرجى قراءة سياسة الخصوصية هذه بعناية. إذا كنت لا توافق على شروط سياسة الخصوصية هذه، فيرجى عدم الوصول إلى الموقع.",
                 "privacyPolicy.p2.title": "جمع معلوماتك",
-                "privacyPolicy.p2.content": "قد نجمع معلومات عنك بطرق متنوعة. تشمل المعلومات التي قد نجمعها على الموقع معلومات التعريف الشخصية، مثل اسمك وعنوان بريدك الإلكتروني ورقم هاتفك، والمعلومات الديموغرافية، مثل شركتك أو نوع اهتمامك، التي تقدمها لنا طواعية عند ملء نموذج الاتصال.",
+                "privacyPolicy.p2.content": "قد نجمع معلومات عنك بعدة طرق. تتضمن المعلومات التي قد نجمعها على الموقع معلومات التعريف الشخصية، مثل اسمك وعنوان بريدك الإلكتروني ورقم هاتفك، والمعلومات الديموغرافية، مثل شركتك أو نوع اهتمامك، التي تقدمها لنا طواعية عند ملء نموذج الاتصال.",
                 "privacyPolicy.p3.title": "استخدام معلوماتك",
-                "privacyPolicy.p3.content": "يتيح لنا الحصول على معلومات دقيقة عنك تزويدك بتجربة سلسة وفعالة ومخصصة. على وجه التحديد، قد نستخدم المعلومات التي تم جمعها عنك عبر الموقع من أجل: الرد على استفساراتك وتقديم الدعم، وإرسال معلومات حول مشروعنا إليك، وتجميع بيانات إحصائية مجهولة للاستخدام الداخلي أو لأطراف ثالثة، وطلب الدعم للمشروع.",
+                "privacyPolicy.p3.content": "إن امتلاك معلومات دقيقة عنك يسمح لنا بتزويدك بتجربة سلسة وفعالة ومخصصة. على وجه التحديد، قد نستخدم المعلومات التي تم جمعها عنك عبر الموقع من أجل: الرد على استفساراتك وتقديم الدعم، وإرسال معلومات حول مشروعنا إليك، وتجميع بيانات إحصائية مجهولة المصدر للاستخدام الداخلي أو لأطراف ثالثة، وطلب الدعم للمشروع.",
                 "privacyPolicy.p4.title": "الكشف عن معلوماتك",
                 "privacyPolicy.p4.content": "قد نشارك المعلومات التي جمعناها عنك في مواقف معينة. قد يتم الكشف عن معلوماتك على النحو التالي: بموجب القانون أو لحماية الحقوق. إذا كنا نعتقد أن الكشف عن معلوماتك ضروري للرد على الإجراءات القانونية، أو للتحقيق في الانتهاكات المحتملة لسياساتنا أو معالجتها، أو لحماية حقوق وملكية وسلامة الآخرين، فقد نشارك معلوماتك على النحو المسموح به أو المطلوب بموجب أي قانون أو قاعدة أو لائحة معمول بها.",
                 "privacyPolicy.p5.title": "أمن معلوماتك",
-                "privacyPolicy.p5.content": "نحن نستخدم تدابير أمنية إدارية وتقنية ومادية للمساعدة في حماية معلوماتك الشخصية. بينما اتخذنا خطوات معقولة لتأمين المعلومات الشخصية التي تقدمها لنا، يرجى العلم أنه على الرغم من جهودنا، لا توجد تدابير أمنية مثالية أو لا يمكن اختراقها، ولا يمكن ضمان أي طريقة لنقل البيانات ضد أي اعتراض أو أي نوع آخر من سوء الاستخدام.",
+                "privacyPolicy.p5.content": "نحن نستخدم تدابير أمنية إدارية وتقنية ومادية للمساعدة في حماية معلوماتك الشخصية. بينما اتخذنا خطوات معقولة لتأمين المعلومات الشخصية التي تقدمها لنا، يرجى العلم أنه على الرغم من جهودنا، لا توجد تدابير أمنية مثالية أو منيعة، ولا يمكن ضمان أي طريقة لنقل البيانات ضد أي اعتراض أو أي نوع آخر من سوء الاستخدام.",
                 "privacyPolicy.p6.title": "اتصل بنا",
                 "privacyPolicy.p6.content": "إذا كانت لديك أسئلة أو تعليقات حول سياسة الخصوصية هذه، فيرجى الاتصال بنا على: sales@najdcommercialhub.ma",
+
                 "termsOfUse.title": "شروط الاستخدام",
-                "termsOfUse.lastUpdated": "آخر تحديث: [تاريخ]",
+                "termsOfUse.lastUpdated": "آخر تحديث: [REPLACE_DATE]",
+                "termsOfUse.closeButtonLabel": "إغلاق شروط الاستخدام",
                 "termsOfUse.p1": "مرحبًا بك في موقع مركز نجد التجاري. من خلال الوصول إلى موقعنا أو استخدامه، فإنك توافق على الالتزام بشروط الاستخدام هذه وسياسة الخصوصية الخاصة بنا. إذا كنت لا توافق على هذه الشروط، فيرجى عدم استخدام موقعنا.",
                 "termsOfUse.p2.title": "استخدام الموقع",
-                "termsOfUse.p2.content": "المحتوى والمعلومات الواردة في هذا الموقع هي لمعلوماتك العامة واستخدامك فقط. وهي عرضة للتغيير دون إشعار. قد يؤدي الاستخدام غير المصرح به لهذا الموقع إلى مطالبة بالتعويض عن الأضرار و/أو يكون جريمة جنائية.",
+                "termsOfUse.p2.content": "المحتوى والمعلومات الواردة في هذا الموقع هي لمعلوماتك العامة واستخدامك فقط. وهي عرضة للتغيير دون إشعار. قد يؤدي الاستخدام غير المصرح به لهذا الموقع إلى مطالبة بالتعويض عن الأضرار و/أو أن يكون جريمة جنائية.",
                 "termsOfUse.p3.title": "الملكية الفكرية",
                 "termsOfUse.p3.content": "يحتوي هذا الموقع على مواد مملوكة لنا أو مرخصة لنا. تشمل هذه المواد، على سبيل المثال لا الحصر، التصميم والتخطيط والشكل والمظهر والرسومات. يحظر النسخ إلا وفقًا لإشعار حقوق النشر، الذي يشكل جزءًا من هذه الشروط والأحكام.",
                 "termsOfUse.p4.title": "إخلاء المسؤولية",
@@ -1183,49 +1479,94 @@
                 "termsOfUse.p6.title": "القانون الحاكم",
                 "termsOfUse.p6.content": "يخضع استخدامك لهذا الموقع وأي نزاع ينشأ عن هذا الاستخدام للموقع لقوانين المغرب.",
                 "termsOfUse.p7.title": "اتصل بنا",
-                "termsOfUse.p7.content": "إذا كانت لديك أي أسئلة حول شروط الاستخدام هذه، فيرجى الاتصال بنا على: sales@najdcommercialhub.ma"
+                "termsOfUse.p7.content": "إذا كانت لديك أي أسئلة حول شروط الاستخدام هذه، فيرجى الاتصال بنا على: sales@najdcommercialhub.ma",
+                // Inside translations.ar = {
+                // ... your existing Arabic translations ...
+
+                "locationSection.headline": "موقع متميز: حي نجد، مراكش",
+                "locationSection.mapCaption": "مركز نجد التجاري، حي نجد، مراكش",
+                "locationSection.p1": "يتمتع مركز نجد التجاري بموقع استراتيجي في حي نجد سريع التطور، وهو منطقة نمو رئيسية في مراكش.",
+                "locationSection.subhead1": "سهولة الوصول والربط",
+                "locationSection.list1.item1": "سهولة الوصول من الطرق الرئيسية بالمدينة.",
+                "locationSection.list1.item2": "قرب شديد من حي جليز النابض بالحياة.",
+                "locationSection.list1.item3": "تتوفر مواقف سيارات عامة مجاورة.",
+                "locationSection.list1.item4": "الاستفادة من التحسينات الأخيرة المعتمدة في البنية التحتية للطرق.",
+                "locationSection.subhead2": "المنطقة المحيطة",
+                "locationSection.p2": "يخدم المركز شبكة كثيفة من المناطق السكنية، مما يضمن تدفقًا ثابتًا للعملاء المحليين للمستأجرين. يوفر موقعه رؤية عالية وحضورًا تجاريًا قويًا داخل حي ديناميكي."
+                // ...
+            // };
+
             }
         };
         let currentLang = 'en';
 
         function getTranslation(key, lang = currentLang) {
-            return translations[lang]?.[key] || translations['en']?.[key] || key;
+            return translations[lang]?.[key] || translations['en']?.[key] || key; // Fallback to English then key itself
         }
-
+        // --- START: UPDATED updateTextContent FUNCTION (Phase 4) ---
         function updateTextContent() {
+            // console.log("Updating text for lang:", currentLang); // For debugging
+
+            // Translate elements with data-lang (for textContent)
             document.querySelectorAll('[data-lang]').forEach(el => {
                 const key = el.getAttribute('data-lang');
                 el.textContent = getTranslation(key);
             });
+
+            // Translate elements with data-placeholder-lang (for input placeholders)
             document.querySelectorAll('[data-placeholder-lang]').forEach(el => {
                 const key = el.getAttribute('data-placeholder-lang');
                 el.placeholder = getTranslation(key);
             });
 
+            // Translate elements with data-lang-aria-label (for aria-label attributes)
+            document.querySelectorAll('[data-lang-aria-label]').forEach(el => {
+                const key = el.getAttribute('data-lang-aria-label');
+                el.setAttribute('aria-label', getTranslation(key));
+            });
+
+            // Translate elements with data-alt-lang (for image alt text - if you decide to use it)
+            // document.querySelectorAll('[data-alt-lang]').forEach(el => {
+            //     const key = el.getAttribute('data-alt-lang');
+            //     el.alt = getTranslation(key);
+            // });
+
+            // Update dynamic elements like page title and meta description
             document.title = getTranslation(`seo.title`);
             const metaDesc = document.querySelector('meta[name="description"]');
-            if (metaDesc) metaDesc.content = getTranslation(`seo.description`);
+            if (metaDesc) {
+                metaDesc.content = getTranslation(`seo.description`);
+            }
 
+            // Update Copyright year
             const copyrightEl = document.getElementById('copyright-text');
             if (copyrightEl) {
-                 const year = new Date().getFullYear();
-                 let text = getTranslation('footer.copyright');
-                 if (text.includes('[Current Year]') || text.includes('[Année Actuelle]') || text.includes('[السنة الحالية]')) {
-                     text = text.replace(/\[Current Year\]|\[Année Actuelle\]|\[السنة الحالية\]/g, year);
-                 } else { // Fallback if placeholder missed
-                    text = `© ${year} ${text.replace(/©\s*\d{4}\s*/, '')}`; // Try to preserve original text part
-                 }
-                 copyrightEl.textContent = text;
+                const year = new Date().getFullYear();
+                let text = getTranslation('footer.copyright'); // Key example: "© [Current Year] Najd Commercial Hub..."
+                // Replace various year placeholders robustly
+                text = text.replace(/\[Current Year\]|\[Année Actuelle\]|\[السنة الحالية\]|© \d{4}/g, `© ${year}`);
+                copyrightEl.textContent = text;
             }
-            // Update date placeholders in legal sections
+
+            // Update "[REPLACE_DATE]" in legal sections
+            // IMPORTANT: Define your actual policy update date here or fetch it dynamically if needed.
+            const actualPolicyUpdateDate = "April 27, 2025"; // <<-- EXAMPLE: SET YOUR ACTUAL DATE HERE
+
             document.querySelectorAll('.legal-section em[data-lang$=".lastUpdated"]').forEach(el => {
-                const key = el.getAttribute('data-lang');
-                let text = getTranslation(key);
-                // Replace [Date] with a more dynamic or fixed date if needed. For now, just placeholder.
-                // text = text.replace('[Date]', 'October 26, 2023'); // Example
+                let text = getTranslation(el.getAttribute('data-lang')); // e.g., "Last Updated: [REPLACE_DATE]"
+                text = text.replace('[REPLACE_DATE]', actualPolicyUpdateDate);
                 el.textContent = text;
             });
         }
+        // --- END: UPDATED updateTextContent FUNCTION (Phase 4) ---
+                // Add SEO translation keys (example - expand these in the translations object)
+        translations.en['seo.title'] = "Najd Commercial Hub: Prime Wholesale Real Estate Investment Marrakech";
+        translations.en['seo.description'] = "Acquire Najd Commercial Hub – 14 units in Marrakech. High yield (~7.75%), value-add potential. Turnkey wholesale real estate investment.";
+        translations.fr['seo.title'] = "Najd Commercial Hub : Investissement Immobilier Commercial de Gros à Marrakech";
+        translations.fr['seo.description'] = "Acquérez Najd Commercial Hub – 14 unités à Marrakech. Rendement élevé (~7,75%), potentiel de valorisation. Investissement immobilier de gros clé en main.";
+        translations.ar['seo.title'] = "مركز نجد التجاري: استثمار عقاري تجاري بالجملة في مراكش";
+        translations.ar['seo.description'] = "امتلك مركز نجد التجاري – 14 وحدة في مراكش. عائد مرتفع (~7.75%)، إمكانات قيمة مضافة. استثمار عقاري بالجملة جاهز للاستلام.";
+
 
         function setLanguage(lang) {
             currentLang = lang;
@@ -1237,11 +1578,14 @@
                 document.body.classList.remove('rtl');
             }
             updateTextContent();
-            updateSchemaOrgMarkup(lang);
+            updateSchemaOrgMarkup(lang); // Update schema with new language
 
+            // Update active class on switcher
             document.querySelectorAll('.lang-option').forEach(opt => {
                 opt.classList.toggle('active', opt.getAttribute('data-lang-code') === lang);
             });
+
+            // GTM event for language change
             trackGtmEvent('language_changed', { language_selected: lang });
         }
 
@@ -1251,7 +1595,83 @@
                 setLanguage(e.target.getAttribute('data-lang-code'));
             });
         });
+        // --- START: MOBILE MENU TOGGLE JAVASCRIPT (Phase 2) ---
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenuPanel = document.querySelector('.mobile-menu-panel');
 
+        if (mobileMenuToggle && mobileMenuPanel) { // Ensure elements exist
+            const hamburgerIcon = mobileMenuToggle.querySelector('.fa-bars');
+            const closeIcon = mobileMenuToggle.querySelector('.fa-times');
+
+            mobileMenuToggle.addEventListener('click', () => {
+                const isOpen = mobileMenuPanel.classList.toggle('open');
+                mobileMenuToggle.setAttribute('aria-expanded', isOpen.toString()); // Ensure string value
+
+                if (hamburgerIcon && closeIcon) { 
+                    hamburgerIcon.style.display = isOpen ? 'none' : 'inline';
+                    closeIcon.style.display = isOpen ? 'inline' : 'none';
+                }
+            });
+
+            // Optional: Close menu when a link inside it is clicked (good for single-page anchors)
+            mobileMenuPanel.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    // Only close if it's truly a link meant to navigate or trigger action within the page
+                    // and not, for example, a language switcher link that just changes language.
+                    // For simplicity now, we'll close on any 'a' click within the panel.
+                    if (mobileMenuPanel.classList.contains('open')) {
+                        mobileMenuPanel.classList.remove('open');
+                        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                        if (hamburgerIcon && closeIcon) { 
+                        hamburgerIcon.style.display = 'inline';
+                        closeIcon.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        }
+        // --- END: MOBILE MENU TOGGLE JAVASCRIPT (Phase 2) ---
+                // --- START: LEGAL SECTIONS TOGGLE JAVASCRIPT (Phase 3) ---
+        const legalLinks = document.querySelectorAll('.legal-link');
+        const closeLegalButtons = document.querySelectorAll('.close-legal-section');
+
+        legalLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default anchor jump
+                const targetId = link.getAttribute('data-target');
+                const targetSection = document.getElementById(targetId);
+
+                if (targetSection) {
+                    // Hide all other legal sections first
+                    document.querySelectorAll('.legal-section').forEach(sec => {
+                        if (sec.id !== targetId) {
+                            sec.style.display = 'none';
+                        }
+                    });
+                    // Toggle the target section
+                    const isVisible = targetSection.style.display === 'block';
+                    targetSection.style.display = isVisible ? 'none' : 'block';
+
+                    if (!isVisible) {
+                        // updateTextContent(); // Call this to ensure content is translated when shown
+                                            // We will refine this in Phase 4 to ensure it's called correctly
+                        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+
+        closeLegalButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const targetId = button.getAttribute('data-target');
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.style.display = 'none';
+                }
+            });
+        });
+        // --- END: LEGAL SECTIONS TOGGLE JAVASCRIPT (Phase 3) ---
+        // --- Contact Form Modal ---
         const modal = document.getElementById('contactModal');
         const closeModalButton = document.querySelector('.close-modal');
         const openModalButtons = document.querySelectorAll('.open-form-modal');
@@ -1261,32 +1681,46 @@
         const formSubmitButton = document.getElementById('formSubmitButton');
         const submitAnotherButton = document.getElementById('submitAnother');
 
+
         function openModal(interestType = 'wholesale') {
             document.getElementById('interestType').value = interestType;
             formStatusMessageEl.style.display = 'none';
-            formStatusMessageEl.className = 'form-status-message';
+            formStatusMessageEl.className = 'form-status-message'; // Reset classes
             contactForm.style.display = 'block';
             formSuccessMessageEl.style.display = 'none';
-            contactForm.reset();
+            contactForm.reset(); // Clear form
             modal.style.display = 'block';
+            // Update form title if needed based on interest, or keep generic
             document.getElementById('form-title').textContent = getTranslation('form.title');
         }
-        function closeModal() { modal.style.display = 'none'; }
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
         openModalButtons.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 const specificInterest = e.target.dataset.interestType;
-                openModal(specificInterest || 'wholesale');
+                openModal(specificInterest || 'wholesale'); // Default to wholesale if not specified
             });
         });
         closeModalButton.addEventListener('click', closeModal);
-        window.addEventListener('click', (event) => { if (event.target == modal) closeModal(); });
-        submitAnotherButton.addEventListener('click', () => { openModal(); });
+        window.addEventListener('click', (event) => {
+            if (event.target == modal) {
+                closeModal();
+            }
+        });
+        submitAnotherButton.addEventListener('click', () => {
+            openModal(); // Re-open with default settings
+        });
 
+
+        // --- Form Handling ---
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             formSubmitButton.disabled = true;
-            formSubmitButton.textContent = getTranslation('form.submitting');
+            formSubmitButton.textContent = getTranslation('form.submitting') || 'Submitting...'; // Add 'form.submitting' to translations
 
             const formData = {
                 name: document.getElementById('name').value.trim(),
@@ -1297,108 +1731,303 @@
                 message: document.getElementById('message').value.trim(),
             };
 
+            formStatusMessageEl.style.display = 'none'; // Hide any previous status/error message
+            formStatusMessageEl.textContent = '';     // Clear its content
+            formStatusMessageEl.className = 'form-status-message'; // Reset classes
+            
+            // Basic Validation
             if (!formData.name || !formData.email || !formData.phone) {
                 showFormStatus(getTranslation('form.error.requiredFields'), 'error');
-                trackGtmEvent('form_error', { event_category: 'form_interaction', event_label: 'Validation Error - Required Fields', error_message: getTranslation('form.error.requiredFields') });
-                formSubmitButton.disabled = false; formSubmitButton.textContent = getTranslation('form.submitButton'); return;
+                trackGtmEvent('form_error', {
+                    event_category: 'form_interaction',
+                    event_label: 'Validation Error - Required Fields',
+                    error_message: getTranslation('form.error.requiredFields')
+                });
+                formSubmitButton.disabled = false;
+                formSubmitButton.textContent = getTranslation('form.submitButton');
+                return;
             }
             if (!isValidEmail(formData.email)) {
-                showFormStatus(getTranslation('form.error.invalidEmail'), 'error');
-                trackGtmEvent('form_error', { event_category: 'form_interaction', event_label: 'Validation Error - Invalid Email', error_message: getTranslation('form.error.invalidEmail') });
-                formSubmitButton.disabled = false; formSubmitButton.textContent = getTranslation('form.submitButton'); return;
+                 showFormStatus(getTranslation('form.error.invalidEmail') || 'Please enter a valid email address.', 'error'); // Add 'form.error.invalidEmail'
+                trackGtmEvent('form_error', {
+                    event_category: 'form_interaction',
+                    event_label: 'Validation Error - Invalid Email',
+                    error_message: getTranslation('form.error.invalidEmail') || 'Invalid Email'
+                });
+                formSubmitButton.disabled = false;
+                formSubmitButton.textContent = getTranslation('form.submitButton');
+                return;
             }
 
-            trackGtmEvent('generate_lead', { event_category: 'conversion', event_label: formData.interestType, value: formData.interestType === 'wholesale' ? 1 : (formData.interestType === 'individual' ? 0.5 : 0.25) });
+            // Track conversion BEFORE submission attempt
+            trackGtmEvent('generate_lead', {
+                event_category: 'conversion',
+                event_label: formData.interestType, // 'wholesale' or 'individual'
+                value: formData.interestType === 'wholesale' ? 1 : (formData.interestType === 'individual' ? 0.5 : 0.25) // Assign value
+                // You can add more lead data here if GTM is configured for it
+            });
             
+            // --- Simulate Form Submission (Replace with actual fetch to /api/submit-form) ---
             try {
-                await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate submission
+                // const response = await fetch('/api/submit-form', { // Your actual API endpoint
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify(formData),
+                // });
+                // if (!response.ok) {
+                //     const errorData = await response.json().catch(() => ({})); // Try to parse error
+                //     throw new Error(errorData.error || getTranslation('form.error.submission'));
+                // }
+                // const result = await response.json();
+
+                // Simulate success after 1 second
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                // console.log('Simulated submission success:', formData);
+                
                 contactForm.style.display = 'none';
                 formSuccessMessageEl.style.display = 'block';
                 document.getElementById('form-success-text-placeholder').textContent = getTranslation('form.success');
+
+                // Clear form (already done by reset on openModal, but good practice)
                 contactForm.reset();
+
+                // For Meta Pixel Lead tracking (if not done via GTM)
+                // if (typeof fbq === 'function') { fbq('track', 'Lead'); }
+                // For LinkedIn Lead tracking (if conversion ID is known and not done via GTM)
+                // if (typeof window.lintrk === 'function') { window.lintrk('track', { conversion_id: YOUR_LINKEDIN_CONVERSION_ID }); }
+
+
             } catch (error) {
+                // console.error('Simulated submission error:', error);
                 showFormStatus(error.message || getTranslation('form.error.submission'), 'error');
-                trackGtmEvent('form_error', { event_category: 'form_interaction', event_label: 'Submission Error', error_message: error.message || getTranslation('form.error.submission') });
+                trackGtmEvent('form_error', {
+                    event_category: 'form_interaction',
+                    event_label: 'Submission Error',
+                    error_message: error.message || getTranslation('form.error.submission')
+                });
             } finally {
-                formSubmitButton.disabled = false; formSubmitButton.textContent = getTranslation('form.submitButton');
+                formSubmitButton.disabled = false;
+                formSubmitButton.textContent = getTranslation('form.submitButton');
             }
         });
-        function showFormStatus(message, type = 'info') {
+        
+        function showFormStatus(message, type = 'info') { // type can be 'success' or 'error'
             formStatusMessageEl.textContent = message;
-            formStatusMessageEl.className = `form-status-message form-${type}`;
+            formStatusMessageEl.className = `form-status-message form-${type}`; // e.g. form-success or form-error
             formStatusMessageEl.style.display = 'block';
         }
-        function isValidEmail(email) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); }
 
-        const legalLinks = document.querySelectorAll('.legal-link');
-        const closeLegalButtons = document.querySelectorAll('.close-legal-section');
-        legalLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('data-target');
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    document.querySelectorAll('.legal-section').forEach(sec => {
-                        if (sec.id !== targetId) sec.style.display = 'none';
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // --- GTM Field Interaction Tracking (Optional) ---
+        // Add to input/select on 'blur' or 'change' if needed
+        // Example: document.getElementById('name').addEventListener('blur', (e) => trackFormFieldChange(e.target.name, e.target.value !== ''));
+        function trackFormFieldChange(fieldName, completed) {
+            trackGtmEvent('form_field_interaction', {
+                event_category: 'form_interaction',
+                fieldName: fieldName,
+                fieldStatus: completed ? 'completed' : 'started'
+            });
+        }
+        
+        // --- Intersection Observer for Section Visibility (Optional Example) ---
+        /*
+        const sectionsToObserve = document.querySelectorAll('section[id]'); // Observe sections with an ID
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    trackGtmEvent('section_visible', { 
+                        event_category: 'engagement',
+                        sectionId: entry.target.id,
+                        event_label: `Section ${entry.target.id} visible`
                     });
-                    const isVisible = targetSection.style.display === 'block';
-                    targetSection.style.display = isVisible ? 'none' : 'block';
-                    if (!isVisible) {
-                        updateTextContent(); // Ensure content is translated
-                        targetSection.scrollIntoView({ behavior: 'smooth' });
-                    }
+                    // observer.unobserve(entry.target); // Optional: stop observing after first visibility
                 }
             });
-        });
-        closeLegalButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                const targetId = button.getAttribute('data-target');
-                document.getElementById(targetId).style.display = 'none';
-            });
-        });
+        }, { threshold: 0.5 }); // Trigger when 50% of the section is visible
 
+        sectionsToObserve.forEach(section => sectionObserver.observe(section));
+        */
+
+        // --- Schema.org JSON-LD ---
         function updateSchemaOrgMarkup(lang) {
             const baseUrl = "https://najdcommercialhub.ma";
             const currentUrl = `${baseUrl}/${lang}/wholesale/`;
             const year = new Date().getFullYear();
 
-            document.getElementById('schema-organization').textContent = JSON.stringify({
-                "@context": "https://schema.org", "@type": "Organization", "name": "Najd Commercial Hub", "url": baseUrl, "logo": `${baseUrl}/images/Najd_Logo_Final.svg`,
-                "contactPoint": { "@type": "ContactPoint", "telephone": "+212779494766", "contactType": "Sales", "email": "sales@najdcommercialhub.ma", "areaServed": "MA", "availableLanguage": ["en", "fr", "ar"] },
-                "address": { "@type": "PostalAddress", "streetAddress": "Hay Najd", "addressLocality": "Marrakech", "addressRegion": "Marrakech-Safi", "postalCode": "40000", "addressCountry": "MA" }
-            });
-            document.getElementById('schema-website').textContent = JSON.stringify({
-                "@context": "https://schema.org", "@type": "WebSite", "url": baseUrl, "name": "Najd Commercial Hub", 
-                "potentialAction": { "@type": "SearchAction", "target": `${baseUrl}/search?q={search_term_string}`, "query-input": "required name=search_term_string" }, "inLanguage": lang
-            });
-            document.getElementById('schema-realestatelisting').textContent = JSON.stringify({
-                "@context": "https://schema.org", "@type": "RealEstateListing", "name": getTranslation("hero.headline", lang), "description": getTranslation("hero.subheadline", lang), "url": currentUrl,
-                "image": `${baseUrl}/images/Najd_Exterior_Hero_Wholesale.jpg`, "datePosted": "2024-01-01", "validThrough": `${year + 1}-12-31`, "realEstateType": "Commercial", "numberOfUnits": 14,
-                "propertyType": "CommercialComplex", "yearBuilt": 2023, "valueAddedServices": ["Mezzanine Potential", "Turnkey Investment"],
-                "amenityFeature": [ { "@type": "LocationFeatureSpecification", "name": "Ceiling Height", "value": "5.4m (GF shops)"}, { "@type": "LocationFeatureSpecification", "name": "Underground Loft Size", "value": "322 sqm"} ],
-                "location": { "@type": "Place", "name": "Najd Commercial Hub", "address": { "@type": "PostalAddress", "streetAddress": "Hay Najd", "addressLocality": "Marrakech", "addressRegion": "Marrakech-Safi", "postalCode": "40000", "addressCountry": "MA" }, "geo": { "@type": "GeoCoordinates", "latitude": "31.6295", "longitude": "-7.9811" } },
-                "offers": { "@type": "Offer", "priceCurrency": "MAD", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "12000000", "priceCurrency": "MAD", "unitText": "whole asset" }, "availability": "https://schema.org/InStock", "seller": { "@type": "Organization", "name": "Najd Commercial Hub" } }
-            });
-            document.getElementById('schema-localbusiness').textContent = JSON.stringify({
-                "@context": "https://schema.org", "@type": "RealEstateAgent", "name": "Najd Commercial Hub", "image": `${baseUrl}/images/Najd_Logo_Final.svg`, "url": baseUrl, "telephone": "+212779494766", "email": "sales@najdcommercialhub.ma",
-                "address": JSON.parse(document.getElementById('schema-organization').textContent).address, "geo": JSON.parse(document.getElementById('schema-realestatelisting').textContent).location.geo, "priceRange": "Contact for details",
-                "openingHoursSpecification": [ { "@type": "OpeningHoursSpecification", "dayOfWeek": [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" ], "opens": "09:00", "closes": "18:00" } ]
-            });
-            document.getElementById('schema-faqpage').textContent = JSON.stringify({
-                "@context": "https://schema.org", "@type": "FAQPage",
-                "mainEntity": [
-                    { "@type": "Question", "name": getTranslation("faq.q1.question", lang), "acceptedAnswer": { "@type": "Answer", "text": getTranslation("faq.q1.answer", lang) } },
-                    { "@type": "Question", "name": getTranslation("faq.q2.question", lang), "acceptedAnswer": { "@type": "Answer", "text": getTranslation("faq.q2.answer", lang) } },
-                    { "@type": "Question", "name": getTranslation("faq.q3.question", lang), "acceptedAnswer": { "@type": "Answer", "text": getTranslation("faq.q3.answer", lang) } }
+            const organizationSchema = {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Najd Commercial Hub",
+                "url": baseUrl,
+                "logo": `${baseUrl}/images/Najd_Logo_Final.svg`, // or .png
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "telephone": "+212779494766",
+                    "contactType": "Sales",
+                    "email": "sales@najdcommercialhub.ma",
+                    "areaServed": "MA", // Morocco
+                    "availableLanguage": ["en", "fr", "ar"]
+                },
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Hay Najd", // Be more specific if possible
+                    "addressLocality": "Marrakech",
+                    "addressRegion": "Marrakech-Safi",
+                    "postalCode": "40000", // Example, use actual
+                    "addressCountry": "MA"
+                }
+            };
+            document.getElementById('schema-organization').textContent = JSON.stringify(organizationSchema);
+
+            const websiteSchema = {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "url": baseUrl,
+                "name": "Najd Commercial Hub",
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": `${baseUrl}/search?q={search_term_string}`,
+                    "query-input": "required name=search_term_string"
+                },
+                "inLanguage": lang
+            };
+            document.getElementById('schema-website').textContent = JSON.stringify(websiteSchema);
+
+            const realEstateListingSchema = {
+                "@context": "https://schema.org",
+                "@type": "RealEstateListing",
+                "name": getTranslation("hero.headline", lang),
+                "description": getTranslation("hero.subheadline", lang),
+                "url": currentUrl,
+                "image": `${baseUrl}/images/Najd_Exterior_Hero_Wholesale.jpg`,
+                "datePosted": "2024-01-01", // Update with actual posting date
+                "validThrough": `${year + 1}-12-31`, // Example validity
+                "realEstateType": "Commercial",
+                "numberOfUnits": 14, // Total units in the wholesale package
+                "propertyType": "CommercialComplex",
+                "yearBuilt": 2023, // Or actual year
+                "valueAddedServices": ["Mezzanine Potential", "Turnkey Investment"],
+                "amenityFeature": [
+                    { "@type": "LocationFeatureSpecification", "name": "Ceiling Height", "value": "5.4m (GF shops)"},
+                    { "@type": "LocationFeatureSpecification", "name": "Underground Loft Size", "value": "322 sqm"},
+                    { "@type": "LocationFeatureSpecification", "name": "Proximity to Gueliz"},
+                    { "@type": "LocationFeatureSpecification", "name": "Adjacent Public Parking"}
+                ],
+                "location": {
+                    "@type": "Place",
+                    "name": "Najd Commercial Hub",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "streetAddress": "Hay Najd", // Specific address
+                        "addressLocality": "Marrakech",
+                        "addressRegion": "Marrakech-Safi",
+                        "postalCode": "40000", // Use actual
+                        "addressCountry": "MA"
+                    },
+                    "geo": { // Use actual coordinates
+                        "@type": "GeoCoordinates",
+                        "latitude": "31.6295", // Example for Marrakech
+                        "longitude": "-7.9811" // Example for Marrakech
+                    }
+                },
+                "offers": {
+                    "@type": "Offer",
+                    "priceCurrency": "MAD",
+                    "priceSpecification": {
+                        "@type": "UnitPriceSpecification",
+                        "price": "1x000000", // Example ~~1x Million MAD for wholesale
+                        "priceCurrency": "MAD",
+                        "unitText": "whole asset"
+                    },
+                    "availability": "https://schema.org/InStock", // Or ForSale
+                    "seller": {
+                        "@type": "Organization",
+                        "name": "Najd Commercial Hub"
+                    }
+                }
+                // You can add "LeaseOrSell": "Sell" or similar if needed
+            };
+            document.getElementById('schema-realestatelisting').textContent = JSON.stringify(realEstateListingSchema);
+
+            const localBusinessSchema = {
+                "@context": "https://schema.org",
+                "@type": "RealEstateAgent", // Or "Developer" or "LocalBusiness"
+                "name": "Najd Commercial Hub",
+                "image": `${baseUrl}/images/Najd_Logo_Final.svg`,
+                "url": baseUrl,
+                "telephone": "+212779494766",
+                "email": "sales@najdcommercialhub.ma",
+                "address": organizationSchema.address, // Reuse from Organization
+                "geo": realEstateListingSchema.location.geo, // Reuse from Listing
+                "priceRange": "Contact for details", // Or specific if known
+                "openingHoursSpecification": [ // Example
+                    {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": [
+                            "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"
+                        ],
+                        "opens": "09:00",
+                        "closes": "18:00"
+                    }
                 ]
-            });
+            };
+            document.getElementById('schema-localbusiness').textContent = JSON.stringify(localBusinessSchema);
+
+             const faqPageSchema = {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": getTranslation("faq.q1.question", lang),
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": getTranslation("faq.q1.answer", lang)
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": getTranslation("faq.q2.question", lang),
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": getTranslation("faq.q2.answer", lang)
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": getTranslation("faq.q3.question", lang),
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": getTranslation("faq.q3.answer", lang)
+                        }
+                    }
+                ]
+            };
+            document.getElementById('schema-faqpage').textContent = JSON.stringify(faqPageSchema);
         }
 
+
+        // --- Initialize Page ---
         document.addEventListener('DOMContentLoaded', () => {
             const initialLang = localStorage.getItem('preferredLang') || navigator.language.split('-')[0] || 'en';
-            setLanguage(translations[initialLang] ? initialLang : 'en');
+            if (translations[initialLang]) {
+                 setLanguage(initialLang);
+            } else {
+                setLanguage('en'); // Default to English if stored/browser lang not supported
+            }
+            // Update Schema.org on load
+            updateSchemaOrgMarkup(currentLang); 
         });
-        window.addEventListener('beforeunload', () => { localStorage.setItem('preferredLang', currentLang); });
+
+        // Store language preference
+        window.addEventListener('beforeunload', () => {
+            localStorage.setItem('preferredLang', currentLang);
+        });
+
     </script>
 </body>
 </html>
