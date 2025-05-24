@@ -633,8 +633,8 @@
 <header class="site-header">
     <div class="container">
         <div class="site-logo">
-            <a href="#"><img src="images/Najd_Logo_Concept.png" alt="Najd Commercial Hub Logo" id="logo-img"></a>
-            <!-- <a href="#"><img src="images/Najd_Logo_Final.svg" alt="Najd Commercial Hub Logo" id="logo-img"></a> -->
+            <!-- <a href="#"><img src="images/Najd_Logo_Concept.png" alt="Najd Commercial Hub Logo" id="logo-img"></a> -->
+            <a href="#"><img src="images/Najd_Logo_Final.svg" alt="Najd Commercial Hub Logo" id="logo-img" style="width: 150px; height: 150px;"></a>
             <!-- Consider data-alt-lang="logo.alt" if you added it to translations -->
         </div>
 
@@ -688,7 +688,7 @@
             </picture>
             <div class="container">
                 <h1 data-lang="hero.headline">Unlock Marrakech's Prime Wholesale Real Estate: Acquire Najd Commercial Hub – 14 Units, High Yield & Value-Add Potential.</h1>
-                <p class="subheadline" data-lang="hero.subheadline">A brand-new, 14-unit commercial center in booming Hay Najd, Marrakech. Turnkey investment offering ~7.75% Net Yield Potential & significant growth through mezzanine development.</p>
+                <p class="subheadline" data-lang="hero.subheadline">A brand-new, 14-unit commercial center in booming Hay Najd, Marrakech. Turnkey investment offering minimum ~7.75% Net Yield.</p>
                 <button class="btn btn-primary btn-large open-form-modal" data-lang="hero.ctaPrimary">Request Full Investment Portfolio</button>
                 <div class="trust-badge" data-lang="hero.trustBadge">Newly Completed | All Legal Documents Ready</div>
             </div>
@@ -759,6 +759,15 @@
                             <p><strong data-lang="solution.benefit.benefit">Benefit:</strong> <span data-lang="solution.benefit5.benefitText">Invest with confidence and achieve faster break-even on your turnkey asset.</span></p>
                         </div>
                     </div>
+                                        <!-- Add this new benefit item within the .benefits-grid -->
+                    <div class="benefit-item">
+                        <i class="fas fa-layer-group benefit-icon"></i> <!-- Font Awesome: layers, stacking, building up -->
+                        <div>
+                            <h4 data-lang="solution.benefitVertical.featureTitle"></h4>
+                            <p><strong data-lang="solution.benefit.advantage">Advantage:</strong> <span data-lang="solution.benefitVertical.advantageText"></span></p>
+                            <p><strong data-lang="solution.benefit.benefit">Benefit:</strong> <span data-lang="solution.benefitVertical.benefitText"></span></p>
+                        </div>
+                    </div>
                 </div>
                  <!-- Optional ROI Table Snippet -->
                 <div class="text-center" style="margin-top:30px; padding:15px; border:1px solid var(--primary-color); border-radius:5px; background:white;">
@@ -766,6 +775,8 @@
                     <p data-lang="solution.roiSnippet.purchase">Purchase Price: ~~1x Million MAD</p>
                     <p data-lang="solution.roiSnippet.initialYield">Est. Initial Net Yield: ~7.75%</p>
                     <p data-lang="solution.roiSnippet.potentialYield">Est. Potential Net Yield (with Mezzanines): ~9.05%</p>
+                    <!-- ADD THIS NEW LINE BELOW -->
+                    <p data-lang="solution.roiSnippet.potentialYieldPlusFloors"></p>
                 </div>
             </div>
         </section>
@@ -778,7 +789,7 @@
                     <figure class="gallery-item">
                         <picture>
                             <source srcset="images/Najd_Photo_Exterior_Wide.webp" type="image/webp">
-                            <img src="images/Najd_Photo_Exterior_Wide.jpg" alt="Full Building Facade - 14 Units" loading="lazy">
+                            <img src="images/Najd_Photo_Exterior_Wide.jpg" alt="Full Building Facade" loading="lazy">
                         </picture>
                         <figcaption data-lang="gallery.caption1">Full Building Facade - 14 Units</figcaption>
                     </figure>
@@ -882,6 +893,25 @@
                     <h3 data-lang="faq.q3.question">What is the total size and composition of the wholesale offer?</h3>
                     <p data-lang="faq.q3.answer">The wholesale offer includes the entire Najd Commercial Hub, comprising 14 units: 13 ground floor shops (all with 5.4m ceilings ready for mezzanines) and 1 unique 322sqm underground loft package.</p>
                 </div>
+                <div class="faq-item">
+                    <h3 data-lang="faq.q4.question"></h3>
+                    <p data-lang="faq.q4.answer"></p>
+                </div>
+                <div class="faq-item">
+                    <h3 data-lang="faq.q5.question"></h3>
+                    <p data-lang="faq.q5.answer"></p>
+                </div>
+                <!-- ADD FAQ 6 -->
+<div class="faq-item">
+    <h3 data-lang="faq.q6.question"></h3>
+    <p data-lang="faq.q6.answer"></p>
+</div>
+
+<!-- ADD FAQ 7 -->
+<div class="faq-item">
+    <h3 data-lang="faq.q7.question"></h3>
+    <p data-lang="faq.q7.answer"></p>
+</div>
             </div>
         </section>
 
@@ -1032,7 +1062,7 @@
                 <!-- <a href="#" target="_blank" data-lang-aria-label="footer.facebookAriaLabel"><i class="fab fa-facebook-f"></i></a> -->
             </div>
             <!-- END: MODIFIED FOOTER SOCIAL ICON (Phase 4) -->
-            <p id="copyright-text" data-lang="footer.copyright">© 2024 Najd Commercial Hub. All Rights Reserved.</p>
+            <p id="copyright-text" data-lang="footer.copyright">© 2025 Najd Commercial Hub. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -1088,9 +1118,11 @@
                 "solution.benefit5.advantageText": "Smooth, fast transaction process with reduced legal complexities.",
                 "solution.benefit5.benefitText": "Invest with confidence and achieve faster break-even on your turnkey asset.",
                 "solution.roiSnippet.title": "Simplified Wholesale ROI Scenario:",
-                "solution.roiSnippet.purchase": "Purchase Price: ~~1x Million MAD",
+                "solution.roiSnippet.purchase": "Purchase Price: ~1x Million MAD",
                 "solution.roiSnippet.initialYield": "Est. Initial Net Yield (Conservative): ~7.75%",
                 "solution.roiSnippet.potentialYield": "Est. Potential Net Yield (with Mezzanines): ~9.05%",
+                "solution.roiSnippet.potentialYieldPlusFloors": "Expected return with additional floors: Significantly higher (Details available upon request, subject to approval)",
+           
                 "gallery.headline": "Explore Najd Commercial Hub",
                 "gallery.caption1": "Full Building Facade - 14 Units",
                 "gallery.caption2": "Corner Unit Potential - Outdoor Space",
@@ -1098,7 +1130,8 @@
                 "gallery.caption4": "5.4m Ceilings - Mezzanine Ready",
                 "gallery.cta": "View Full Gallery & Floor Plans",
                 "trust.headline": "A Secure & Credible Investment in Marrakech",
-                "trust.textSnippet": "Najd Commercial Hub is a project by a private, experienced developer, committed to quality construction and transparent dealings. All transactions are handled by licensed Moroccan notaries, ensuring full legal security.",
+                // "trust.textSnippet": "Najd Commercial Hub is a project by a private, experienced developer, committed to quality construction and transparent dealings. All transactions are handled by licensed Moroccan notaries, ensuring full legal security.",
+                "trust.textSnippet": "Najd Commercial Hub is a project by a private, experienced developer, committed to quality construction and transparent dealings. All transactions are handled by licensed Moroccan notaries, ensuring full legal security. To further support your investment success, optional post-sale assistance for project management and operations is also available (see FAQ or inquire for details).",
                 "trust.badge1": "Secure Notary Process",
                 "trust.badge2": "Modern Construction",
                 "trust.badge3": "\"As Built\" Certified (Aug/Nov 2024)",
@@ -1110,7 +1143,16 @@
                 "faq.q2.question": "Are all legal documents ready for the wholesale purchase?",
                 "faq.q2.answer": "Yes, the property is brand new with all legal documents (Title, Permits, Co-ownership Regulations, \"as-built\" certification) complete and ready for a smooth transaction.",
                 "faq.q3.question": "What is the total size and composition of the wholesale offer?",
-                "faq.q3.answer": "The wholesale offer includes the entire Najd Commercial Hub, comprising 14 units: 13 ground floor shops (all with 5.4m ceilings ready for mezzanines) and 1 unique 322sqm underground loft package.",
+                "faq.q3.answer": "The wholesale offer includes the entire Najd Commercial Hub, comprising 14 units: 13 ground floor shops (all with 5.4m ceilings ready for mezzanines) and 1 unique 322sqm underground loft. This expansive loft features a 4m ceiling height and offers a fully open-plan, unobstructed space, maximizing its versatility for various uses.",
+                "faq.q4.question": "Is it possible to add more floors to the building?",
+                "faq.q4.answer": "Yes, there is a strong potential for vertical expansion. Authorities may authorize the construction of one to two additional floors upon formal request and approval, offering a significant opportunity to increase the asset's value and rental capacity.",
+                "faq.q5.question": "Do you offer any support services after the property purchase?",
+                "faq.q5.answer": "Yes, we can offer optional post-sale support services to assist buyers. This can include rental management, oversight for mezzanine construction, and administrative support for processes like new floor approvals. These services are subject to a separate agreement and designed to help you maximize your investment with local expertise. Please inquire for more details.",
+                "faq.q6.question": "The property price is mentioned as '~1x Million MAD'. Can you provide more details?",
+"faq.q6.answer": "The '~1x Million MAD' indicates an indicative price range for the entire 14-unit wholesale acquisition. As a wholesale opportunity, the final price is subject to negotiation based on terms and specific buyer requirements. We encourage you to request the full investment portfolio for a detailed discussion and financial breakdown.",
+"faq.q7.question": "You mentioned mezzanine development and adding new floors. Are these related?",
+"faq.q7.answer": "These are two distinct value-add opportunities. The 13 ground floor shops have 5.4m high ceilings, ideal for internal mezzanine construction to increase individual unit space. The potential to add 1-2 entirely new floors to the building is a separate, larger-scale expansion that would further increase the overall leasable area and is subject to final regulatory approval.",
+
                 "individualUnits.headline": "Interested in Individual Shops?",
                 "individualUnits.text": "While our primary focus is the wholesale acquisition of Najd Commercial Hub, a limited number of individual units (shops from 660,000 MAD) are available for investors and businesses. These also feature 5.4m ceilings for mezzanine potential.",
                 "individualUnits.cta": "Inquire About Individual Units",
@@ -1200,17 +1242,20 @@
                 "locationSection.list1.item3": "Adjacent public parking facilities available.",
                 "locationSection.list1.item4": "Benefiting from recent verified road infrastructure improvements.",
                 "locationSection.subhead2": "Surrounding Area",
-                "locationSection.p2": "The hub serves a dense network of residential areas, ensuring a consistent flow of local customers for tenants. Its location offers high visibility and a strong commercial presence within a dynamic neighborhood."
+                "locationSection.p2": "The hub serves a dense network of residential areas, ensuring a consistent flow of local customers for tenants. Its location offers high visibility and a strong commercial presence within a dynamic neighborhood.",
+                // ... your existing English translations ...
 
-                // Make sure there's a comma before this if it's not the last key in en: {}
-            // };
+                "solution.benefitVertical.featureTitle": "Feature: Potential for Vertical Expansion (1-2 Additional Floors).",
+                "solution.benefitVertical.advantageText": "Authorities may authorize the addition of one to two extra floors upon request, significantly increasing total leasable area.",
+                "solution.benefitVertical.benefitText": "Substantially boost rental income and property valuation. (Note: Expansion subject to final regulatory approval)."
+                
 
             },
             fr: {
                             // Traductions françaises pour Centre Commercial Najd
                     // Navigation
                     "nav.investmentHighlights": "Points forts de l'investissement",
-                    "nav.theAsset": "L'Actif Immo",
+                    "nav.theAsset": "L'Actif ",
                     "nav.location": "Localisation",
                     "nav.contact": "Contact",
                     
@@ -1219,8 +1264,9 @@
                     "header.phoneLabel": "Téléphone :",
                     
                     // Hero Section
-                    "hero.headline": "Investissez dans l'immobilier commercial de prestige à Marrakech : Acquérez le Centre Commercial Najd – 14 unités, rendement élevé et fort potentiel de valorisation.",
-                    "hero.subheadline": "Un centre commercial flambant neuf de 14 unités dans le quartier en plein essor de Hay Najd, Marrakech – une ville de renommée internationale connue pour sa qualité de vie exceptionnelle et son attrait d'investissement. Investissement clé en main offrant un rendement net potentiel d'environ 7,75% et une croissance significative grâce au développement en mezzanine",
+                    "hero.headline": "À la recherche d'investissements immobiliers rentables et évolutifs? et de plus à Marrakech ?",
+                    // "hero.subheadline": "Un centre commercial flambant neuf de 14 unités dans le quartier en plein essor de Hay Najd, Marrakech – une ville de renommée internationale connue pour sa qualité de vie exceptionnelle et son attrait d'investissement. Investissement clé en main offrant un rendement net potentiel d'environ 7,75% et une croissance significative grâce au développement en mezzanine",
+                    "hero.subheadline": "Découvrez ce centre commercial neuf de 14 unités à Hay Najd, Marrakech – destination internationale prisée pour sa qualité de vie et son dynamisme d'investissement. Un placement clé en main visant minimum ~7,75% de rendement net.",
 
                     "hero.ctaPrimary": "Demander le dossier d'investissement complet",
                     "hero.trustBadge": "Livraison récente | Tous les documents juridiques prêts",
@@ -1275,8 +1321,7 @@
                     
                     // Trust Section
                     "trust.headline": "Un investissement sécurisé et fiable à Marrakech",
-                    "trust.textSnippet": "Le Centre Commercial Najd est un projet d'un promoteur privé expérimenté, engagé dans une construction de qualité et des transactions transparentes. Toutes les transactions sont traitées par des notaires marocains agréés, garantissant une sécurité juridique complète.",
-                    "trust.badge1": "Processus notarial sécurisé",
+"trust.textSnippet": "Le Hub Commercial Najd est un projet développé par un promoteur privé expérimenté, engagé dans une construction de qualité et des relations transparentes. Toutes les transactions sont traitées par des notaires marocains agréés, garantissant une sécurité juridique totale. Pour optimiser davantage le succès de votre investissement, une assistance post-vente optionnelle pour la gestion de projet et les opérations est également disponible (voir FAQ ou nous consulter pour plus de détails)",                    "trust.badge1": "Processus notarial sécurisé",
                     "trust.badge2": "Construction moderne",
                     "trust.badge3": "Certifié \"tel que construit\" (août/novembre 2024)",
                     "trust.testimonial": "\"Une opportunité rare d'acquérir un actif commercial complet et neuf dans un emplacement stratégique à Marrakech. La valeur ajoutée est évidente.\" – ",
@@ -1301,8 +1346,15 @@
                     "faq.q2.question": "Tous les documents juridiques sont-ils prêts pour l'acquisition en gros ?",
                     "faq.q2.answer": "Oui, le bien est entièrement neuf avec tous les documents juridiques (Titre, Permis, Règlement de copropriété, certification \"tel que construit\") complets et prêts pour une transaction fluide.",
                     "faq.q3.question": "Quelle est la taille totale et la composition de l'offre en gros ?",
-                    "faq.q3.answer": "L'offre en gros comprend l'intégralité du Centre Commercial Najd, soit 14 unités : 13 boutiques au rez-de-chaussée (toutes avec plafonds de 5,4m prêts pour mezzanines) et 1 ensemble loft souterrain unique de 322m².",
-                    
+                    "faq.q3.answer": "L'offre en gros comprend l'intégralité du Hub Commercial Najd, composé de 14 unités : 13 boutiques au rez-de-chaussée (toutes avec des plafonds de 5,4m prêts pour les mezzanines) et 1 loft souterrain unique de 322m². Ce loft spacieux présente une hauteur sous plafond de 4m et offre un espace entièrement ouvert et dégagé, maximisant sa polyvalence pour divers usages.",
+                    "faq.q4.question": "Est-il possible d'ajouter des étages au bâtiment ?",
+                    "faq.q4.answer": "Oui, il existe un fort potentiel d'extension verticale. Les autorités peuvent autoriser la construction d'un à deux étages supplémentaires sur demande officielle et approbation, offrant une opportunité importante d'augmenter la valeur de l'actif et sa capacité locative",
+                    "faq.q5.question": "Proposez-vous des services d'accompagnement après l'achat ?",
+                    "faq.q5.answer": "Oui, nous pouvons proposer des services d'accompagnement post-vente optionnels pour assister nos acquéreurs. Cela peut inclure la gestion locative, le suivi des travaux d'extension, ainsi que l'assistance administrative pour les démarches comme les autorisations de nouveaux étages. Ces services font l'objet d'un accord séparé et sont conçus pour vous aider à optimiser votre investissement grâce à notre expertise locale. N'hésitez pas à nous consulter pour plus de détails.",
+"faq.q6.question": "Le prix de la propriété est mentionné comme '~1x Million MAD'. Pouvez-vous fournir plus de détails ?",
+"faq.q6.answer": "Le '~1x Million MAD' indique une fourchette de prix indicative pour l'acquisition en gros de l'ensemble des 14 unités. En tant qu'opportunité d'achat en gros, le prix final est sujet à négociation selon les conditions et les exigences spécifiques de l'acheteur. Nous vous encourageons à demander le portefeuille d'investissement complet pour une discussion détaillée et une ventilation financière.",
+"faq.q7.question": "Vous avez mentionné le développement de mezzanines et l'ajout de nouveaux étages. Ces éléments sont-ils liés ?",
+"faq.q7.answer": "Il s'agit de deux opportunités distinctes de création de valeur ajoutée. Les 13 boutiques du rez-de-chaussée ont des plafonds de 5,4m de haut, idéaux pour la construction de mezzanines internes afin d'augmenter l'espace de chaque unité individuelle. La possibilité d'ajouter 1 à 2 étages entièrement nouveaux au bâtiment est une expansion séparée et de plus grande envergure qui augmenterait davantage la surface locative globale et est soumise à l'approbation réglementaire finale.",
                     // Individual Units Section
                     "individualUnits.headline": "Intéressé par des boutiques individuelles ?",
                     "individualUnits.text": "Bien que notre focus principal soit l'acquisition en gros du Centre Commercial Najd, un nombre limité d'unités individuelles (boutiques à partir de 660 000 MAD) sont disponibles pour les investisseurs et entreprises. Celles-ci disposent également de plafonds de 5,4m pour le potentiel mezzanine.",
@@ -1384,9 +1436,11 @@
                     "termsOfUse.p6.title": "Droit applicable",
                     "termsOfUse.p6.content": "Votre utilisation de ce site et tout différend découlant de cette utilisation du site sont soumis aux lois du Maroc.",
                     "termsOfUse.p7.title": "Nous contacter",
-                    "termsOfUse.p7.content": "Si vous avez des questions concernant ces conditions d'utilisation, veuillez nous contacter à : sales@najdcommercialhub.ma"
-
-            },
+                    "termsOfUse.p7.content": "Si vous avez des questions concernant ces conditions d'utilisation, veuillez nous contacter à : sales@najdcommercialhub.ma",
+                    "solution.benefitVertical.featureTitle": "Atout : Possibilité d'extension verticale (1 à 2 étages supplémentaires)",
+                    "solution.benefitVertical.advantageText": "Les autorités peuvent autoriser l'ajout d'un à deux étages supplémentaires sur demande, augmentant considérablement la surface locative totale",
+                    "solution.benefitVertical.benefitText": "Boostez significativement vos revenus locatifs et la valeur du bien. (Note : Extension soumise à l'approbation réglementaire définitive)",
+                    "solution.roiSnippet.potentialYieldPlusFloors": "ROI estimé avec étages supplémentaires : Nettement supérieur (Détails sur demande, sous réserve d'approbation)"            },
             ar: {
                         // Arabic translations for Najd Commercial Hub
                 // Navigation
@@ -1401,7 +1455,7 @@
                 
                 // Hero Section
                 "hero.headline": "استثمر في أفضل العقارات التجارية بالجملة في مراكش: امتلك مركز نجد التجاري – 14 وحدة، عائد مرتفع وإمكانيات قيمة مضافة كبيرة.",
-                "hero.subheadline": "مجمع تجاري جديد كلياً يضم 14 وحدة في حي نجد المزدهر بمراكش – المدينة المشهورة عالمياً بجودة الحياة الاستثنائية وجاذبيتها الاستثمارية. استثمار جاهز للتشغيل يوفر عائداً صافياً محتملاً يبلغ حوالي 7.75% ونمواً كبيراً من خلال التطوير متعدد المستويات",
+                "hero.subheadline": "مجمع تجاري جديد كلياً يضم 14 وحدة في حي نجد المزدهر بمراكش – المدينة المشهورة عالمياً بجودة الحياة الاستثنائية وجاذبيتها الاستثمارية. استثمار جاهز للتشغيل يوفر عائداً صافياً  يبدأ من  7.75% ",
                 "hero.ctaPrimary": "اطلب ملف الاستثمار الكامل",
                 "hero.trustBadge": "مكتمل حديثاً | جميع الوثائق القانونية جاهزة",
                 
@@ -1421,8 +1475,8 @@
                 
                 "solution.benefit1.featureTitle": "الميزة: 14 وحدة تجارية متجاورة (13 محلًا + باقة لوفت تحت الأرض).",
                 "solution.benefit1.advantageText": "نطاق فوري، مصادر دخل متنوعة، قوة شرائية بالجملة.",
-                "solution.benefit1.benefitText": "زد من عائد استثمارك المحتمل (صافي عائد متوقع ~7.75% بسعر ~1 مليون درهم) وبسّط إدارة محفظتك.",
-                
+                // "solution.benefit1.benefitText": "زد من عائد استثمارك المحتمل (صافي عائد متوقع ~7.75% بسعر ~1 مليون درهم) وبسّط إدارة محفظتك.",
+                "solution.benefit1.benefitText": "زد من عائد استثمارك المحتمل (صافي عائد متوقع ~٧٫٧٥٪ بسعر ~١\u200Ex مليون درهم) وبسّط إدارة محفظتك.",
                 "solution.benefit2.featureTitle": "الميزة: جميع المحلات الـ 13 في الطابق الأرضي تتميز بارتفاع سقف 5.4 متر مع أساسات جاهزة للميزانين.",
                 "solution.benefit2.advantageText": "يمكن للمشتري إضافة مساحة كبيرة قابلة للتأجير بتكلفة فعالة.",
                 "solution.benefit2.benefitText": "زد بشكل كبير من دخل الإيجار وعزز صافي العائد إلى ما يقارب 9% بعد تطوير الميزانين.",
@@ -1441,7 +1495,8 @@
                 
                 // ROI Snippet
                 "solution.roiSnippet.title": "سيناريو مبسط لعائد الاستثمار بالجملة:",
-                "solution.roiSnippet.purchase": "سعر الشراء: ~1 مليون درهم",
+                // "solution.roiSnippet.purchase": "سعر الشراء: ~1 مليون درهم",
+                "solution.roiSnippet.purchase": "سعر الشراء: ~1\u200Ex مليون درهم",
                 "solution.roiSnippet.initialYield": "صافي العائد الأولي المقدر (بتحفظ): ~%7.75",
                 "solution.roiSnippet.potentialYield": "صافي العائد المحتمل المقدر (مع الميزانين): %~9.05",
                 
@@ -1455,7 +1510,7 @@
                 
                 // Trust Section
                 "trust.headline": "استثمار آمن وموثوق في مراكش",
-                "trust.textSnippet": "مركز نجد التجاري هو مشروع من قبل مطور خاص ذو خبرة، ملتزم بالبناء عالي الجودة والتعاملات الشفافة. يتم التعامل مع جميع المعاملات من قبل موثقين مغاربة مرخصين، مما يضمن الأمن القانوني الكامل.",
+                "trust.textSnippet": "مجمع نجد التجاري هو مشروع لمطور خاص ذو خبرة، ملتزم بالبناء عالي الجودة والتعامل الشفاف. جميع المعاملات تتم عبر موثقين مغاربة مرخصين، مما يضمن الأمان القانوني الكامل. ولدعم نجاح استثمارك أكثر، تتوفر أيضاً خدمات مساعدة اختيارية بعد البيع لإدارة المشروع والعمليات (راجع الأسئلة الشائعة أو استفسر للحصول على التفاصيل)",
                 "trust.badge1": "عملية توثيق آمنة",
                 "trust.badge2": "بناء حديث",
                 "trust.badge3": "شهادة \"كما هو مُنفذ\" (أغسطس/نوفمبر 2024)",
@@ -1477,12 +1532,19 @@
                 // FAQ Section
                 "faq.headline": "أسئلة مكررة",
                 "faq.q1.question": "ما هو العائد المتوقع على الاستثمار لمركز نجد التجاري (بالجملة)؟",
-                "faq.q1.answer": "العائد الصافي الأولي المتوقع يبلغ حوالي 7.75% (تقدير محافظ) عند نقطة سعر إرشادية في نطاق  1xمليون درهم مغربي تقريباً. مع التطوير متعدد المستويات، يمكن أن يرتفع هذا العائد إلى أكثر من 9%",
+                "faq.q1.answer": "العائد الصافي الأولي المتوقع يبلغ حوالي 7.75% (تقدير محافظ) عند نقطة سعر إرشادية في نطاق \u200E1x مليون درهم مغربي تقريباً. مع التطوير متعدد المستويات، يمكن أن يرتفع هذا العائد إلى أكثر من 9%",
                 "faq.q2.question": "هل جميع الوثائق القانونية جاهزة لعملية الشراء بالجملة؟",
                 "faq.q2.answer": "نعم، العقار جديد بالكامل وجميع الوثائق القانونية (سند الملكية، التراخيص، نظام الملكية المشتركة، شهادة \"كما هو مُنفذ\") مكتملة وجاهزة لعملية تمليك سلسة.",
                 "faq.q3.question": "ما هو الحجم الإجمالي وتكوين عرض البيع بالجملة؟",
-                "faq.q3.answer": "يشمل عرض البيع بالجملة مركز نجد التجاري بأكمله، والذي يتكون من 14 وحدة: 13 محلاً تجارياً في الطابق الأرضي (جميعها بأسقف ارتفاع 5.4 متر جاهزة للميزانين) ووحدة لوفت فريدة تحت الأرض بمساحة 322 متر مربع.",
-                
+                "faq.q3.answer": "العرض بالجملة يشمل مجمع نجد التجاري بالكامل، والذي يضم 14 وحدة: 13 محلاً في الطابق الأرضي (جميعها بأسقف بارتفاع 5.4 متر جاهزة لبناء الميزانين) ولوفت واحد فريد تحت الأرض بمساحة 322 متر مربع. هذا اللوفت الواسع يتميز بارتفاع سقف 4 أمتار ويوفر مساحة مفتوحة بالكامل وغير معاقة، مما يعظم تنوع استخداماته لأغراض مختلفة.",
+                "faq.q4.question": "هل من الممكن إضافة طوابق أخرى للمبنى؟",
+                "faq.q4.answer": "نعم، هناك إمكانية قوية للتوسع العمودي. قد تأذن السلطات ببناء طابق أو طابقين إضافيين عند تقديم طلب رسمي والحصول على الموافقة، مما يوفر فرصة كبيرة لزيادة قيمة الأصل وطاقته الإيجارية",
+                "faq.q5.question": "هل تقدمون خدمات الدعم والمتابعة بعد الشراء؟",
+                "faq.q5.answer": "نعم، نقدم خدمات دعم ومتابعة اختيارية بعد البيع لمساعدة عملائنا المشترين. يشمل ذلك إدارة العقارات المؤجرة، ومتابعة أعمال التوسيع، بالإضافة إلى المساعدة في الإجراءات الإدارية مثل الحصول على تراخيص الطوابق الإضافية. هذه الخدمات تتم وفقاً لاتفاقية منفصلة وهي مصممة لمساعدتكم على تحقيق أقصى استفادة من استثماركم من خلال خبرتنا المحلية. لا تترددوا في التواصل معنا لمزيد من التفاصيل.",
+                "faq.q6.question": "سعر العقار مذكور كـ '~1x مليون درهم مغربي'. هل يمكنكم تقديم تفاصيل أكثر؟",
+"faq.q6.answer": "الرمز '~1x مليون درهم مغربي' يشير إلى نطاق سعري إرشادي لشراء المجموعة الكاملة المكونة من 14 وحدة بالجملة. كونها فرصة شراء بالجملة، فإن السعر النهائي قابل للتفاوض بناءً على الشروط ومتطلبات المشتري المحددة. نشجعكم على طلب محفظة الاستثمار الكاملة للحصول على مناقشة تفصيلية وتفكيك مالي شامل.",
+"faq.q7.question": "ذكرتم تطوير الميزانين وإضافة طوابق جديدة. هل هذان الأمران مترابطان؟",
+"faq.q7.answer": "هاتان فرصتان منفصلتان لإضافة القيمة. المحلات الـ13 في الطابق الأرضي لها أسقف بارتفاع 5.4 متر، مما يجعلها مثالية لبناء ميزانين داخلي لزيادة مساحة كل وحدة. أما إمكانية إضافة طابق أو طابقين جديدين كلياً للمبنى فهي توسيع منفصل وأكبر نطاقاً من شأنه زيادة المساحة القابلة للتأجير الإجمالية، وهو خاضع للموافقة التنظيمية النهائية.",
                 // Individual Units Section
                 "individualUnits.headline": "هل أنت مهتم بمحلات فردية؟",
                 "individualUnits.text": "بينما ينصب تركيزنا الأساسي على الاستحواذ بالجملة على مركز نجد التجاري، يتوفر عدد محدود من الوحدات الفردية (محلات تبدأ من 660,000 درهم) للمستثمرين والشركات. تتميز هذه الوحدات أيضًا بارتفاع سقف 5.4 متر لإمكانية إضافة ميزانين.",
@@ -1564,7 +1626,11 @@
                 "termsOfUse.p6.title": "القانون الحاكم",
                 "termsOfUse.p6.content": "يخضع استخدامك لهذا الموقع وأي نزاع ينشأ عن هذا الاستخدام للموقع لقوانين المغرب.",
                 "termsOfUse.p7.title": "اتصل بنا",
-                "termsOfUse.p7.content": "إذا كانت لديك أي أسئلة حول شروط الاستخدام هذه، فيرجى الاتصال بنا على: sales@najdcommercialhub.ma"
+                "termsOfUse.p7.content": "إذا كانت لديك أي أسئلة حول شروط الاستخدام هذه، فيرجى الاتصال بنا على: sales@najdcommercialhub.ma",
+                "solution.benefitVertical.featureTitle": "المميزات: إمكانية التوسع العمودي (طابق أو طابقين إضافيين)",
+                "solution.benefitVertical.advantageText": "قد تسمح السلطات المختصة بإضافة طابق أو طابقين إضافيين عند الطلب، مما يزيد بشكل كبير من إجمالي المساحة القابلة للتأجير",
+                "solution.benefitVertical.benefitText": "ارفع من دخلك الإيجاري وقيمة العقار بشكل كبير. (ملاحظة: التوسع مرهون بالموافقة التنظيمية النهائية)",
+                "solution.roiSnippet.potentialYieldPlusFloors": "العائد المتوقع مع الطوابق الإضافية: أعلى بكثير (التفاصيل عند الطلب، مرهون بالموافقة)"
             },
         };
 
@@ -1922,38 +1988,47 @@
 
         sectionsToObserve.forEach(section => sectionObserver.observe(section));
         */
-
-        // --- Schema.org JSON-LD ---
         function updateSchemaOrgMarkup(lang) {
-            const baseUrl = "https://najdcommercialhub.ma";
-            const currentUrl = `${baseUrl}/${lang}/wholesale/`;
+            const baseUrl = "https://najdcommercialhub.ma"; // Your base URL
+            const currentUrl = `${baseUrl}/${lang}/wholesale/`; // URL specific to current language and page
             const year = new Date().getFullYear();
 
+            // Define common address and geo objects to avoid repetition
+            const orgAddress = {
+                "@type": "PostalAddress",
+                "streetAddress": "Hay Najd", // Be more specific if possible
+                "addressLocality": "Marrakech",
+                "addressRegion": "Marrakech-Safi",
+                "postalCode": "40000", // Example, use actual
+                "addressCountry": "MA"
+            };
+            const geoCoords = { // Use actual coordinates
+                "@type": "GeoCoordinates",
+                "latitude": "31.657316998296917", // Your provided coordinates
+                "longitude": "-8.030218375973478" // Your provided coordinates
+            };
+
+            // --- Organization Schema with @id ---
             const organizationSchema = {
                 "@context": "https://schema.org",
                 "@type": "Organization",
+                "@id": `${baseUrl}/#organization`, // Unique ID for this Organization on the page
                 "name": "Najd Commercial Hub",
                 "url": baseUrl,
-                "logo": `${baseUrl}/images/Najd_Logo_Final.svg`, // or .png
+                "logo": `${baseUrl}/images/Najd_Logo_Final.svg`, // Use your final logo, or Najd_Logo_Concept.png
                 "contactPoint": {
                     "@type": "ContactPoint",
                     "telephone": "+212779494766",
                     "contactType": "Sales",
                     "email": "sales@najdcommercialhub.ma",
-                    "areaServed": "MA", // Morocco
+                    "areaServed": "MA",
                     "availableLanguage": ["en", "fr", "ar"]
                 },
-                "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": "Hay Najd", // Be more specific if possible
-                    "addressLocality": "Marrakech",
-                    "addressRegion": "Marrakech-Safi",
-                    "postalCode": "40000", // Example, use actual
-                    "addressCountry": "MA"
-                }
+                "address": orgAddress // Using the common address object
             };
             document.getElementById('schema-organization').textContent = JSON.stringify(organizationSchema);
 
+            // --- WebSite Schema ---
             const websiteSchema = {
                 "@context": "https://schema.org",
                 "@type": "WebSite",
@@ -1968,20 +2043,21 @@
             };
             document.getElementById('schema-website').textContent = JSON.stringify(websiteSchema);
 
+            // --- RealEstateListing Schema with updated offers ---
             const realEstateListingSchema = {
                 "@context": "https://schema.org",
                 "@type": "RealEstateListing",
                 "name": getTranslation("hero.headline", lang),
                 "description": getTranslation("hero.subheadline", lang),
                 "url": currentUrl,
-                "image": `${baseUrl}/images/Najd_Exterior_Hero_Wholesale.jpg`,
-                "datePosted": "2024-01-01", // Update with actual posting date
-                "validThrough": `${year + 1}-12-31`, // Example validity
+                "image": `${baseUrl}/images/Najd_Exterior_Hero_Wholesale.jpg`, // Ensure this image exists
+                "datePosted": "2024-05-01", // IMPORTANT: Update with your actual posting date
+                "validThrough": `${year + 2}-12-31`, // Example validity (e.g., 2 years from current year)
                 "realEstateType": "Commercial",
-                "numberOfUnits": 14, // Total units in the wholesale package
+                "numberOfUnits": 14,
                 "propertyType": "CommercialComplex",
-                "yearBuilt": 2023, // Or actual year
-                "valueAddedServices": ["Mezzanine Potential", "Turnkey Investment"],
+                "yearBuilt": 2023, // IMPORTANT: Update with actual year built
+                "valueAddedServices": ["Mezzanine Potential", "Potential for Additional Floors (pending approval)", "Turnkey Investment"],
                 "amenityFeature": [
                     { "@type": "LocationFeatureSpecification", "name": "Ceiling Height", "value": "5.4m (GF shops)"},
                     { "@type": "LocationFeatureSpecification", "name": "Underground Loft Size", "value": "322 sqm"},
@@ -1991,56 +2067,55 @@
                 "location": {
                     "@type": "Place",
                     "name": "Najd Commercial Hub",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "streetAddress": "Hay Najd", // Specific address
-                        "addressLocality": "Marrakech",
-                        "addressRegion": "Marrakech-Safi",
-                        "postalCode": "40000", // Use actual
-                        "addressCountry": "MA"
-                    },
-                    "geo": { // Use actual coordinates
-                        "@type": "GeoCoordinates",
-                        "latitude": "31.6295", // Example for Marrakech
-                        "longitude": "-7.9811" // Example for Marrakech
-                    }
+                    "address": orgAddress, // Using the common address object
+                    "geo": geoCoords      // Using the common geo object
                 },
                 "offers": {
                     "@type": "Offer",
                     "priceCurrency": "MAD",
-                    "priceSpecification": {
-                        "@type": "UnitPriceSpecification",
-                        "price": "1x000000", // Example ~~1x Million MAD for wholesale
+                    "priceSpecification": { // Consider using PriceRange for "1xM" or state "Contact for Price"
+                        "@type": "UnitPriceSpecification", // Or Type "PriceSpecification" if not unit based
+                        "price": "ContactForPrice", //  Use a placeholder text or a very rough numeric value
+                                                    // If using "1x000000", it's a number but the "x" makes it invalid as a pure number.
+                                                    // For "ContactForPrice", a text string is better than an invalid number.
+                                                    // Alternatively, you could use minPrice/maxPrice if you have a range for "1xM".
                         "priceCurrency": "MAD",
                         "unitText": "whole asset"
+                        // Example for a range if "1xM" means e.g., 10M to 19M
+                        // "@type": "PriceSpecification",
+                        // "minPrice": "10000000",
+                        // "maxPrice": "19000000",
+                        // "priceCurrency": "MAD"
                     },
-                    "availability": "https://schema.org/InStock", // Or ForSale
-                    "seller": {
+                    "availability": "https://schema.org/InStock", // Or https://schema.org/ForSale
+                    "availableAtOrFrom": { // Points to the organization offering the property
                         "@type": "Organization",
-                        "name": "Najd Commercial Hub"
+                        "@id": `${baseUrl}/#organization` // Reference the @id of your organizationSchema
+                    },
+                    "seller": { // The seller of the property
+                        "@type": "Organization",
+                        "@id": `${baseUrl}/#organization` // Reference the @id of your organizationSchema
                     }
                 }
-                // You can add "LeaseOrSell": "Sell" or similar if needed
             };
             document.getElementById('schema-realestatelisting').textContent = JSON.stringify(realEstateListingSchema);
 
+            // --- LocalBusiness Schema (or RealEstateAgent) ---
             const localBusinessSchema = {
                 "@context": "https://schema.org",
-                "@type": "RealEstateAgent", // Or "Developer" or "LocalBusiness"
+                "@type": "RealEstateAgent", // Or "Developer" or "LocalBusiness" if more appropriate
                 "name": "Najd Commercial Hub",
-                "image": `${baseUrl}/images/Najd_Logo_Final.svg`,
+                "image": `${baseUrl}/images/Najd_Logo_Final.svg`, // Use your final logo
                 "url": baseUrl,
                 "telephone": "+212779494766",
                 "email": "sales@najdcommercialhub.ma",
-                "address": organizationSchema.address, // Reuse from Organization
-                "geo": realEstateListingSchema.location.geo, // Reuse from Listing
-                "priceRange": "Contact for details", // Or specific if known
-                "openingHoursSpecification": [ // Example
+                "address": orgAddress, // Using the common address object
+                "geo": geoCoords,      // Using the common geo object
+                "priceRange": "Contact for details", // More appropriate than a specific price if it's "1xM"
+                "openingHoursSpecification": [
                     {
                         "@type": "OpeningHoursSpecification",
-                        "dayOfWeek": [
-                            "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"
-                        ],
+                        "dayOfWeek": [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" ],
                         "opens": "09:00",
                         "closes": "18:00"
                     }
@@ -2048,51 +2123,38 @@
             };
             document.getElementById('schema-localbusiness').textContent = JSON.stringify(localBusinessSchema);
 
-             const faqPageSchema = {
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": [
-                    {
-                        "@type": "Question",
-                        "name": getTranslation("faq.q1.question", lang),
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": getTranslation("faq.q1.answer", lang)
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": getTranslation("faq.q2.question", lang),
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": getTranslation("faq.q2.answer", lang)
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": getTranslation("faq.q3.question", lang),
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": getTranslation("faq.q3.answer", lang)
-                        }
-                    }
-                ]
-            };
-            document.getElementById('schema-faqpage').textContent = JSON.stringify(faqPageSchema);
-        }
-
-
-        // --- Initialize Page ---
-        document.addEventListener('DOMContentLoaded', () => {
-            const initialLang = localStorage.getItem('preferredLang') || navigator.language.split('-')[0] || 'en';
-            if (translations[initialLang]) {
-                 setLanguage(initialLang);
-            } else {
-                setLanguage('en'); // Default to English if stored/browser lang not supported
+            // --- FAQPage Schema (with all 5 FAQs) ---
+const faqPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        { "@type": "Question", "name": getTranslation("faq.q1.question", lang), "acceptedAnswer": { "@type": "Answer", "text": getTranslation("faq.q1.answer", lang) } },
+        { "@type": "Question", "name": getTranslation("faq.q2.question", lang), "acceptedAnswer": { "@type": "Answer", "text": getTranslation("faq.q2.answer", lang) } },
+        { "@type": "Question", "name": getTranslation("faq.q3.question", lang), "acceptedAnswer": { "@type": "Answer", "text": getTranslation("faq.q3.answer", lang) } },
+        { "@type": "Question", "name": getTranslation("faq.q4.question", lang), "acceptedAnswer": { "@type": "Answer", "text": getTranslation("faq.q4.answer", lang) } },
+        { "@type": "Question", "name": getTranslation("faq.q5.question", lang), "acceptedAnswer": { "@type": "Answer", "text": getTranslation("faq.q5.answer", lang) } },
+        // START: ADDED NEW FAQs TO SCHEMA
+        {
+            "@type": "Question",
+            "name": getTranslation("faq.q6.question", lang),
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": getTranslation("faq.q6.answer", lang)
             }
-            // Update Schema.org on load
-            updateSchemaOrgMarkup(currentLang); 
-        });
+        },
+        {
+            "@type": "Question",
+            "name": getTranslation("faq.q7.question", lang),
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": getTranslation("faq.q7.answer", lang)
+            }
+        }
+        // END: ADDED NEW FAQs TO SCHEMA
+    ]
+};
+document.getElementById('schema-faqpage').textContent = JSON.stringify(faqPageSchema);
+        }
 
         // Store language preference
         window.addEventListener('beforeunload', () => {
