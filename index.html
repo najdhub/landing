@@ -213,6 +213,111 @@
             font-size: 0.9em;
             margin-top: 5px;
         }
+        /* CSS for the Location Section Map Iframe */
+.location-map {
+    /* You already have this inline or in a class:
+    flex: 1 1 45%; 
+    min-width: 300px; 
+    */
+    display: flex; /* This is important for the child iframe to use flex properties */
+    flex-direction: column; /* If you had a caption below map, otherwise not strictly needed for just iframe */
+}
+
+.location-map iframe {
+    width: 100%;       /* Takes full width of .location-map */
+    flex-grow: 1;    /* THIS IS THE KEY: Allows iframe to grow and fill available vertical space */
+    min-height: 400px; /* Optional: ensure a minimum sensible height for the map */
+                       /* You can remove the height="450" attribute from the iframe tag itself if using CSS for height */
+    border: none;      /* Redundant with style="border:0;" but good practice in CSS */
+}
+
+/* Adjust .location-text flex-basis if needed for overall width balance */
+.location-text {
+    /* You already have this inline or in a class:
+    flex: 1 1 50%; /* Or whatever value works for your layout */
+    min-width: 300px; 
+}
+
+/* Ensure the wrapper has align-items: stretch if you want columns to be equal height */
+.location-content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: stretch; /* This makes flex items (map & text columns) of equal height */
+}
+
+/* Mobile Adjustments (if not already in place from my previous full example) */
+@media (max-width: 768px) {
+    .location-map,
+    .location-text {
+        flex-basis: 100%; /* Stack them on smaller screens */
+    }
+    .location-map iframe {
+        /* You might want a fixed height on mobile or different min-height */
+        height: 350px; 
+        min-height: 300px; /* Reset or adjust flex-grow if needed for mobile */
+        flex-grow: 0; /* Typically don't want it to grow excessively on mobile if text is very short */
+    }
+}
+/* --- START: FAQ ACCORDION CSS --- */
+.faq-section .faq-item {
+    border-bottom: 1px solid #ddd; /* Separator between FAQ items */
+    margin-bottom: 10px;
+}
+.faq-section .faq-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.faq-question {
+    background-color: transparent;
+    border: none;
+    padding: 15px 0; /* Adjust padding as needed */
+    width: 100%;
+    text-align: left; /* Align question text to the left */
+    font-family: var(--font-primary); /* Inherit or set explicitly */
+    font-size: 1.2em; /* Adjust question font size */
+    font-weight: 700; /* Make question bold */
+    color: var(--text-color); /* Or var(--primary-color) */
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between; /* Puts text on left, icon on right */
+    align-items: center;
+    outline: none; /* Remove default button outline */
+}
+html[dir="rtl"] .faq-question {
+    text-align: right;
+}
+
+.faq-question:hover,
+.faq-question:focus {
+    color: var(--primary-color); /* Or another hover/focus color */
+}
+
+.faq-question .faq-icon {
+    font-size: 0.8em; /* Adjust icon size relative to text */
+    transition: transform 0.3s ease;
+    margin-left: 10px; /* Space between text and icon */
+}
+html[dir="rtl"] .faq-question .faq-icon {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.faq-question[aria-expanded="true"] .faq-icon {
+    transform: rotate(180deg); /* Rotate icon when open */
+}
+
+.faq-answer {
+    padding: 0px 15px 20px 15px; /* Padding for the answer text */
+    /* display: none; /* Initially hidden by inline style, JS will toggle */
+    line-height: 1.7;
+    font-size: 1em; /* Adjust answer font size */
+}
+.faq-answer p {
+    margin-bottom: 0; /* Remove default bottom margin from p inside answer if needed */
+}
+/* --- END: FAQ ACCORDION CSS --- */
 
         /* Social Proof */
         .trust-elements {
@@ -854,11 +959,13 @@
     <section id="location-details" class="location-details-section section-padding scroll-target">
         <div class="container">
             <h2 class="text-center" data-lang="locationSection.headline">Prime Location: Hay Najd, Marrakech</h2>
-            <div class="location-content-wrapper" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center;">
-                <div class="location-map" style="flex: 1 1 400px;">
-                    <!-- Placeholder for a larger map - could be an iframe from Google Maps or an image -->
-                    <img src="images/Najd_Map_Detailed_Location.png" alt="Detailed map showing Najd Commercial Hub location" loading="lazy">
-                    <p class="text-center" style="font-size:0.9em;" data-lang="locationSection.mapCaption">Najd Commercial Hub, Hay Najd, Marrakech</p>
+            <div class="location-content-wrapper" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch;">
+                
+                <div class="location-map" style="flex: 1 1 45%; min-width: 300px; /* Prevent map from getting too squished */
+    display: flex; /* To allow iframe to fill height if .location-map stretches */">
+                    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3396.145980595896!2d-8.03280402548427!3d31.657225674151512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafed0029c07fd1%3A0xf69477a094fedc58!2sNajd%20Commercial%20Hub!5e0!3m2!1sen!2sma!4v1748260721641!5m2!1sen!2sma" width="100%"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"  title="Location of Najd Commercial Hub"></iframe> -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13584.583922383586!2d-8.040528787508208!3d31.6572256741515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafed0029c07fd1%3A0xf69477a094fedc58!2sNajd%20Commercial%20Hub!5e0!3m2!1sen!2sma!4v1748263606859!5m2!1sen!2sma"  width="100%"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"  title="Location of Najd Commercial Hub"></iframe>
+
                 </div>
                 <div class="location-text" style="flex: 1 1 300px;">
                     <p data-lang="locationSection.p1">Najd Commercial Hub is strategically positioned in the rapidly developing Hay Najd district, a key growth area in Marrakech.</p>
@@ -873,6 +980,7 @@
                     <h3 data-lang="locationSection.subhead2">Surrounding Area</h3>
                     <p data-lang="locationSection.p2">The hub serves a dense network of residential areas, ensuring a consistent flow of local customers for tenants. Its location offers high visibility and a strong commercial presence within a dynamic neighborhood.</p>
                 </div>
+     
             </div>
         </div>
     </section>
@@ -881,39 +989,79 @@
         <section id="faq" class="faq-section section-padding scroll-target">
             <div class="container">
                 <h2 class="text-center" data-lang="faq.headline">Frequently Asked Questions</h2>
-                <div class="faq-item">
-                    <h3 data-lang="faq.q1.question">What is the expected ROI for Najd Commercial Hub (wholesale)?</h3>
-                    <p data-lang="faq.q1.answer">The projected initial net yield is approximately 7.75% at a ~~1x Million MAD price point. With mezzanine development, this has the potential to increase towards 9%+.</p>
-                </div>
-                <div class="faq-item">
-                    <h3 data-lang="faq.q2.question">Are all legal documents ready for the wholesale purchase?</h3>
-                    <p data-lang="faq.q2.answer">Yes, the property is brand new with all legal documents (Title, Permits, Co-ownership Regulations, "as-built" certification) complete and ready for a smooth transaction.</p>
-                </div>
-                <div class="faq-item">
-                    <h3 data-lang="faq.q3.question">What is the total size and composition of the wholesale offer?</h3>
-                    <p data-lang="faq.q3.answer">The wholesale offer includes the entire Najd Commercial Hub, comprising 14 units: 13 ground floor shops (all with 5.4m ceilings ready for mezzanines) and 1 unique 322sqm underground loft package.</p>
-                </div>
-                <div class="faq-item">
-                    <h3 data-lang="faq.q4.question"></h3>
-                    <p data-lang="faq.q4.answer"></p>
-                </div>
-                <div class="faq-item">
-                    <h3 data-lang="faq.q5.question"></h3>
-                    <p data-lang="faq.q5.answer"></p>
-                </div>
-                <!-- ADD FAQ 6 -->
-<div class="faq-item">
-    <h3 data-lang="faq.q6.question"></h3>
-    <p data-lang="faq.q6.answer"></p>
-</div>
 
-<!-- ADD FAQ 7 -->
-<div class="faq-item">
-    <h3 data-lang="faq.q7.question"></h3>
-    <p data-lang="faq.q7.answer"></p>
-</div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
+                        <span data-lang="faq.q1.question">What is the expected ROI for Najd Commercial Hub (wholesale)?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div id="faq-answer-1" class="faq-answer" style="display: none;">
+                        <p data-lang="faq.q1.answer">The projected initial net yield is approximately 7.75% (conservative estimate) at an indicative price point in the ~1x Million MAD range. With mezzanine development, this has the potential to increase towards 9%+.</p> <!-- Used updated answer text -->
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
+                        <span data-lang="faq.q2.question">Are all legal documents ready for the wholesale purchase?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div id="faq-answer-2" class="faq-answer" style="display: none;">
+                        <p data-lang="faq.q2.answer">Yes, the property is brand new with all legal documents (Title, Permits, Co-ownership Regulations, "as-built" certification) complete and ready for a smooth transaction.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
+                        <span data-lang="faq.q3.question">What is the total size and composition of the wholesale offer?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div id="faq-answer-3" class="faq-answer" style="display: none;">
+                        <p data-lang="faq.q3.answer">The wholesale offer includes the entire Najd Commercial Hub, comprising 14 units: 13 ground floor shops (all with 5.4m ceilings ready for mezzanines) and 1 unique 322sqm underground loft. This expansive loft features a 4m ceiling height and offers a fully open-plan, unobstructed space, maximizing its versatility for various uses.</p> <!-- Used updated answer text -->
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
+                        <span data-lang="faq.q4.question">Is it possible to add more floors to the building?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div id="faq-answer-4" class="faq-answer" style="display: none;">
+                        <p data-lang="faq.q4.answer">Yes, there is a strong potential for vertical expansion. Authorities may authorize the construction of one to two additional floors upon formal request and approval, offering a significant opportunity to increase the asset's value and rental capacity.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
+                        <span data-lang="faq.q5.question">Do you offer any support services after the property purchase?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div id="faq-answer-5" class="faq-answer" style="display: none;">
+                        <p data-lang="faq.q5.answer">Yes, we can offer optional post-sale support services to assist buyers. This can include rental management, oversight for mezzanine construction, and administrative support for processes like new floor approvals. These services are subject to a separate agreement and designed to help you maximize your investment with local expertise. Please inquire for more details.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-6">
+                        <span data-lang="faq.q6.question">The property price is mentioned as '~1x Million MAD'. Can you provide more details?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div id="faq-answer-6" class="faq-answer" style="display: none;">
+                        <p data-lang="faq.q6.answer">The '~1x Million MAD' indicates an indicative price range for the entire 14-unit wholesale acquisition. As a wholesale opportunity, the final price is subject to negotiation based on terms and specific buyer requirements. We encourage you to request the full investment portfolio for a detailed discussion and financial breakdown.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-7">
+                        <span data-lang="faq.q7.question">You mentioned mezzanine development and adding new floors. Are these related?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div id="faq-answer-7" class="faq-answer" style="display: none;">
+                        <p data-lang="faq.q7.answer">These are two distinct value-add opportunities. The 13 ground floor shops have 5.4m high ceilings, ideal for internal mezzanine construction to increase individual unit space. The potential to add 1-2 entirely new floors to the building is a separate, larger-scale expansion that would further increase the overall leasable area and is subject to final regulatory approval.</p>
+                    </div>
+                </div>
             </div>
         </section>
+
 
         <!-- (6) Secondary Call-Out: Individual Units -->
         <section id="individual-units" class="secondary-callout section-padding text-center scroll-target">
@@ -1050,9 +1198,6 @@
                 <a href="#privacy-policy-section" class="legal-link" data-target="privacy-policy-section" data-lang="footer.privacy">Privacy Policy</a> |
                 <a href="#terms-of-use-section" class="legal-link" data-target="terms-of-use-section" data-lang="footer.terms">Terms of Use</a>
             </div>
-            <div class="footer-contact" style="margin: 10px 0;">
-                <span data-lang="footer.email">sales@najdcommercialhub.ma</span> | <span data-lang="footer.phone">+212779494766</span>
-            </div>
                         <!-- START: MODIFIED FOOTER SOCIAL ICON (Phase 4) -->
             <div class="footer-social" style="margin: 10px 0;">
                 <a href="https://linkedin.com/company/najd-commercial-hub" target="_blank" data-lang-aria-label="footer.linkedInAriaLabel">
@@ -1088,7 +1233,7 @@
                 "nav.investmentHighlights": "Investment Highlights",
                 "nav.theAsset": "The Asset",
                 "nav.location": "Location",
-                "nav.contact": "Contact",
+                "nav.contact": "Contact Us",
                 "header.phone": "+212779494766",
                 "hero.headline": "Unlock Marrakech's Prime Wholesale Real Estate: Acquire Najd Commercial Hub – 14 Units, High Yield & Value-Add Potential.",
                 "hero.subheadline": "A brand-new, 14-unit commercial center in booming Hay Najd, Marrakech – an internationally renowned city known for its exceptional quality of life and investment appeal. Turnkey investment offering ~7.75% Net Yield Potential & significant growth through mezzanine development.",
@@ -1187,12 +1332,12 @@
                 "form.error.submission": "There was an error submitting your form. Please try again.",
                 "footer.privacy": "Privacy Policy",
                 "footer.terms": "Terms of Use",
-                "footer.email": "sales@najdcommercialhub.ma",
-                "footer.phone": "+212779494766",
+                // "footer.email": "sales@najdcommercialhub.ma",
+                // "footer.phone": "+212779494766",
                 "footer.copyright": `© ${new Date().getFullYear()} Najd Commercial Hub. All Rights Reserved.`,
                 "header.phoneLabel": "Phone:",
                 "mobileMenu.toggleLabel": "Toggle menu", // For hamburger aria-label
-                "footer.linkedInAriaLabel": "LinkedIn", // For footer LinkedIn icon aria-label
+                // "footer.linkedInAriaLabel": "LinkedIn", // For footer LinkedIn icon aria-label
                 
                     // Privacy Policy Keys
                 "privacyPolicy.title": "Privacy Policy",
@@ -1255,9 +1400,9 @@
                             // Traductions françaises pour Centre Commercial Najd
                     // Navigation
                     "nav.investmentHighlights": "Points forts de l'investissement",
-                    "nav.theAsset": "L'Actif ",
+                    "nav.theAsset": "L'Actif Immobillier",
                     "nav.location": "Localisation",
-                    "nav.contact": "Contact",
+                    "nav.contact": "Contactez Nous ",
                     
                     // Header
                     "header.phone": "+212779494766",
@@ -1396,10 +1541,10 @@
                     // Footer
                     "footer.privacy": "Politique de confidentialité",
                     "footer.terms": "Conditions d'utilisation",
-                    "footer.email": "sales@najdcommercialhub.ma",
-                    "footer.phone": "+212779494766",
+                    // "footer.email": "sales@najdcommercialhub.ma",
+                    // "footer.phone": "+212779494766",
                     "footer.copyright": `© ${new Date().getFullYear()} Centre Commercial Najd. Tous droits réservés.`,
-                    "footer.linkedInAriaLabel": "LinkedIn",
+                    // "footer.linkedInAriaLabel": "LinkedIn",
                     
                     // Mobile Menu
                     "mobileMenu.toggleLabel": "Menu",
@@ -1586,10 +1731,10 @@
                 // Footer
                 "footer.privacy": "سياسة الخصوصية",
                 "footer.terms": "شروط الاستخدام",
-                "footer.email": "sales@najdcommercialhub.ma",
-                "footer.phone": "+212779494766",
+                // "footer.email": "sales@najdcommercialhub.ma",
+                // "footer.phone": "+212779494766",
                 "footer.copyright": `© ${new Date().getFullYear()} مركز نجد التجاري. جميع الحقوق محفوظة.`,
-                "footer.linkedInAriaLabel": "لينكد إن",
+                // "footer.linkedInAriaLabel": "لينكد إن",
                 
                 // Mobile Menu
                 "mobileMenu.toggleLabel": "القائمة",
@@ -1798,6 +1943,41 @@
             });
         });
 
+        // --- START: FAQ ACCORDION JAVASCRIPT ---
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+    const questionButton = item.querySelector('.faq-question');
+    const answerPanel = item.querySelector('.faq-answer');
+    // const faqIcon = questionButton.querySelector('.faq-icon'); // Already handled by CSS via aria-expanded
+
+    if (questionButton && answerPanel) {
+        questionButton.addEventListener('click', () => {
+            const isExpanded = questionButton.getAttribute('aria-expanded') === 'true';
+
+            questionButton.setAttribute('aria-expanded', !isExpanded);
+            answerPanel.style.display = isExpanded ? 'none' : 'block';
+
+            // Optional: Close other FAQ items when one is opened (single open accordion behavior)
+            /*
+            if (!isExpanded) { // If we are opening this one
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        const otherQuestionButton = otherItem.querySelector('.faq-question');
+                        const otherAnswerPanel = otherItem.querySelector('.faq-answer');
+                        if (otherQuestionButton && otherAnswerPanel) {
+                            otherQuestionButton.setAttribute('aria-expanded', 'false');
+                            otherAnswerPanel.style.display = 'none';
+                        }
+                    }
+                });
+            }
+            */
+        });
+    }
+});
+// --- END: FAQ ACCORDION JAVASCRIPT ---
+
         closeLegalButtons.forEach(button => {
             button.addEventListener('click', (e) => {
                 const targetId = button.getAttribute('data-target');
@@ -1807,6 +1987,7 @@
                 }
             });
         });
+
         // --- END: LEGAL SECTIONS TOGGLE JAVASCRIPT (Phase 3) ---
         // --- Contact Form Modal ---
         const modal = document.getElementById('contactModal');
