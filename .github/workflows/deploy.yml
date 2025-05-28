@@ -27,14 +27,24 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Deploy to Development
+      # Worker deployments
+      - name: Deploy Worker to Development
         if: github.ref == 'refs/heads/develop'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy src/worker/index.js --env dev
+          command: deploy --env dev
 
+      - name: Deploy Worker to Production
+        if: github.ref == 'refs/heads/main'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy --env production
+
+      # Pages deployments (separate from Worker config)
       - name: Create Pages Project Dev (if needed)
         if: github.ref == 'refs/heads/develop'
         uses: cloudflare/wrangler-action@v3
@@ -50,15 +60,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy src/pages --project-name najd-hub-dev
-
-      - name: Deploy to Production
-        if: github.ref == 'refs/heads/main'
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy src/worker/index.js --env production
+          command: pages deploy src/pages --project-name najd-hub-dev --compatibility-date 2024-01-01
 
       - name: Create Pages Project Prod (if needed)
         if: github.ref == 'refs/heads/main'
@@ -75,4 +77,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy src/pages --project-name najd-hub-prod
+          command: pages deploy src/pages --project-name najd-hub-prod --compatibility-date 2024-01-01

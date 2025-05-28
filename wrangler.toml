@@ -1,9 +1,9 @@
+# Worker configuration only
 name = "najd-contact-handler"
 main = "src/worker/index.js"
 compatibility_date = "2024-01-01"
 
-# Pages configuration (ADD THIS)
-pages_build_output_dir = "src/pages"
+# Remove pages_build_output_dir - this conflicts with Worker config
 
 # Default environment (development)
 [env.dev]
