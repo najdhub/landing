@@ -60,7 +60,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy src/pages --project-name najd-hub-dev --compatibility-date 2024-01-01
+          command: pages deploy src/pages --project-name najd-hub-dev
 
       - name: Create Pages Project Prod (if needed)
         if: github.ref == 'refs/heads/main'
@@ -77,4 +77,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy src/pages --project-name najd-hub-prod --compatibility-date 2024-01-01
+          command: pages deploy src/pages --project-name najd-hub-prod
