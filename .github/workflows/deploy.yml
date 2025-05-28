@@ -52,7 +52,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages project create najd-hub-dev
+          command: pages project create najd-hub-dev --production-branch main
 
       - name: Deploy Pages to Development
         if: github.ref == 'refs/heads/develop'
@@ -60,7 +60,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy src/pages --project-name najd-hub-dev
+          command: pages deploy src/pages --project-name najd-hub-dev --branch develop
 
       - name: Create Pages Project Prod (if needed)
         if: github.ref == 'refs/heads/main'
@@ -69,7 +69,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages project create najd-hub-prod
+          command: pages project create najd-hub-prod --production-branch main
 
       - name: Deploy Pages to Production
         if: github.ref == 'refs/heads/main'
@@ -77,4 +77,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy src/pages --project-name najd-hub-prod
+          command: pages deploy src/pages --project-name najd-hub-prod --branch main
