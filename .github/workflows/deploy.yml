@@ -27,13 +27,22 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Deploy Worker to Development
+      - name: Deploy to Development
         if: github.ref == 'refs/heads/develop'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy src/worker/index.js --env dev
+
+      - name: Create Pages Project Dev (if needed)
+        if: github.ref == 'refs/heads/develop'
+        uses: cloudflare/wrangler-action@v3
+        continue-on-error: true
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages project create najd-hub-dev
 
       - name: Deploy Pages to Development
         if: github.ref == 'refs/heads/develop'
@@ -43,13 +52,22 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy src/pages --project-name najd-hub-dev
 
-      - name: Deploy Worker to Production
+      - name: Deploy to Production
         if: github.ref == 'refs/heads/main'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy src/worker/index.js --env production
+
+      - name: Create Pages Project Prod (if needed)
+        if: github.ref == 'refs/heads/main'
+        uses: cloudflare/wrangler-action@v3
+        continue-on-error: true
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages project create najd-hub-prod
 
       - name: Deploy Pages to Production
         if: github.ref == 'refs/heads/main'
