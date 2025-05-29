@@ -100,9 +100,9 @@
 
     <style>
         /* Basic Reset & Global Styles */
-        :root {
-            --primary-color: #B87333; /* Terracotta */
-            --secondary-color: #556B2F; /* Olive Green */
+        /* :root {
+            --primary-color: #B87333; /* Terracotta * /
+            --secondary-color: #556B2F; /* Olive Green * /
             --neutral-cream: #F5F5DC;
             --neutral-charcoal: #36454F;
             --accent-gold: #DAA520;
@@ -111,7 +111,32 @@
             --light-text-color: #FFF;
             --font-primary: 'Montserrat', sans-serif;
             --font-arabic: 'Tajawal', sans-serif;
-        }
+        } */
+             :root {
+        /* --- NEW PALETTE MAPPED --- */
+        --primary-color: #B87333;         /* Terracotta - Unchanged */
+        --secondary-color: #784C29;       /* New Secondary 2 (Dark Brown) - Replaces Olive Green */
+        --neutral-cream: #F4F2EB;         /* New Secondary 1 (Light Background) - Replaces old cream */
+        --neutral-charcoal: #603B28;      /* New Accent (Darker Brown) - Replaces old charcoal, good for dark elements like footer */
+        
+        /* What to do with old accents? Let's keep one and repurpose the other or comment out.
+           Your new "Accent" #603B28 is quite dark, more like a base dark color.
+           Let's assume your CTA buttons might still want a brighter accent.
+           We can either keep --accent-orange or change it.
+           For now, let's update --accent-gold to be the new --neutral-charcoal (new Accent #603B28)
+           and keep --accent-orange for buttons, or you can define a new --accent-cta.
+        */
+        --accent-gold: #603B28;           /* New Accent (Darker Brown) - Replaces old gold, used for some highlights */
+        --accent-orange: #FFA500;         /* Kept for CTAs, or you can change this to another accent if you have one */
+                                          /* If you don't have another bright accent, your primary CTAs might use --primary-color */
+
+        --text-color: #111010;            /* New Body Text Color - Replaces old #333 */
+        --light-text-color: #F4F2EB;      /* New "High Text Color" for text on dark backgrounds - Replaces #FFF */
+                                          /* Alternatively, keep #FFF for pure white if #F4F2EB isn't contrasty enough on darks */
+
+        --font-primary: 'Montserrat', sans-serif;
+        --font-arabic: 'Tajawal', sans-serif;
+    }
         html { scroll-behavior: smooth; }
         body {
             margin: 0;
@@ -202,13 +227,6 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
-        /* .gallery-item img {
-            width: 200%;
-            height: 250px; /* Fixed height for consistency */
-            object-fit: cover;
-            border-radius: 5px;
-        } */
-
 .gallery-item img {
     width: 100%;
     height: 250px;
