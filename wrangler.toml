@@ -13,11 +13,17 @@ vars = { ENVIRONMENT = "development" }
 [observability.logs]
 enabled = true
 
+# Secret bindings for development
+[[env.dev.secrets]]
+name = "MAILCHANNELS_API_KEY"
 
 [env.production]
 name = "najd-contact-handler-prod"
 vars = { ENVIRONMENT = "production" }
 
+# Secret bindings for production
+[[env.production.secrets]]
+name = "MAILCHANNELS_API_KEY"
 # Future KV Namespaces (uncomment when needed)
 # [[env.dev.kv_namespaces]]
 # binding = "LEADS_KV"
