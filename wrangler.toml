@@ -9,6 +9,10 @@ compatibility_date = "2024-01-01"
 [env.dev]
 name = "najd-contact-handler-dev"
 vars = { ENVIRONMENT = "development" }
+# wrangler.toml (wrangler v3.88.0^)
+[observability.logs]
+enabled = true
+
 
 [env.production]
 name = "najd-contact-handler-prod"

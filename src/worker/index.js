@@ -25,6 +25,7 @@ export default {
           'http://127.0.0.1:3000',
           'http://127.0.0.1:8080',
           'https://najd-hub-dev.pages.dev', // Main dev Pages domain
+          'https://develop.najd-hub-dev.pages.dev/',
           // Add your specific preview deployment URL if it's fixed or pattern based
         ];
         // Allow any subdomain of najd-hub-dev.pages.dev for preview deployments
@@ -38,8 +39,8 @@ export default {
         }
 		
         // Fallback for development if origin doesn't match a known one
-        console.log(`Origin ${origin} not in allowedDevOrigins, falling back to https://najd-hub-dev.pages.dev for CORS`);
-        return 'https://najd-hub-dev.pages.dev';
+        console.log(`Origin ${origin} not in allowedDevOrigins, falling back to https://develop.najd-hub-dev.pages.dev/ for CORS`);
+        return 'https://develop.najd-hub-dev.pages.dev/';
       }
     };
 
@@ -112,7 +113,7 @@ export default {
           return {
             toEmail: 'dev-contact@najdcommercialhub.ma',
             fromEmail: 'noreply@najdcommercialhub.ma', // Still use a valid domain for from
-            siteName: `najd-hub-dev.pages.dev (${environment})` // Include actual env
+            siteName: `develop.najd-hub-dev.pages.dev (${environment})` // Include actual env
           };
         }
       };
