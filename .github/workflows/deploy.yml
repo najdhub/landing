@@ -27,6 +27,25 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Set secrets before deployment
+      - name: Set MailChannels API Key for Development
+        if: github.ref == 'refs/heads/develop'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: secret put MAILCHANNELS_API_KEY --env dev
+          input: ${{ secrets.MAILCHANNELS_API_KEY }}
+
+      - name: Set MailChannels API Key for Production
+        if: github.ref == 'refs/heads/main'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: secret put MAILCHANNELS_API_KEY --env production
+          input: ${{ secrets.MAILCHANNELS_API_KEY }}
+
       # Worker deployments
       - name: Deploy Worker to Development
         if: github.ref == 'refs/heads/develop'
@@ -35,11 +54,11 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy --env dev
-        env:
-          # Option 1: Same API key for both environments
-          MAILCHANNELS_API_KEY: ${{ secrets.MAILCHANNELS_API_KEY }}
-          # Option 2: Separate keys (uncomment if you want different keys)
-          # MAILCHANNELS_API_KEY: ${{ secrets.MAILCHANNELS_API_KEY_DEV }}
+			
+																		  
+																									   
+																												   
+																																				 
 
       - name: Deploy Worker to Production
         if: github.ref == 'refs/heads/main'
@@ -48,11 +67,11 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy --env production
-        env:
-          # Option 1: Same API key for both environments
-          MAILCHANNELS_API_KEY: ${{ secrets.MAILCHANNELS_API_KEY }}
-          # Option 2: Separate keys (uncomment if you want different keys)
-          # MAILCHANNELS_API_KEY: ${{ secrets.MAILCHANNELS_API_KEY_PROD }}
+			
+																		  
+																									   
+																												   
+																																				  
 
       # Pages deployments (separate from Worker config)
       - name: Create Pages Project Dev (if needed)
