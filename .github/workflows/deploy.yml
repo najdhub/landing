@@ -54,11 +54,6 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy --env dev
-			
-																		  
-																									   
-																												   
-																																				 
 
       - name: Deploy Worker to Production
         if: github.ref == 'refs/heads/main'
@@ -67,11 +62,6 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy --env production
-			
-																		  
-																									   
-																												   
-																																				  
 
       # Pages deployments (separate from Worker config)
       - name: Create Pages Project Dev (if needed)
