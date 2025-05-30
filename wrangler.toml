@@ -1,34 +1,11 @@
-# Worker configuration only
 name = "najd-contact-handler"
 main = "src/worker/index.js"
 compatibility_date = "2024-01-01"
 
-# Remove pages_build_output_dir - this conflicts with Worker config
-
-# Default environment (development)
 [env.dev]
 name = "najd-contact-handler-dev"
 vars = { ENVIRONMENT = "development" }
-# wrangler.toml (wrangler v3.88.0^)
-[observability.logs]
-enabled = true
-
-# Secret bindings for development
-[[env.dev.secrets]]
-name = "MAILCHANNELS_API_KEY"
 
 [env.production]
 name = "najd-contact-handler-prod"
 vars = { ENVIRONMENT = "production" }
-
-# Secret bindings for production
-[[env.production.secrets]]
-name = "MAILCHANNELS_API_KEY"
-# Future KV Namespaces (uncomment when needed)
-# [[env.dev.kv_namespaces]]
-# binding = "LEADS_KV"
-# id = "your-dev-kv-id"
-
-# [[env.production.kv_namespaces]]
-# binding = "LEADS_KV"
-# id = "your-prod-kv-id"

@@ -26,28 +26,27 @@ jobs:
         run: npm ci --prefer-offline --no-audit
         timeout-minutes: 3
 
-      # Deploy worker with environment variables instead of secrets
+      # Deploy with the secret injected as environment variable
       - name: Deploy Worker to Development
         if: github.ref == 'refs/heads/develop'
         uses: cloudflare/wrangler-action@v3
+        env:
+          MAILCHANNELS_API_KEY: ${{ secrets.MAILCHANNELS_API_KEY }}
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy --env dev
-          vars: |
-            MAILCHANNELS_API_KEY=${{ secrets.MAILCHANNELS_API_KEY }}
 
       - name: Deploy Worker to Production
         if: github.ref == 'refs/heads/main'
         uses: cloudflare/wrangler-action@v3
+        env:
+          MAILCHANNELS_API_KEY: ${{ secrets.MAILCHANNELS_API_KEY }}
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy --env production
-          vars: |
-            MAILCHANNELS_API_KEY=${{ secrets.MAILCHANNELS_API_KEY }}
 
-      # Deploy pages
       - name: Deploy Pages to Development
         if: github.ref == 'refs/heads/develop'
         uses: cloudflare/wrangler-action@v3
