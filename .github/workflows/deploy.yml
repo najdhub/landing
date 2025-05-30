@@ -26,27 +26,46 @@ jobs:
         run: npm ci --prefer-offline --no-audit
         timeout-minutes: 3
 
-      # Deploy with the secret injected as environment variable
+      # Deploy Worker to Development
       - name: Deploy Worker to Development
         if: github.ref == 'refs/heads/develop'
         uses: cloudflare/wrangler-action@v3
-        env:
+        env: # These GitHub secrets become environment variables for the runner
+          # Secrets needed for the 'dev' worker
           MAILCHANNELS_API_KEY: ${{ secrets.MAILCHANNELS_API_KEY }}
+          DEV_ADMIN_EMAIL: ${{ secrets.DEV_ADMIN_EMAIL }}
+          DEV_FROM_EMAIL: ${{ secrets.DEV_FROM_EMAIL }}
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy --env dev
+          command: deploy --env dev # This uses [env.dev] from wrangler.toml
+          # The 'secrets' input tells wrangler-action to take these runner env vars
+          # and upload their values as secrets to the Cloudflare Worker.
+          # The secret name in Cloudflare will be the same as the runner env var name.
+          secrets: |
+            MAILCHANNELS_API_KEY
+            DEV_ADMIN_EMAIL
+            DEV_FROM_EMAIL
 
+      # Deploy Worker to Production
       - name: Deploy Worker to Production
         if: github.ref == 'refs/heads/main'
         uses: cloudflare/wrangler-action@v3
-        env:
+        env: # These GitHub secrets become environment variables for the runner
+          # Secrets needed for the 'production' worker
           MAILCHANNELS_API_KEY: ${{ secrets.MAILCHANNELS_API_KEY }}
+          PROD_ADMIN_EMAIL: ${{ secrets.PROD_ADMIN_EMAIL }}
+          PROD_FROM_EMAIL: ${{ secrets.PROD_FROM_EMAIL }}
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy --env production
+          command: deploy --env production # This uses [env.production] from wrangler.toml
+          secrets: |
+            MAILCHANNELS_API_KEY
+            PROD_ADMIN_EMAIL
+            PROD_FROM_EMAIL
 
+      # Deploy Pages (no changes needed here for secrets, Pages handle variables differently if needed)
       - name: Deploy Pages to Development
         if: github.ref == 'refs/heads/develop'
         uses: cloudflare/wrangler-action@v3
