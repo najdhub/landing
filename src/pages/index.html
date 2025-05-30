@@ -175,8 +175,9 @@
   }
         .btn-primary { background-color: var(--accent-orange); color: var(--light-text-color); }
         .btn-primary:hover { background-color: #e69500; }
-        .btn-secondary { background-color: var(--secondary-color); color: var(--light-text-color); }
-        .btn-secondary:hover { background-color: #405d20; }
+        /* MODIFIED: .btn-secondary now matches .btn-primary */
+        .btn-secondary { background-color: var(--accent-orange); color: var(--light-text-color); }
+        .btn-secondary:hover { background-color: #e69500; } /* Match .btn-primary:hover */
         .text-center { text-align: center; }
         .section-padding { padding: 60px 0; }
         .light-bg { background-color: var(--neutral-cream); }
@@ -397,35 +398,38 @@ html[dir="rtl"] .faq-question .faq-icon {
         /* Secondary Call-Out */
         .secondary-callout h3 { color: var(--primary-color); }
 
-        /* Final CTA Block */
+        /* Final CTA Block -- MODIFIED */
         .final-cta-block {
-            background-color: var(--secondary-color);
-            color: var(--light-text-color);
+            background-color: var(--neutral-cream); /* MODIFIED: cream background */
+            color: var(--text-color); /* MODIFIED: black text */
         }
-        .final-cta-block h2 { color: var(--light-text-color); }
+        .final-cta-block h2 { 
+            color: var(--text-color); /* MODIFIED: black text for heading */
+        }
         .final-cta-block .contact-methods { margin-top: 20px; }
         .final-cta-block .contact-methods a {
-            color: var(--light-text-color);
+            color: var(--accent-gold); /* MODIFIED: accent brown for contact links */
             margin: 0 10px;
             display: inline-flex;
             align-items: center;
         }
+        /* .final-cta-block .contact-methods img rule is not used as Font Awesome icons are active */
+        /*
         .final-cta-block .contact-methods img {
             width: 20px; height: 20px;
             margin-right: 8px;
-            filter: brightness(0) invert(1); /* Make icons white */
+            filter: brightness(0) invert(1); 
         }
-        html[dir="rtl"] .final-cta-block .contact-methods img {
+        */
+        html[dir="rtl"] .final-cta-block .contact-methods img { /* This rule is for the img tag which is not currently used for icons */
             margin-left: 8px;
             margin-right: 0;
         }
-                /* Ensure these are in your <style> block */
-
-        /* Final CTA Block Icons (already from Phase 2 header CSS if combined, or ensure it's present) */
+        /* Final CTA Block Icons (Font Awesome) -- MODIFIED */
         .final-cta-block .contact-methods i {
             font-size: 1.2em; /* Adjust size as needed */
             margin-right: 8px;
-            color: var(--light-text-color); /* Ensure they are white on dark background */
+            color: var(--accent-gold); /* MODIFIED: accent brown for icons */
         }
         html[dir="rtl"] .final-cta-block .contact-methods i {
             margin-left: 8px;
