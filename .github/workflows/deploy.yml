@@ -3,16 +3,14 @@ name: Deploy to Cloudflare
 on:
   push:
     branches:
-      - main        # Production deployment
-      - develop     # Development deployment
-  pull_request:
-    branches:
       - main
+      - develop
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     name: Deploy
+    timeout-minutes: 10
 
     steps:
       - name: Checkout
@@ -25,28 +23,10 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --prefer-offline --no-audit
+        timeout-minutes: 3
 
-      # Set secrets before deployment
-      - name: Set MailChannels API Key for Development
-        if: github.ref == 'refs/heads/develop'
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: secret put MAILCHANNELS_API_KEY --env dev
-          input: ${{ secrets.MAILCHANNELS_API_KEY }}
-
-      - name: Set MailChannels API Key for Production
-        if: github.ref == 'refs/heads/main'
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: secret put MAILCHANNELS_API_KEY --env production
-          input: ${{ secrets.MAILCHANNELS_API_KEY }}
-
-      # Worker deployments
+      # Deploy worker with environment variables instead of secrets
       - name: Deploy Worker to Development
         if: github.ref == 'refs/heads/develop'
         uses: cloudflare/wrangler-action@v3
@@ -54,6 +34,8 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy --env dev
+          vars: |
+            MAILCHANNELS_API_KEY=${{ secrets.MAILCHANNELS_API_KEY }}
 
       - name: Deploy Worker to Production
         if: github.ref == 'refs/heads/main'
@@ -62,33 +44,17 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy --env production
+          vars: |
+            MAILCHANNELS_API_KEY=${{ secrets.MAILCHANNELS_API_KEY }}
 
-      # Pages deployments (separate from Worker config)
-      - name: Create Pages Project Dev (if needed)
-        if: github.ref == 'refs/heads/develop'
-        uses: cloudflare/wrangler-action@v3
-        continue-on-error: true
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages project create najd-hub-dev --production-branch main
-
+      # Deploy pages
       - name: Deploy Pages to Development
         if: github.ref == 'refs/heads/develop'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy src/pages --project-name najd-hub-dev --branch develop
-
-      - name: Create Pages Project Prod (if needed)
-        if: github.ref == 'refs/heads/main'
-        uses: cloudflare/wrangler-action@v3
-        continue-on-error: true
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages project create najd-hub-prod --production-branch main
+          command: pages deploy src/pages --project-name najd-hub-dev
 
       - name: Deploy Pages to Production
         if: github.ref == 'refs/heads/main'
@@ -96,4 +62,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy src/pages --project-name najd-hub-prod --branch main
+          command: pages deploy src/pages --project-name najd-hub-prod
