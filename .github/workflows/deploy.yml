@@ -86,4 +86,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy src/pages --project-name najd-hub-prod
+          command: pages deploy src/pages --project-name landing # NEW - matches your existing Pages project
