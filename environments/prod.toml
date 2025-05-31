@@ -1,0 +1,6 @@
+# Production environment variables
+GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/YOUR_PROD_SCRIPT_ID/exec"
+NOTIFICATION_EMAIL = "info@najdcommercialhub.ma"
+FROM_EMAIL = "noreply@najdcommercialhub.ma"
+ALLOWED_ORIGINS = ["https://najdcommercialhub.ma", "https://www.najdcommercialhub.ma"]
+SEND_CONFIRMATION_EMAIL = "true"

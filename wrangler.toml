@@ -1,0 +1,17 @@
+# wrangler.toml
+
+name = "najd-contact-handler"
+main = "src/worker/index.js"
+compatibility_date = "2024-01-01"
+
+[env.dev]
+name = "najd-contact-handler-dev"
+vars = { ENVIRONMENT = "development" }
+
+[env.production]
+name = "najd-contact-handler-prod"
+vars = { ENVIRONMENT = "production" }
+
+# Add this section
+[observability.logs]
+enabled = true

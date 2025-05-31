@@ -1,0 +1,6 @@
+# Development environment variables
+GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/YOUR_DEV_SCRIPT_ID/exec"
+NOTIFICATION_EMAIL = "dev@najdcommercialhub.ma"
+FROM_EMAIL = "noreply-dev@najdcommercialhub.ma"
+ALLOWED_ORIGINS = ["http://localhost:3000", "https://najd-hub-dev.pages.dev"]
+SEND_CONFIRMATION_EMAIL = "true"

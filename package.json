@@ -1,0 +1,25 @@
+{
+  "name": "najd-commercial-hub",
+  "version": "1.0.0",
+  "description": "Najd Commercial Hub - Landing Page and Contact Form Handler",
+  "main": "index.js",
+  "scripts": {
+    "dev:pages": "wrangler pages dev src/pages --port 3000",
+    "dev:worker": "wrangler dev src/worker/index.js --port 8787",
+    "deploy:dev": "npm run deploy:worker:dev && npm run deploy:pages:dev",
+    "deploy:prod": "npm run deploy:worker:prod && npm run deploy:pages:prod",
+    "deploy:worker:dev": "wrangler deploy src/worker/index.js --env dev",
+    "deploy:worker:prod": "wrangler deploy src/worker/index.js --env production",
+    "deploy:pages:dev": "wrangler pages deploy src/pages --project-name najd-hub-dev",
+    "deploy:pages:prod": "wrangler pages deploy src/pages --project-name najd-hub-prod",
+    "local:test": "concurrently \"npm run dev:pages\" \"npm run dev:worker\"",
+    "update:paths": "node scripts/update-paths.js"
+  },
+  "keywords": ["cloudflare", "workers", "pages", "contact-form", "najd", "commercial"],
+  "author": "Najd Commercial Hub",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^3.0.0",
+    "concurrently": "^8.0.0"
+  }
+}

@@ -1,0 +1,89 @@
+name: Deploy to Cloudflare
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # <-- UPDATE NODE VERSION
+          cache: 'npm'
+
+      # It's good practice to have wrangler as a dev dependency
+      # and let npm ci install it. Remove this if you prefer that.
+      - name: Install/Update Wrangler
+        run: npm install --save-dev wrangler@latest
+        # This will update package.json and package-lock.json if you commit them.
+        # If not committing, just `npm install wrangler@latest` is fine for CI.
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline --no-audit
+        timeout-minutes: 3
+
+      # Deploy Worker to Development
+      - name: Deploy Worker to Development
+        if: github.ref == 'refs/heads/develop'
+        uses: cloudflare/wrangler-action@v3
+        env:
+          MAILCHANNELS_API_KEY: ${{ secrets.MAILCHANNELS_API_KEY }}
+          DEV_ADMIN_EMAIL: ${{ secrets.DEV_ADMIN_EMAIL }}
+          DEV_FROM_EMAIL: ${{ secrets.DEV_FROM_EMAIL }}
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # Explicitly pass the environment to the action
+          environment: 'dev' # This should correspond to [env.dev] in wrangler.toml
+          command: deploy # The --env dev will be picked up from the 'environment' input above for the deploy
+          secrets: |
+            MAILCHANNELS_API_KEY
+            DEV_ADMIN_EMAIL
+            DEV_FROM_EMAIL
+
+      # Deploy Worker to Production
+      - name: Deploy Worker to Production
+        if: github.ref == 'refs/heads/main'
+        uses: cloudflare/wrangler-action@v3
+        env:
+          MAILCHANNELS_API_KEY: ${{ secrets.MAILCHANNELS_API_KEY }}
+          PROD_ADMIN_EMAIL: ${{ secrets.PROD_ADMIN_EMAIL }}
+          PROD_FROM_EMAIL: ${{ secrets.PROD_FROM_EMAIL }}
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # Explicitly pass the environment to the action
+          environment: 'production' # This should correspond to [env.production] in wrangler.toml
+          command: deploy # The --env production will be picked up from the 'environment' input
+          secrets: |
+            MAILCHANNELS_API_KEY
+            PROD_ADMIN_EMAIL
+            PROD_FROM_EMAIL
+
+      # ... (Pages deployment steps remain the same) ...
+      - name: Deploy Pages to Development
+        if: github.ref == 'refs/heads/develop'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy src/pages --project-name najd-hub-dev
+
+      - name: Deploy Pages to Production
+        if: github.ref == 'refs/heads/main'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy src/pages --project-name najd-hub-prod
