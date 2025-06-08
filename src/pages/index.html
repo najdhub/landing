@@ -182,8 +182,18 @@
         .section-padding { padding: 60px 0; }
         .light-bg { background-color: var(--neutral-cream); }
 
-        .site-logo img { max-height: 50px; }
+		.site-logo img {
+			width: 180px;
+			height: auto; /* Maintains aspect ratio */
+			max-width: 100%; /* Responsive */
+		}
 
+		/* Mobile adjustments */
+		@media (max-width: 768px) {
+			.site-logo img {
+				width: 160px;
+			}
+		}
         /* Hero Section */
         .hero-section {
             background-size: cover;
@@ -597,9 +607,6 @@ html[dir="rtl"] .faq-question .faq-icon {
         justify-content: space-between;
         align-items: center;
     }
-    .site-logo img {
-        max-height: 50px;
-    }
 
     /* Hamburger Toggle - Hidden on Desktop by Default */
     .mobile-menu-toggle {
@@ -769,9 +776,14 @@ html[dir="rtl"] .faq-question .faq-icon {
     <div class="container">
         <div class="site-logo">
             <!-- <a href="#"><img src="assets/images/Najd_Logo_Concept.png" alt="Najd Commercial Hub Logo" id="logo-img"></a> -->
-            <a href="#"><img src="assets/images/Najd_Logo_Final.svg" alt="Najd Commercial Hub Logo" id="logo-img" style="width: 150px; height: 150px;"></a>
-            <!-- Consider data-alt-lang="logo.alt" if you added it to translations -->
-        </div>
+<a href="#">
+    <img src="assets/images/Primary Earth.png" 
+         alt="Najd Commercial Hub Logo" 
+         id="logo-img" 
+         data-alt-lang="logo.alt"
+         data-alt-src="assets/images/Primary Arab Earth.png"
+         data-default-src="assets/images/Primary Earth.png">
+</a></div>
 
         <button class="mobile-menu-toggle" aria-expanded="false" data-lang-aria-label="mobileMenu.toggleLabel">
             <i class="fas fa-bars"></i> <!-- Hamburger icon -->
@@ -923,8 +935,8 @@ html[dir="rtl"] .faq-question .faq-icon {
                 <div class="gallery-grid">
                     <figure class="gallery-item">
                         <picture>
-                            <source srcset="assets/images/Najd_Photo_Exterior_Wide.webp" type="image/webp">
-                            <img src="assets/images/Najd_Photo_Exterior_Wide.jpg" alt="Full Building Facade" loading="lazy">
+                            <!-- <source srcset="assets/images/Batiment moderne au coucher du soleil.webp" type="image/webp"> -->
+                            <img src="assets/images/Batiment moderne au coucher du soleil.png" alt="Full Building Facade" loading="lazy">
                         </picture>
                         <figcaption data-lang="gallery.caption1">Full Building Facade - 14 Units</figcaption>
                     </figure>
@@ -935,27 +947,27 @@ html[dir="rtl"] .faq-question .faq-icon {
                         </picture>
                         <figcaption data-lang="gallery.caption2">Corner Unit Potential - Outdoor Space</figcaption>
                     </figure>
-                    <figure class="gallery-item">
-                        <picture>
-                            <source srcset="assets/images/Najd_Render_UG_Gym.webp" type="image/webp">
-                            <img src="assets/images/Najd_Render_UG_Gym.jpg" alt="322sqm Underground Loft - Gym Concept" loading="lazy">
-                        </picture>
-                        <figcaption data-lang="gallery.caption3">322sqm Underground Loft - Gym Concept</figcaption>
-                    </figure>
-                    <figure class="gallery-item">
-                        <picture>
-                            <source srcset="assets/images/Najd_Photo_Interior_Shop_Ceiling.webp" type="image/webp">
-                            <img src="assets/images/Najd_Photo_Interior_Shop_Ceiling.jpg" alt="5.4m Ceilings - Mezzanine Ready" loading="lazy">
-                        </picture>
-                        <figcaption data-lang="gallery.caption4">5.4m Ceilings - Mezzanine Ready</figcaption>
-                    </figure>
-                    <figure class="gallery-item">
-                        <picture>
-                            <source srcset="assets/images/Najd_Photo_Exterior_Dusk_Context.webp" type="image/webp">
-                            <img src="assets/images/Najd_Photo_Exterior_Dusk_Context.jpg" alt="Najd Commercial Hub at dusk with surroundings" loading="lazy">
-                        </picture>
-                        <figcaption data-lang="gallery.caption5">Exterior View at Dusk</figcaption>
-                    </figure>
+                    <!-- <figure class="gallery-item"> -->
+                        <!-- <picture> -->
+                            <!-- <source srcset="assets/images/Najd_Render_UG_Gym.webp" type="image/webp"> -->
+                            <!-- <img src="assets/images/Najd_Render_UG_Gym.jpg" alt="322sqm Underground Loft - Gym Concept" loading="lazy"> -->
+                        <!-- </picture> -->
+                        <!-- <figcaption data-lang="gallery.caption3">322sqm Underground Loft - Gym Concept</figcaption> -->
+                    <!-- </figure> -->
+                    <!-- <figure class="gallery-item"> -->
+                        <!-- <picture> -->
+                            <!-- <source srcset="assets/images/Najd_Plan_Coupe_Verticale.webp" type="image/webp"> -->
+                            <!-- <img src="assets/images/Najd_Plan_Coupe_Verticale.PNG" alt="5.4m Ceilings - Mezzanine Ready" loading="lazy"> -->
+                        <!-- </picture> -->
+                        <!-- <figcaption data-lang="gallery.caption4">5.4m Ceilings - Mezzanine Ready</figcaption> -->
+                    <!-- </figure> -->
+                    <!-- <figure class="gallery-item"> -->
+                        <!-- <picture> -->
+                            <!-- <source srcset="assets/images/Najd_Photo_Exterior_Dusk_Context.webp" type="image/webp"> -->
+                            <!-- <img src="assets/images/Najd_Photo_Exterior_Dusk_Context.jpg" alt="Najd Commercial Hub at dusk with surroundings" loading="lazy"> -->
+                        <!-- </picture> -->
+                        <!-- <figcaption data-lang="gallery.caption5">Exterior View at Dusk</figcaption> -->
+                    <!-- </figure> -->
                     <figure class="gallery-item">
                         <picture>
                             <source srcset="assets/images/Najd_Photo_Exterior_Angle_Sun.webp" type="image/webp">
@@ -970,13 +982,13 @@ html[dir="rtl"] .faq-question .faq-icon {
                         </picture>
                         <figcaption data-lang="gallery.caption7">Street View Perspective</figcaption>
                     </figure>
-                    <figure class="gallery-item">
-                        <picture>
-                            <source srcset="assets/images/Najd_Photo_Exterior_Context_Palms.webp" type="image/webp">
-                            <img src="assets/images/Najd_Photo_Exterior_Context_Palms.jpg" alt="Wider context of Najd Commercial Hub with palm trees" loading="lazy">
-                        </picture>
-                        <figcaption data-lang="gallery.caption8">Hub in Context with Palm Trees</figcaption>
-                    </figure>
+                    <!-- <figure class="gallery-item"> -->
+                        <!-- <picture> -->
+                            <!-- <source srcset="assets/images/Najd_Photo_Exterior_Context_Palms.webp" type="image/webp"> -->
+                            <!-- <img src="assets/images/Najd_Photo_Exterior_Context_Palms.jpg" alt="Wider context of Najd Commercial Hub with palm trees" loading="lazy"> -->
+                        <!-- </picture> -->
+                        <!-- <figcaption data-lang="gallery.caption8">Hub in Context with Palm Trees</figcaption> -->
+                    <!-- </figure> -->
                     <figure class="gallery-item">
                         <picture>
                             <source srcset="assets/images/Najd_Photo_Exterior_Wide_Angle_Day.webp" type="image/webp">
@@ -989,7 +1001,7 @@ html[dir="rtl"] .faq-question .faq-icon {
                             <source srcset="assets/images/Najd_Photo_Exterior_Construction_1.webp" type="image/webp">
                             <img src="assets/images/Najd_Photo_Exterior_Construction_1.jpg" alt="Exterior view during late construction phase" loading="lazy">
                         </picture>
-                        <figcaption data-lang="gallery.caption10">Exterior - Nearing Completion</figcaption>
+                        <figcaption data-lang="gallery.caption10">Exterior open corner shop</figcaption>
                     </figure>
                     <figure class="gallery-item">
                         <picture>
@@ -1005,7 +1017,7 @@ html[dir="rtl"] .faq-question .faq-icon {
                             <source srcset="assets/images/Najd_Plan_Facade_Principale.webp" type="image/webp">
                             <img src="assets/images/Najd_Plan_Facade_Principale.jpg" alt="Architectural drawing of the main facade" loading="lazy">
                         </picture>
-                        <figcaption data-lang="gallery.captionPlan1">Main Facade Plan</figcaption>
+                        <figcaption data-lang="gallery.captionPlan1">Main Facade Plan with potentiel extra floors</figcaption>
                     </figure>
                     <figure class="gallery-item">
                         <picture>
@@ -1016,15 +1028,15 @@ html[dir="rtl"] .faq-question .faq-icon {
                     </figure>
                     <figure class="gallery-item">
                         <picture>
-                            <source srcset="assets/images/Najd_Plan_Rez_De_Chaussee.webp" type="image/webp">
-                            <img src="assets/images/Najd_Plan_Rez_De_Chaussee.jpg" alt="Ground floor architectural plan" loading="lazy">
+                            <!-- <source srcset="assets/images/Najd_Plan_Rez_De_Chaussee.webp" type="image/webp"> -->
+                            <img src="assets/images/Najd_Plan_Rez_De_Chaussee.png" alt="Ground floor architectural plan" loading="lazy">
                         </picture>
                         <figcaption data-lang="gallery.captionPlan3">Ground Floor Plan</figcaption>
                     </figure>
                     <figure class="gallery-item">
                         <picture>
-                            <source srcset="assets/images/Najd_Plan_Tableau_Contenances.webp" type="image/webp">
-                            <img src="assets/images/Najd_Plan_Tableau_Contenances.jpg" alt="Table of areas and units (Tableau des Contenances)" loading="lazy">
+                            <!-- <source srcset="assets/images/Najd_Plan_Tableau_Contenances.webp" type="image/webp"> -->
+                            <img src="assets/images/Najd_Plan_Tableau_Contenances.png" alt="Table of areas and units (Tableau des Contenances)" loading="lazy">
                         </picture>
                         <figcaption data-lang="gallery.captionPlan4">Table of Areas/Units</figcaption>
                     </figure>
@@ -1950,11 +1962,26 @@ html[dir="rtl"] .faq-question .faq-icon {
                 el.setAttribute('aria-label', getTranslation(key));
             });
 
-            // Translate elements with data-alt-lang (for image alt text - if you decide to use it)
-            // document.querySelectorAll('[data-alt-lang]').forEach(el => {
-            //     const key = el.getAttribute('data-alt-lang');
-            //     el.alt = getTranslation(key);
-            // });
+    // --- NEW: Handle logo switching and alt text translation ---
+    document.querySelectorAll('[data-alt-lang]').forEach(el => {
+        const key = el.getAttribute('data-alt-lang');
+        
+        // Handle logo image switching
+        if (el.id === 'logo-img') {
+            // Switch logo source based on language
+            if (currentLang === 'ar' && el.hasAttribute('data-alt-src')) {
+                el.src = el.getAttribute('data-alt-src');
+            } else if (el.hasAttribute('data-default-src')) {
+                el.src = el.getAttribute('data-default-src');
+            }
+        }
+        
+        // Update alt text for all images with data-alt-lang
+        if (el.tagName === 'IMG') {
+            el.alt = getTranslation(key);
+        }
+    });
+    // --- END: Logo switching and alt text translation ---
 
             // Update dynamic elements like page title and meta description
             document.title = getTranslation(`seo.title`);
@@ -2396,7 +2423,7 @@ try {
                 "@id": `${baseUrl}/#organization`, // Unique ID for this Organization on the page
                 "name": "Najd Commercial Hub",
                 "url": baseUrl,
-                "logo": `${baseUrl}/images/Najd_Logo_Final.svg`, // Use your final logo, or Najd_Logo_Concept.png
+                "logo": `${baseUrl}/images/Primary Earth.png`, // Use your final logo, or Najd_Logo_Concept.png
                 "contactPoint": {
                     "@type": "ContactPoint",
                     "telephone": "+212779494766",
@@ -2486,7 +2513,7 @@ try {
                 "@context": "https://schema.org",
                 "@type": "RealEstateAgent", // Or "Developer" or "LocalBusiness" if more appropriate
                 "name": "Najd Commercial Hub",
-                "image": `${baseUrl}/images/Najd_Logo_Final.svg`, // Use your final logo
+                "image": `${baseUrl}/images/Primary Earth.png`, // Use your final logo
                 "url": baseUrl,
                 "telephone": "+212779494766",
                 "email": "sales@najdcommercialhub.ma",
