@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Icon Test Page</title>
+    <style>
+        /* --- Basic Page Styling --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #1a1a1a;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            text-align: left;
+            font-size: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        /* --- Icon Grid Styling --- */
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .icon-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .icon-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .icon-label {
+            margin-top: 1rem;
+            font-family: monospace;
+            font-size: 14px;
+            color: #555;
+            word-break: break-all;
+        }
+
+        /* --- THE IMPORTANT SVG CLASS --- */
+        /* This is the class you'll use in your project to style the icons */
+        .svg-icon {
+            /* Set a good size for the test page */
+            width: 48px;
+            height: 48px;
+
+            /* This is the magic property! It makes the SVG take the color of its parent text. */
+            fill: currentColor;
+            
+            /* You can easily change the color here if you don't want it to inherit */
+            /* color: #3498db; */
+        }
+        
+        /* Example of changing color on hover for a link */
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>SVG Icon Test Page</h1>
+        <p>This page displays all your requested SVG icons. You can now copy the specific <code><svg></code> code for the icon you need and use it in your project.</p>
+
+        <!-- ===================================================================== -->
+        <!-- General Icons -->
+        <!-- ===================================================================== -->
+        <h2>General Icons</h2>
+        <div class="icon-grid">
+            
+            <div class="icon-card">
+                <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/></svg>
+                <div class="icon-label">fa-times</div>
+            </div>
+
+            <div class="icon-card">
+                <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+                <div class="icon-label">fa-bars</div>
+            </div>
+
+            <div class="icon-card">
+                <a href="#">
+                    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+                    <div class="icon-label">fa-phone-alt</div>
+                </a>
+            </div>
+
+            <div class="icon-card">
+                <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M176 224H240c17.7 0 32-14.3 32-32s-14.3-32-32-32H176V128c0-17.7-14.3-32-32-32s-32 14.3-32 32v32H80c-17.7 0-32 14.3-32 32s14.3 32 32 32h32v64H80c-17.7 0-32 14.3-32 32s14.3 32 32 32h32v64c0 17.7 14.3 32 32 32s32-14.3 32-32V320h64c17.7 0 32-14.3 32-32s-14.3-32-32-32H176V224zM32 448c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H32zM368 64h64c17.7 0 32 14.3 32 32s-14.3 32-32 32H368c-17.7 0-32-14.3-32-32s14.3-32 32-32zM368 224h64c17.7 0 32 14.3 32 32s-14.3 32-32 32H368c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg>
+                <div class="icon-label">fa-cubes</div>
+            </div>
+
+            <div class="icon-card">
+                <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M32 32c17.7 0 32 14.3 32 32V400c0 8.8 7.2 16 16 16H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H80c-44.2 0-80-35.8-80-80V64C0 46.3 14.3 32 32 32zM160 224c-17.7 0-32 14.3-32 32s14.3 32 32 32h32c17.7 0 32-14.3 32-32s-14.3-32-32-32H160zM320 128c-17.7 0-32 14.3-32 32s14.3 32 32 32h32c17.7 0 32-14.3 32-32s-14.3-32-32-32H320z"/></svg>
+                <div class="icon-label">fa-chart-line</div>
+            </div>
+
+            <div class="icon-card">
+                <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M378.7 32H133.3L256 182.7L378.7 32zM512 192l-107.4-141.3L289.6 192H512zM107.4 50.67L0 192h222.4L107.4 50.67zM244.3 474.9L47.7 224H464.3L267.7 474.9C264.4 480.3 259.2 483.4 253.4 484.5C247.6 485.6 241.7 485.6 235.8 484.5C230.1 483.4 224.8 480.3 221.5 474.9H244.3z"/></svg>
+                <div class="icon-label">fa-gem</div>
+            </div>
+
+            <div class="icon-card">
+                <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+                <div class="icon-label">fa-map-marker-alt</div>
+            </div>
+
+            <div class="icon-card">
+                <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
+                <div class="icon-label">fa-check-circle</div>
+            </div>
+
+            <div class="icon-card">
+                <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M0 128c0-17.7 14.3-32 32-32H544c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM128 320l128-128 128 128 128-128 64 64V320H64V256l64 64zM544 384H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H544c17.7 0 32-14.3 32-32s-14.3-32-32-32z"/></svg>
+                <div class="icon-label">fa-layer-group</div>
+            </div>
+
+            <div class="icon-card">
+                <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112v64c0 26.5 21.5 48 48 48h48c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zM0 336c0-26.5 21.5-48 48-48h48c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V336zm464-48H368c-26.5 0-48 21.5-48 48v64c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48V336c0-26.5-21.5-48-48-48zM464 64H368c-26.5 0-48 21.5-48 48v64c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM248 152c-48.6 0-88 39.4-88 88s39.4 88 88 88 88-39.4 88-88-39.4-88-88-88z"/></svg>
+                <div class="icon-label">fa-stamp</div>
+            </div>
+
+            <div class="icon-card">
+                <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M352 288c0-22.1-13.2-41.4-33-49.8L288 224v-64c0-17.7-14.3-32-32-32s-32 14.3-32 32v64l-31-14.2c-19.8-8.5-33-27.7-33-49.8C160 74.8 202.8 32 256 32s96 42.8 96 96v64c0 35.3-28.7 64-64 64h-3.4c-1.4 16.4-7.8 31.8-17.4 44.5l-1.5 2-1.5 2-35.3 47.1c4.2 3.4 8.2 7.2 11.8 11.4l45.4-30.3c17.5-11.7 40-11.1 56.6 1.4L448 384l-32 64-64-32 21.4-32.1c-15.5-12.5-35.9-19.9-58.1-19.9H256c-53 0-96-43-96-96zM112 480c26.5 0 48-21.5 48-48s-21.5-48-48-48-48 21.5-48 48 21.5 48 48 48z"/></svg>
+                <div class="icon-label">fa-tools</div>
+            </div>
+
+            <div class="icon-card">
+                <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 0c-17.7 0-32 14.3-32 32V66.7C107.5 73.1 32 153.2 32 256s75.5 182.9 192 189.3V480c0 17.7 14.3 32 32 32s32-14.3 32-32V445.3C404.5 438.9 480 358.8 480 256s-75.5-182.9-192-189.3V32c0-17.7-14.3-32-32-32zm0 128c70.7 0 128 57.3 128 128s-57.3 128-128 128s-128-57.3-128-128s57.3-128 128-128z"/></svg>
+                <div class="icon-label">fa-certificate</div>
+            </div>
+
+            <div class="icon-card">
+                <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                <div class="icon-label">fa-chevron-down</div>
+            </div>
+            
+            <div class="icon-card">
+                <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM169.8 165.3c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24V250.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1H222.6c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg>
+                <div class="icon-label">faq-icon</div>
+            </div>
+            
+        </div>
+        
+        <!-- ===================================================================== -->
+        <!-- Brand Icons -->
+        <!-- ===================================================================== -->
+        <h2>Brand & Social Icons</h2>
+        <div class="icon-grid">
+
+            <div class="icon-card">
+                <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.8 0-65.2-8.5-94.2-24.6l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                <div class="icon-label">fa-whatsapp</div>
+            </div>
+
+            <div class="icon-card">
+                <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zM0 112V288L224 432 448 288V112H0zm448 288V160L256 288 64 160v240h384z"/></svg>
+                <div class="icon-label">fa-envelope</div>
+            </div>
+
+            <div class="icon-card">
+                <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+                <div class="icon-label">fa-linkedin</div>
+            </div>
+
+            <div class="icon-card">
+                <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+                <div class="icon-label">fa-facebook-f</div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
